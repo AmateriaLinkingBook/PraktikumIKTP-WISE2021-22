@@ -1,0 +1,275 @@
+\section{Kalibrierung des Szintilators}
+
+\subsection{Vergleich der Detektorspektren}
+
+Im ersten Schritt wurden die Spektren mehrerer Quellen für den Szintilator, wie auch den HPGE-Detektor, aufgenommen und die Ergebnisse verglichen.
+Genutzt wurden hierfür eine $^{22 }$Na und eine $^{133 }$Ba Probe, welche auf den HPGE-Detektor und neben den Szintilator gelegt wurden.
+Die Messzeit betrug für $^{22 }$Na 5 min und für $^{133 }$Ba 4min.
+Eine Messung der Untergrundstrahlung wurde nicht durchgeführt, da sie für den einfachen Vergleich zweier Spektren auch nicht notwendig wäre.
+Wie in Abb. \ref{NaGe} und \ref{NaSzin} zu sehen ist, war die Aktivität der $^{22 }$Na Probe recht niedrig.
+Es lassen sich zwar im HPGE-Detektor eindeutige Peaks erkennen, die Statistik ist jedoch recht niedrig.
+Zusätzlich ist das Compton-Kontinuum ist recht verschwommen.
+Das Szintilator-Spektrum wiederrum scheint hier unbrauchbar. 
+Eine Kalibrierung sollte hiermit zumindest für den HPGE-Detektor zwar möglich sein, aufgrund der geringen Aktivität und demzufolge des statistischen Fehlers wurde das jedoch unterlassen. 
+Prinzipiell könnten die Spektren mit einer längeren Messzeit verbessert werden, in diesem Versuch standen jedoch mehrere Proben zur Auswahl, weshalb dies nicht gemacht wurde.
+
+\begin{figure}[h]
+\minipage{0.5\textwidth}
+\includegraphics[width=\linewidth]{Na22ge.png}
+\caption{HPGE-Detektor}
+\label{NaGe}
+\endminipage\hfill
+\minipage{0.5\textwidth}
+\includegraphics[width=\linewidth]{Na22szin.png}
+\caption{Szintilator}
+\label{NaSzin}
+\endminipage\hfill
+\end{figure}
+
+Die $^{133 }$Ba Probe besaß eine im Vergleich dazu deutlich stärkere Aktivität, was sich positiv auf die Spektren (\ref{BaGe} und \ref{BaSzin}) ausgewirkt hat.
+Im Spektrum des HPGE-Detektors lassen sich mehrere Peaks deutlich erkennen.
+Eine Kalibrierung anhand dieser sollte jetzt möglich sein.
+Das Szintilator Spektrum dieser Probe wird, wie zu erwarten war, vom Compton-Kontinuum dominiert.
+Die Compton-Kante ist hierbei schwach ausgeprägt, was eine herkömmliche Kalibrierung, wieder wie zu erwarten, erschweren würde.
+Eine längere Messzeit oder Beseitigung der Untergrundstrahlung, würde hier jedoch möglicherweise aushelfen können.
+Auffällig ist außerdem ein recht stark ausgeprägter Peak im niedrigenergetischen Bereich (ungefähr bei Kanal 50).
+Hierbei könnte es sich um einen stark ausgeprägten Rückstreupeak handeln.
+Aufgrund der besseren Spektren, wird im folgenden die $^{133 }$Ba Probe genutzt.
+
+\begin{figure}[h]
+\minipage{0.5\textwidth}
+\includegraphics[width=\linewidth]{ba133Ge.png}
+\caption{HPGE-Detektor}
+\label{BaGe}
+\endminipage\hfill
+\minipage{0.5\textwidth}
+\includegraphics[width=\linewidth]{ba133Szin.png}
+\caption{Szintilator}
+\label{BaSzin}
+\endminipage\hfill
+\end{figure}
+
+\newpage 
+
+\subsection{Energiekalibrierung des HPGE-Detektors}
+
+Ausgehend vom aufgenommenen Spektrum wird im folgenden eine Energiekalibrierung des HPGE-Detektors mittels einer Vollenergiepeak-Analyse durchgeführt.
+Dafür ist es als erstes notwendig die sichtbaren Peaks zu identifizieren.
+Dies wurde durch vergleiche mit bekannten Nuklid-Karten (Quelle iaea einfügen) realisiert.
+Die Ergebnisse sind in Abb. \ref{GeKali} zu sehen.
+Eine Identifikation der Peaks, mit den zu häufigsten Gammazerfällen von $^{133 }$Ba war möglich.
+Zusätzlich zu diesen, fällt jedoch ein weiterer Peak, mit relativ geringer Intensität, um Kanal 480 herum auf.
+Ein entsprechender Gammazerfall von $^{133 }$Ba ist nicht in (Quelle iaea einfügen) zu finden.
+Daher sollte es sich hier um Untergrundstrahlung von einem natürlichen Nuklid handeln.
+Eine Identifikation von diesem könnte erfolgen, aufgrund der relativ geringen Intensität und der folgendermaßen hohen statistischen Ungenauigkeit, wurde dies jedoch nicht getan und der Peak nicht für die Kalibrierung genutzt.
+
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{ba133Kali.png}
+\caption{Vollenergiepeakanalyse des HPGE-Detektors mit $^{133 }$Ba Spektrum}
+\label{GeKali}
+\end{figure}
+
+Die entsprechenden Peaks wurden mit einer Gaussfunktion entsprechend
+\begin{equation}
+N(K) = a \cdot exp \left( - \frac{(K - K_{0}^{2}}{2 \sigma ^{2}} \right)
+\end {equation}
+
+
+gefittet um Mittelwerte ($\mu$) und Standardabweichungen {$\sigma$} dieser zu bestimmen.
+In der Gaussfunktion dient $a$ als Normierungsfaktor, der für die weitere Betrachtung keine Rolle spielt.
+Die Ergebnisse sind in Tabelle \ref{peaks} zusammengefasst.
+Hier fällt auf, dass die Standardabweichungen der Peaks recht konstant sind.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c | c |c |}
+\hline
+$E_{\gamma}$ [keV] & $\mu$ & $\sigma$ \\
+\hline
+81.00 & 89.0 & 3.1 \\
+276.40 & 299.9 & 3.6 \\
+302.89 & 328.4 & 3.7 \\
+356.02 & 386.4 & 3.7 \\
+383.85 & 416.8 & 3.7 \\
+\hline
+\end{tabular}
+\caption{Gaussfit der Peaks}
+\label{peaks}
+\end{table}
+
+Aus den Mittelwerten wird der Kanal, welcher mit der Zerfallsenergie korrespondiert, bestimmt, indem der Mittelwert ($\mu$) zur nächsten natürlichen Zahl K gerundet wird.
+Als Maß für die Unsicherheit der Energiebestimmung, wird die mittlere Halbwertsbreite (FWHM), ebenfalls auf natürliche Zahlen gerundet, genutzt.
+Diese ist definiert, als Breite der Gaussfunktion bei halber Höhe und dient uns als Unsicherheit der Energiebestimmung.
+Sie berechnet sich aus der Standardabweichung ($\sigma$) mit:
+\begin{equation}
+FWHM = 2 \sqrt{2 ln2} \sigma 
+\end{equation}
+
+Die Ergebnisse sind in Tab. \ref{kanal} zusammengefasst.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c | c |c |}
+\hline
+$E_{\gamma}$ [keV] & $K_{\gamma}$ & FWHM \\
+\hline
+81.00 & 89 & 7 \\
+276.40 & 300 & 8 \\
+302.89 & 328 & 9 \\
+356.02 & 386 & 9 \\
+383.85 & 417 & 9 \\
+\hline
+\end{tabular}
+\caption{Bestimmung der Kanäle}
+\label{kanal}
+\end{table}
+
+Mit Kenntnis der Fünf Energiepeaks sowie der korrespondierenden Kanäle ist jetzt die Bestimmung einer Kalibriergerade des HPGE-Detektors möglich.
+Dafür wurden die Energien über die Kanäle geplottet und eine lineare Regression vorgenommen.
+Das Ergebnis dieser ist in \ref{GEgerade} zu sehen.
+Als Regressionsparameter ergaben sich ein Anstieg von: $n = 0.924 \pm 0.002$ sowie ein Schnittpunkt von $m = -1.1 \pm 0.7$.
+Die Ungenauigkeiten ergeben sich hierbei aus der Regression.
+Damit ergibt sich die Kalibriergerade des HPGE-Detektors zu:
+\begin{equation}
+E(K) = (0.924 \cdot K - 1.1) \text{keV}
+\end {equation}
+Ausgehend von den Ungenauigkeiten der Regressionsparameter, lässt sich eine Ungenauigkeit der Energie mithilfe der Fehlerfortpflanzung bestimmen.
+Damit ergibt sich für jeden Kanal K eine Ungenauigkeit der Energie von:
+\begin{equation}
+\sigma E(K) = \sqrt{4 \cdot 10^{-6} K^2 + 0.49} \text{keV}
+\end {equation}
+Im betrachteten Energiebereich von bis zu einigen hundert keV, entspricht dies ungefähr einer Abweichung von $0.7$ keV für jeden Kanal.
+
+Dabei ist zu beachten, dass dies in erster Linie eine numerische Ungenauigkeit aus der Regression ist.
+Physikalische oder technische Ungenauigkeiten, wie z. B. die Untergrundstrahlung, wurden hier nicht betrachtet.
+
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{Kalibriergerade1.png}
+\caption{Kalibriergerade des HPGE-Detektors}
+\label{Gegerade}
+\end{figure}
+
+\newpage 
+
+\subsection{Energiekalibrierung des organischen Szintilators}
+
+
+Für die Energiekalibrierung wurden koinzidente Signale von HPGE-Detektor und Szintilator aufgenommen.
+Dafür nahm die Probe kontinuierlich verschiedene Positionen um die Detektoren herum ein.
+Durchgeführt wurden die Messungen einmal 2h lang, mit der $^{133 }$Ba und einmal 4h lang mit der $^{22 }$Na Probe.
+Die Ergebnisse für $^{133 }$Ba sind in Abb. \ref{wk} zu sehen.
+Hier lassen sich zwei Diagonalen deutlich erkennen, wobei sich die Messpunkte insgesamt in der Nähe der x-Achse konzentrieren.
+Eine dieser gehört zum häufigsten Zerfall von $^{133 }$Ba, mit einer Energie von 356.02 keV
+Interessanterweise gehört die zweite sichtbare Linie nicht zum zweithäufigsten Zerfall mit 81.00 keV, welcher auch im HPGE-Detektor die zweitgrößte Intensität besaß, sondern zum Zerfall mit 302.85 keV.
+Andere Zerfalle haben keine Diagonalen erzeugt, obwohl der HPGE-Detektor im Bereich der entsprechenden Energien Peaks zeigt.
+Möglicherweise ist das Auflösungsvermögen des Szintilators dafür verantwortlich.
+
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{wk.png}
+\caption{Koinzidenzspektrum von $^{133 }$Ba}
+\label{wk}
+\end{figure}
+
+Das Spektrum der $^{22 }$Na Probe wirkt trotz der längeren Messzeit relativ schwach.
+Es lassen sich jedoch zwei zuordbare Linien erkennen, einmal eine deutliche bei 551 keV sowie eine recht schwache bei 1274.5 keV, was auch den erwarteten Energien entspricht (Quelle iaea einfügen).
+Zwischen diesen Energien lassen sich zusätzlich noch andere Diagonalen erahnen, deren Ursprung in Untergrundstrahlung liegen dürfte.
+
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{wk2.png}
+\caption{Koinzidenzspektrum von $^{22}$Na}
+\label{wk2}
+\end{figure}
+
+
+Zur Kalibrierung des Szintilators, wurde nun ein linearer Fit durch die Punkte innerhalb der Diagonalen durchgeführt.
+Die Schnittpunkte (n) dieser linearen Funktionen mit der y-Achse sollten jetzt mit der entsprechenden Energie des Zerfalls übereinstimmen und geben uns so den entsprechenden Kanal des Szintilators.
+
+\begin{figure}[h!]
+\minipage{0.5\textwidth}
+\includegraphics[width=\linewidth]{ba133szinkali}
+\caption{Koinzidenzspektrum von $^{133 }$Ba}
+\label{wkkali}
+\endminipage\hfill
+\minipage{0.5\textwidth}
+\includegraphics[width=\linewidth]{na22szinkali.png}
+\caption{Koinzidenzspektrum von $^{22 }$Na}
+\label{wk2kali}
+\endminipage\hfill
+\end{figure}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c |c | c |c |}
+\hline
+Isotop & $E_{\gamma}$ [keV] & n & $ \sigma n$ \\
+\hline
+$^{22 }$Na & 551 & 365 & 22 \\
+$^{22 }$Na & 1274 & 981 & 19 \\
+$^{133 }$B & 302 & 193 & 9 \\
+$^{133 }$B & 356 & 256 & 14 \\
+\hline
+\end{tabular}
+\caption{Bestimmung der Kanäle}
+\label{szinkalil}
+\end{table}
+
+Die Ergebnisse sind in \ref{wkkali}, \ref{wk2kali} und Tab. \ref{szinkali} zu sehen.
+Auffällig hierbei ist, dass die Ungenauigkeiten recht groß sind und Werte von bis zu $\pm$ 19 Kanälen erreichen.
+Ursache dafür könnte in den gemessenen Spektren liegen.
+Wie zu sehen ist, besitzen die Diagonalen eine relativ breite Ausdehnung, welche Auswirkungen auf die Fits besitzen sollten und wodurch eine prinzipielle Unsicherheit in den Spektren entsteht.
+Möglicherweise könnte dem mit einem besseren aufgelösten Szintilator entgegengewirkt werden.
+Alternativ könnte zur Analyse nur ein dünner Bereich innerhalb der Diagonalen genutzt werden.
+Dabei würde jedoch zwangsläufig eine unbekannte statistische Unsicherheit erzeugt werden, da die Konzentration auf einen Bereich innerhalb der Diagonalen willkürlich wäre.
+
+
+Mithilfe der jetzt zugeordneten Kanäle des Szintilators wurde nun zum Abschluss die Kalibriergerade erstellt.
+Dafür wurde wieder die Energie über die Kanäle aufgetragen und ein linearer Fit erstellt.
+Auffällig ist hier, dass zwei der Punkte außerhalb der Geraden liegen.
+Da jedoch auch nur vier Punkte für diesen Fit verwendet wurden und die Ungenauigkeiten beim erstellen dieser bereits recht hoch waren, ist das nicht allzu verwunderlich.
+
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{szinkali.png}
+\caption{Kalibriergerade des Szintilators}
+\label{szingerade}
+\end{figure}
+
+Als Regressionsparameter ergaben sich ein Anstieg von: $n = 1.3 \pm 0.01$ sowie ein Schnittpunkt von $m = 11 \pm 3$.
+Wobei die Ungenauigkeiten wieder aus der Regression stammen.
+Die Energie des Szintilators in Abhängigkeit der Kanäle ergibt sich damit zu:
+\begin{equation}
+E(K) = (1.3 \cdot K +11.8) \text{keV}
+\end{equation}
+
+Mit einer Ungenauigkeit von:
+
+\begin{equation}
+\sigma E(K) = \sqrt{ K^2 \cdot 10^{-4} + 9} \text{keV}
+\end {equation}
+
+\newpage 
+
+\section{Diskussion}
+
+Mithilfe einer Vollenergiepeak-Analyse wurde die Kalibriergerade des HPGE-Detektors bestimmt zu:
+\begin{equation}
+E(K) = (0.924 \cdot K - 1.1 \pm 0.7) \text{keV}
+\end {equation}
+Zusätzlich wurde die Kalibriergerade des organischen Szintilators mithilfe der Weitwinkel-Compton-Methode bestimmt zu:
+\begin{equation}
+E(K) = (1.3 \cdot K +11.8 \pm \sqrt{ K^2 \cdot 10^{-4} + 9}) \text{keV}
+\end{equation}
+Die Gerade des HPGE-Detektors weist nur eine relativ geringe Unsicherheit auf, was im Anbetracht des etablierten Verfahrens zu erwarten war.
+Eine weitere Verbesserung der Genauigkeit, wäre eventuell mit Berücksichtigung der Untergrundstrahlung zu erreichen oder durch Verwendung weiterer Strahlenquellen zur Kalibrierung.
+
+Beim organischen Szintilator fällt auf, dass die Ungenauigkeit der Kalibriergerade für höhe Energien recht hoch wird und selbst bei niedrigen weit über der des HPGE-Detektors liegt.
+Zur Verbesserung wäre es naheliegend die Koinzidenzspektren zu verbessern.
+Zum Beispiel könnten stärkere Strahlenquellen genutzt werden oder, was allein schon aus strahlenschutztechnischer Sicht zu bevorzugen wäre, längere Messzeiten.
+Auch hier sollte sich eine Beseitigung der Untergrundstrahlung oder das verwenden weiterer Quellen positiv auswirken.
+Speziell die Nutzung weiterer Quellen im höheren Energiebereich sollte eine Verbesserung der Genauigkeit dort erreichen.
+
+Wie bereits angesprochen wurde wäre auch eine Berücksichtigung der Linienbreite einen Gedanken wert.
+Dabei sollte es auch möglich sein, die Energieauflösung des Szintilators anhand der Verteilung entlang der Geraden zu analysieren, was wiederum für die Energiekalibrierung genutzt werden könnte.
+
+Möglicherweise ist die Genauigkeit der verwendeten Methode auch aus rein technischen Gründen stärker beschränkt.
+Es wäre auch möglich andere Methoden zu testen, z. B. indem ausgenutzt wird, dass sich die Energien des HPGE-Detektors und des Szintilators entlang der Geraden zur ursprünglichen Photonenenergie addieren.
+Dabei würde dann eine lineare Regression innerhalb der Koinzidenzspektren entfallen und als Alternative die Punkte entlang der Geraden direkt genutzt werden.
