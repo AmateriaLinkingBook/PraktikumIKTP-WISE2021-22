@@ -35,7 +35,7 @@ Die Compton-Streuung beschreibt das elastische Streuen eines Photons an einem (q
 \end{figure}
 
 Bei den in diesem Versuch verwendeten Photonenenergien tritt dieser Effekt in beiden Detektoren vorwiegend auf.
-Die Energie des des gestreuten Photons in abhängigkeit des Streuwinkels $E'_{\gamma}(\varphi)$ kann durch folgende Gleichung beschrieben werden:
+Die Energie des des gestreuten Photons $E'_{\gamma}(\varphi)$ in Abhängigkeit des Streuwinkels kann durch folgende Gleichung beschrieben werden:
 
 \begin{gather}
     E'_{\gamma}(\varphi) = \frac{E_{\gamma}}{1 + \frac{E_{\gamma}}{m_{e} c^{2}} (1 - \cos (\varphi))}
@@ -45,7 +45,7 @@ Dabei ist $\varphi$ der Streuungswinkel (s. Abb. \ref{theorie_Compton_Streuuung}
 
 \subsection{Vollenergiepeakanalyse}
 
-Wie bereits erwähnt wird die Vollenergiepeakanalyse verwendet um den HPGe-Detektor zu kalibrieren. Das Ziel ist einen Zusammenhang zwischen den Kanälen des analog-to-digital-converters des HPGe-Detektors und den entsprechenden detektierten Photonenenergien zu finden (Also eine Funktion $E(\text{Kanal } i)$). Da Germanium bei den verwendeten Photonenenergien auch dem inneren Photoeffekt unterliegt bei dem die gesamte Energie des Photons im Detektor deponiert wird, finden sich im aufgenommenen Spektrum auffällige, hohe Peaks. Da wir die Energien der ausgesendeten Photonen der verwendeten Strahlenquellen kennen können wir diese Energien eben jenen Kanälen zuordnen bei denen die Peaks im Spektrum auftreten. Für die restlichen Kanäle wird dieser Zusammenhang dann extrapolert (z.B. linearer oder quadratischer Fit) und man hat damit den Detektor kalibriert.
+Wie bereits erwähnt wird die Vollenergiepeakanalyse verwendet um den HPGe-Detektor zu kalibrieren. Das Ziel ist einen Zusammenhang zwischen den Kanälen des analog-to-digital-converters des HPGe-Detektors und den entsprechenden detektierten Photonenenergien zu finden (Also eine Funktion $E(\text{Kanal } i)$). Da Germanium bei den verwendeten Photonenenergien auch dem inneren Photoeffekt unterliegt bei dem die gesamte Energie des Photons im Detektor deponiert wird, finden sich im aufgenommenen Spektrum auffällige, hohe Peaks. Da wir die Energien der ausgesendeten Photonen der verwendeten Strahlenquellen kennen können wir diese Energien eben jenen Kanälen zuordnen bei denen die Peaks im Spektrum auftreten. Für die restlichen Kanäle wird dieser Zusammenhang dann extrapoliert (z.B. linearer oder quadratischer Fit) und man hat damit den Detektor kalibriert.
 
 \subsection{Weitwinkel-Compton-Koinzidenz-Methode}
 
@@ -56,7 +56,7 @@ Die WCKM wird verwendet um den Szintillator zu kalibrieren. Aufgrund der niedrig
     \label{theorie_Koinz}
 \end{gather}
 
-Wobei $E_{\text{Szintillator}}$ die im Szintillator deponierte Energie ist, $E_{\text{Photon}}$ die Energie des Photons vor der Streuung am Szintillator ist und $E_{\text{HPGe-Detektor}}$ die im sekundären Detektor deponierte Energie ist.
+Wobei $E_{\text{Szintillator}}$ die im Szintillator deponierte Energie ist, $E_{\text{Photon}}$ die Energie des Photons vor der Streuung am Szintillator ist und $E_{\text{sekundärer Detektor}}$ die im sekundären Detektor deponierte Energie ist.
 
 Eine wichtiger Aspekt dieser Kalibrierung wurde bis hierhin noch unterschlagen, denn es stellt sich noch die Frage woher man weiß das ein Photon erst im Szintillator gestreut und dann im sekundären Detektor absorbiert wurde. Hierbei hilft uns das Konzept der Koinzidenz: wird ein Signal im Szintillationsdetektor erfasst wartet man eine bestimmte Zeit ab und schaut währenddessen ob im sekundären Detektor auch ein Signal erfasst wird. Sollte dies der Fall sein so nimmt man die entsprechenden Messwerte beider Detektoren auf, ansonsten lässt man die Messung fallen. Die Idee ist hierbei natürlich möglichst Ereignisse herauszufiltern bei denen das Photon vom Szintillator in die Richtung des sekundären Detektors gestreut und in jenem dann auch absorbiert wurden. Aber das der beschriebene Vorgang nicht außschließlich solche Ereignisse herausfiltert ist auch sofort klar, so kann zum Beispiel nachdem das Photon im Szintillator registriert wurde aber nicht in Richtung des sekundären Detektors fliegt ein anderes Teilchen (z.B. ebenfalls von der Strahlungsquelle) zufällig im sekundären Detektor registriert werden. Man spricht bei solchen Ereignissen von zufälligen Koinzidenzen. Es gilt sicherzustellen das die zufälligen Koinzidenzen die gewollten nicht maßgebich übersteigen, da sonst die gewollten Koinzidenzen nicht mehr von den zufälligen zu unterscheiden sind.
 
