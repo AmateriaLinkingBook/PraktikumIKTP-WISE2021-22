@@ -39,6 +39,10 @@ separate-uncertainty,  % Unsicherheiten seperat angeben (mit ±)
 % SI-Einheiten darstellen
 \usepackage{siunitx}
 
+% Code - Blöcke
+\usepackage{listings}
+\usepackage[dvipsnames]{xcolor}
+
 % Kopf-/Fußzeilen setzen
 \pagestyle{scrheadings}  % Stil für die Seite setzen
 \clearmainofpairofpagestyles  % Stil zurücksetzen, um ihn neu zu definieren
@@ -49,12 +53,12 @@ separate-uncertainty,  % Unsicherheiten seperat angeben (mit ±)
 \usepackage[hidelinks]{hyperref}  % Links und weitere PDF-Features
 
 % TODO: Titel und Autor, … festlegen
-\newcommand*{\titel}{Weitwinkel-Compton-Koinzidenz-Kalibrierung}
+\newcommand*{\titel}{Elektronische Detektorauslese und digitale Datenverarbeitung mit FPGA}
 \newcommand*{\autor}{Sebastian Thiede, Alexander Lettau}
-\newcommand*{\abk}{WK}
-\newcommand*{\betreuer}{V. Melzer}
-\newcommand*{\messung}{04.11.2021 \& 11.11.2021}
-\newcommand*{\ort}{ASB/406}
+\newcommand*{\abk}{FP}
+\newcommand*{\betreuer}{Johann C. Voigt}
+\newcommand*{\messung}{22.11.2021 \& 24.11.2021}
+\newcommand*{\ort}{ASB/K07}
 
 \hypersetup{pdfauthor={\autor}, pdftitle={\titel}}  % PDF-Metadaten setzen
 
@@ -65,9 +69,28 @@ separate-uncertainty,  % Unsicherheiten seperat angeben (mit ±)
 \author{\autor}
 \date{\begin{tabular}{ll}
 Protokoll: & \today\\
-Messung: & \messung\\
+Datum Praktikum: & \messung\\
 Ort: & \ort\\
 Betreuer: & \betreuer\end{tabular}}
+
+\lstset{ % General setup for the package
+    language=VHDL,
+    basicstyle=\small\sffamily,
+    numbers=left,
+    numberstyle=\tiny,
+    frame=single,
+    tabsize=4,
+    columns=fixed,
+    showstringspaces=false,
+    showtabs=false,
+    keepspaces,
+    breaklines=true
+    commentstyle=\color{OliveGreen},
+    keywordstyle=\color{blue},
+    identifierstyle=\color{black}
+}
+
+\renewcommand\lstlistingname{Quelltext} % Change language of section name
 
 % -- Ende Präambel
 
@@ -79,10 +102,7 @@ Betreuer: & \betreuer\end{tabular}}
 
 % ----- DOKUMENT ANFANG -----
 
-\input{einfuehrung.tex}
-\input{theorie.tex}
-\input{kalibrierung.tex}
-\input{kalibrierung_szintillator.tex}
+\input{workshop.tex}
 
 \nocite{*} % alle resourcen auflisten
 \printbibliography
