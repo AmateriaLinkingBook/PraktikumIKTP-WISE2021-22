@@ -11,8 +11,10 @@ Dazu ist hier der verwendete Code:
 Die ersten beiden Zeilen binden aus der Bibliothek \textbf{IEEE} den Datentyp \textbf{std\_logic} ein, der im wesentlichen einen boolean darstellt.
 Daraufhin wird in Zeile $4$ eine \textbf{entity} erstellt.
 Diese stellen Schnittstellen für Logikbausteine dar.
+Im Abschitt \textbf{port} werden Verbindungen nach Außen definiert.
 Es wird mittels der Schlüsselwörter \textbf{in} und \textbf{out} definiert welche Signale als Ein- und Ausgänge genutzt werden, und es wird ihnen ein Typ zugewiesen.
 Außerdem können diese Signale initialisiert werden wie z.B. in Zeile $8$.
+Später werden wir auch den Abschnitt \textbf{generic} verwenden, mit dem die \textbf{entity} parametrisiert werden kann um einfache Variationen von Instanzen zu ermöglichen.
 Das erstellen der \textbf{entity} wird in Zeile $10$ beendet.
 
 In Zeile $12$ wird eine \textbf{architecture} erstellt die die Funktionalität der eben erstellten \textbf{entity} beschreibt.
@@ -103,3 +105,147 @@ Wird der Knopf losgelassen wird zur nächsten steigenden Flanke der Clock das in
 In Abb. \ref{img_lohi_detect} wurde dieses Modul simuliert.
 Man sieht das nach Betätigung des Knopfes zur nächsten steigenden Flanke der Clock der Ausgang einen Zyklus lang auf $1$ steht.
 Als der Knopf losgelassen wird und das Eingangssignal wieder auf $0$ fällt wird zur nächsten steigenden Flanke der Clock auch das interne Signal reg zurückgesetzt.
+
+\subsection{Modul 2 - \textit{Max Find}}
+
+Die Aufgabe des Moduls \textit{Max Find} ist es das Maximum einer Folge von Daten zu bestimmen.
+Die Konvention ist, dass zu jeder steigenden Flanke der Clock ein neuer Eingangswert (nächstes Folgenglied) vorliegt.
+VHDL hat eine Implementierung verschiedener Datentypen die wir hier verwenden.
+Diese sind in der Bibliothek IEEE.numeric\_std zu finden die jetzt mit eingebunden wird:
+
+\lstinputlisting[firstline = 10]{../Daten/max_find/max_find.vhd}
+
+Auch hier arbeiten wir wieder mit den Daten, die von außen eingespeist werden (vom PC), und brauchen daher ein Startsignal.
+Es heißt hier start\_i.
+Wie in der entity max\_find schon zu sehen ist, verwenden wir für die eingehenden und ausgehenden Daten den Typ \glqq signed\grqq{}, der eine ganze Zahl (mit Vorzeichen) darstellt.
+Die Bitweite bestimmt hierbei den Wertebereich. Dieser bestimmt sich bei signed zu $[-2^{bit\_width - 1}, 2^{bit\_width - 1} - 1]$.
+In unserem Fall (Bitweite $14$) also $[-8192, 8191]$.
+\glqq integer \grqq{} ist sehr ähnlich zu signed, nur das dort weitere arithmetische Operationen definiert sind.
+Ein \glqq unsigned \grqq{} hat den Wertebereich $[0, 2^{bit\_width} - 1]$ (auch ganzzahlig).
+Man kann zwischen all diesen Typen mit entsprechenden Befehlen konvertieren.
+
+Die \textbf{architecture} von max\_find verwendet ein internes Signal \glqq reg\grqq{} welches immer das Ausgangssignal liefert (Zeile $33$).
+Das interne Signal kann innerhalb vom \textbf{process} geändert werden, das Ausgangssignal jedoch nicht.
+Zu jeder steigenden Flanke der Clock wird reg auf $0$ gesetzt wenn das Startsignal gegeben wird.
+Ist dies nicht der Fall wird überprüft ob das Eingangssignal einen größeren Zahlenwert hat als das Signal reg.
+Ist dies der Fall wird reg auf den Wert des Eingangssignals gesetzt, ansonsten passiert nichts.
+Damit wird nach Erhalten des Startsignals immer nur der größte Zahlenwert beibehalten.
+
+\begin{figure}[ht]
+	\centering
+    \includegraphics[width=0.98\textwidth]{../Daten/max_find.png}
+	\caption{Simulation von max\_find.vhd}
+	\label{img_max_find}
+\end{figure}
+
+Das Verhalten des Moduls wurde in Abb. \ref{img_max_find} simuliert.
+Folgende Dinge sind zu beobachten:
+Nach dem Auftreten des Startsignals werden Eingangswerte aufgezeichnet.
+Es dauert einen Takt zusätzlich bis das Maximum aktualisiert wird.
+Tritt ein kleinerer Wert auf als das bisherige Maximum wird dieser natürlich nicht übernommen.
+Ein weiteres Startsignal setzt das Maximum auf $0$ zurück.
+Eingangswerte während des Startsignals werden nicht aufgezeichnet.
+Insgesamt verhält sich das Modul wie gewünscht.
+
+\subsection{Modul 3 - \textit{filter}}
+
+Das Modul \textit{filter} wendet einen Wiener Filter auf die Eingangswerte an.
+Es handelt sich dabei um eine gewichtete Summe der letzten sechs Eingangswerte.
+Dies wird bei der Datenauswertung verwendet um Rauschen zu unterdrücken.
+Im Folgenden ist der Code dieses Moduls zu sehen:
+
+\lstinputlisting[firstline = 11]{../Daten/filter/filter.vhd}
+
+Die Wichtungskonstanten sind in den Zeilen $29$ bis $34$ zu finden.
+Sie werden in einem \textbf{array} des Typs integer gespeichert.
+Da das Rechnen mit (Fest-)Kommazahlen einige Schwierigkeiten mit sich bringt werden die Konstanten mit einem gemeinsamen Faktor $2^{k}$ multipliziert.
+Dieser Faktor wird hinterher wieder herausdividiert, indem die unteren $k$ Bit des Ergebnisses abgeschnitten werden (entspricht in Binär einer Division durch $2^{k}$).
+Man kann also die Ausgabe des Filters schreiben als
+\begin{gather}
+    y_{n} = \frac{\sum_{i=0}^{5} (2^{k} \cdot c_{i+1}) \ x_{n-i}}{2^{k}}
+    \label{equation_module_filter}
+\end{gather}
+wobei $(2^{k} \cdot c_{i+1})$ die im Modul gelisteten Konstanten $c(1)$ bis $c(6)$ mit $k = \text{shif} = 15$ sind.
+Die $x_{n-i}$ sind die letzten Eingangswerte und für $i=0$ der aktuelle Eingangswert.
+In der \textbf{architecture} der \textbf{entity} des Moduls \textit{filter} werden zwei interne Signale verwendet: data\_uns (Zeile $37$) und buf (Zeile $40$).
+data\_uns ist der Zähler in Gleichung \ref{equation_module_filter}.
+In Zeile $66$ ist zu sehen, dass das Ausgangssignal wie erwähnt auf die oberen Bits bis zu shif aus data\_uns gekürzt wird.
+buf wird verwendet um die letzten fünf Eingangssignale zu speichern.
+Um schließlich die Berechnung durchzuführen wird wieder ein \textbf{process} verwendet der zur steigenden Flanke der Clock ausgeführt wird.
+Diesmal verwenden wir außerdem eine \textbf{variable} par\_sum um iterativ den Zähler in Gleichung \ref{equation_module_filter} zu bestimmen.
+In den Zeilen $48$ bis $51$ werden die Werte aktualisiert (weitergeschoben, der neue Eingangswert wird in buf(0) gespeichert).
+Man muss an dieser Stelle daran erinnern, dass die Änderungen der Werte in buf erst zum Ende des \textbf{process} wirksam werden.
+In Zeile $53$ wird nun par\_sum mit dem ersten Term initialisiert.
+In der darauffolgenden for-Schleife werden die übrigen Terme mit den alten Werten in buf aufsummiert.
+Zum Schluss wird das interne Signal data\_uns auf das Ergebnis der Summation gesetzt, mit Typenkonversion von integer zu signed.
+Damit sollte am Ausgang Gleichung \ref{equation_module_filter} realisiert sein.
+
+\begin{figure}[ht]
+	\centering
+    \includegraphics[width=0.98\textwidth]{../Daten/filter.png}
+	\caption{Simulation von filter.vhd}
+	\label{img_filter}
+\end{figure}
+
+Dies wird wieder mit einer Simulation überprüft; sie ist in Abb. \ref{img_filter} zu sehen.
+Man sieht das das Ausgangssignal einen Takt nach dem Auftreten des ersten Eingangswerts von $0$ verschieden ist.
+Auch sieht man das der erste Wert negativ ist, da $c(1)$ negativ ist.
+Der Leser sei versichert, dass die Ausgabewerte zahlenmäßig den Erwartungen entsprechen.
+Tritt in zwei aufeinanderfolgenden Takten das selbe Eingangssignal auf werden diese natürlich trotzdem als neue Werte gesehen und das Ausgangssignal passt sich im nächsten Zyklus an.
+Auch hier läuft also alles wie gewünscht.
+
+\subsection{Übung - Sekundenzähler}
+
+Da wir an unserem FPGA sehen wollen was gerade passiert ist es notwendig die eingebauten 7-Segment-Anzeigen anzusteuern.
+Dafür wurde freundlicherweise bereits ein Modul bereitgestellt welches die Zuordnung der Zahlen $0$ bis $9$ zu den entsprechenden LEDs der 7-Segment-Anzeigen übernimmt.
+Um sich mit dem Umgang mit diesem Modul vertraut zu machen wurde ein einfacher Sekundenzähler implementiert.
+Dieser soll von $0$ bis $9$ Sekunden zählen und sich dann auf $0$ zurücksetzen.
+Im Folgenden ist der Code des Sekundenzählers zu sehen:
+
+\lstinputlisting[firstline = 12]{../Daten/ssd/seconds.vhd}
+
+Die \textbf{entity} seconds besitzt zwei \textbf{generic}s: counter\_max und invert.
+counter\_max ist der Wert bis zu welchem später gezählt wird bis eine Sekunde vergangen ist.
+Dies ist notwendig da die Clock eine sehr viel höhere Taktfrequenz als \SI{1}{\hertz} hat.
+invert wird verwendet um die Bits des Ausgangs zu invertieren, also Segmente der 7-Segment-Anzeige zu invertieren.
+Dies kann notwendig sein da 7-Segment-Anzeigen je nach Bauart mit gemeinsamer Kathode ($1$ = Segment an) oder gemeinsamer Anode ($0$ = Segment an) vorkommen.
+Da invert auf wahr gesetzt wird lässt sich folgern das im FPGA 7-Segment-Anzeigen mit gemeinsamer Anode verbaut sind.
+Der Ausgang ist in Zeile $12$ definiert.
+Es handelt sich um einen \textbf{std\_logic\_vector}, ein \textbf{array} von \textbf{std\_logic}, mit einem Eintrag für jedes Segment.
+Er wird auf $0$ initialisiert (alle Segmente aus).
+
+Die \textbf{architecture} hat drei interne Signale: sec, counter und B.
+sec gibt einfach an welche Zahl auf dem Display stehen soll.
+counter wird wie erwähnt verwendet um bis zur vollen Sekunde zu zählen.
+B ist ein Hilfssignal, dass eine binäre Representation von sec hält.
+Wieder wird ein \textbf{process} bei steigender Flanke der Clock ausgeführt.
+In jedem Fall wird der counter um eins erhöht.
+Ist der counter eins vor counter\_max ist eine Sekunde vergangen.
+Dies wird mithilfe einer \textbf{if} Bedingung überprüft.
+Dann wird überprüft ob die Anzeige bisher bei $9$ Sekunden stand.
+Ist dies der Fall wird alles auf $0$ gesetzt (Zeilen $32$ bis $34$).
+Ansonsten werden die gezählten Sekunden um eins erhöht und der counter auf $0$ gesetzt (Zeilen $36$ bis $38$).
+
+Das mapping der Sekunden zu den Segmenten der Anzeige wird wie gesagt über das Modul \textit{single\_disp} abgewickelt.
+Dazu wird in Zeile $45$ eine \textbf{entity} dieses Moduls erstellt.
+In den folgenden Zeilen wird dann angegeben welches Signal im Modul \textit{single\_disp} mit welchem Signal aus dem Sekundenzähler korrespondiert.
+Es handelt sich dabei wieder um feste, quasi-instantane Verbindungen.
+
+\begin{figure}[ht]
+	\centering
+    \includegraphics[width=0.98\textwidth]{../Daten/seconds2.png}
+	\caption{Simulation von seconds.vhd}
+	\label{img_seconds}
+\end{figure}
+
+Dieses Modul wurde ebenfalls simuliert, zu sehen in Abb. \ref{img_seconds}.
+Um nicht bis zu riesigen Zahlen zu zählen wurde in der Simulation counter\_max auf $5$ gesetzt.
+Es ist schnell zu erkennen das nach immer $5$ steigenden Flanken der Clock eine Sekunde dazugezählt wird.
+Ganz rechts ist auch das Zurücksetzten auf $0$ zu erkennen.
+Man macht sich auch ohne Kenntnis der genauen Belegung der Segmente durch zählen der Nullen in der letzten Zeile klar, dass tatsächlich die richtige Zahl angezeigt wird.
+Dies ist genau das gewünschte Verhalten.
+
+Dies wurde auch durch synthetisieren und aufspielen des Moduls auf den FPGA überprüft.
+Leider haben wir dafür kein Bild, es sei aber versichert, dass alles wie gewünscht geklappt hat.
+
+\subsection{Modul 4 - \textit{ssd}}
