@@ -3,24 +3,37 @@ In diesem Versuch sollen grundlegende Kentnisse der elektronischen Datenverarbei
 Dazu sollen folgende Module programmiert, simuliert und auf ein vorliegendes FPGA übertragen werden:
 \begin{itemize}
 \item mehrere einfache Logikschaltungen (Details sind in der Auswertung zu finden)
-\item Ein Modul "LoHi Detect"
-\item Ein Modul "Max Find" welches das Maximum des Inputs ausgibt
-\item Ein Modul "Filter"  das einen Wiener Filter zur Unterdrückung des Rauschens im Input implementiert
+\item Ein Modul ``LoHi Detec''
+\item Ein Modul ``Max Fin'' welches das Maximum des Inputs ausgibt
+\item Ein Modul ``Filte''  das einen Wiener Filter zur Unterdrückung des Rauschens im Input implementiert
 \item Eine Uhr die 9s auf einer Digitalanzeige zählt und sich danach zurücksetzt
-\item Ein Modul "ssd" das einen vierstelligen Input auf einem digitalenm Display anzeigt
+\item Ein Modul ``ssd'' das einen vierstelligen Input auf einem digitalenm Display anzeigt
 \end{itemize}
-Die vier Module sollten im Anschluss in einem Modul "top" zusammengeschlossen werden, welches als Filter für einen elektronischen Impuls, wie er bei einem Kalorimeter auftritt, fungieren soll.
+Die vier Module sollten im Anschluss in einem Modul ``to'' zusammengeschlossen werden, welches als Filter für einen elektronischen Impuls, wie er bei einem Kalorimeter auftritt, fungieren soll.
 
 \section{Theorie}
 
 \subsection{FPGA}
-Bei Field Programmable Gate Arrays (FPGA) handelt es sich um spezielle Integrierte Schaltkreise, die nach herstellung vom Benutzer frei konfiguriert werden können.
+Bei Field Programmable Gate Arrays (FPGA) handelt es sich um spezielle Integrierte Schaltkreise, die nach Herstellung vom Benutzer frei konfiguriert werden können.
 Dies trennt sie von herkömmlichen  Application Specific Integrated Circuits (ASIC) welche nach Herstellung nicht abgeändert werden können.
 
-Vorteile von FPGA, die sie so interesant in der Anwendung machen, sind unter anderem ihre Bereits erwähnte Konfigurierbarkeit, gute Parallelsierbarkeit,  ein recht geringes Risiko von Fehldesigns, die schnelle Implementierung neuer Designs und recht niedrige Kostenfür geringe Stückzahlen.
-Gleichzeitiig existieren aber auch diverse Nachteile, wie geringere Taltfrequenzen als ASICS, geringere Logigdichten, höherer Stromverbrauch sowie eine allgemein geringere Strahlenhärte.
+Vorteile von FPGA, die sie so interesant in der Anwendung machen, sind unter anderem ihre Bereits erwähnte Konfigurierbarkeit, gute Parallelsierbarkeit,  ein geringes Risiko von Fehldesigns, die schnelle Implementierung neuer Designs und recht niedrige Kosten für geringe Stückzahlen.
+Gleichzeitig existieren aber auch diverse Nachteile, wie geringere Taktfrequenzen als ASICS, geringere Logigdichten, höherer Stromverbrauch sowie eine allgemein geringere Strahlenhärte.
 
-FPGA besitzen Eingangs- und Ausgangssignale (I/O-Port)
+FPGA besitzen Eingangs- und Ausgangssignale (I/O-Port).
+Die Eingangssignale können mithilfe von Logikblöcken verbunden werden und so ein gewünschtes Ausgangssignal, abhängig vom Eingang, erzeugt werden.
+Um die Rekonfigurierbarkeit von FPGA zu ermöglichen, werden ``Schalter'' zwischen den Logblöcken eingefügt, die durch anlegen einer Spannung manipuliert werden können.
+Ein Beispiel für die Schaltung zwischen Logigblöcken ist in Abb. \ref{Schalter} zu sehen.
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{schalter.png}
+  \caption{Schalterzwischen Logigblöcken }
+  \label{schalter}
+\end{figure}
+Um ein FPGA auf gewünschte Art zu konfigurieren, müssen Hardware-Programmiersprachen (``Hardware Description Language'' oder HDL) verwendet werden.
+Bei FPGA stellen diese eine Art ``Schaltplan'' der logischen Verknüpfungen innerhalb des FPGA dar.
+Hierbei ist zu beachten, dass be der Konfiguration auch wirklich Signal vom Eingang zum Ausgang geleitet und dabei mittels logischer Funktionen manipuliert werden.
+Aufgrunddessen ist auch die gute Parallisierbarkeit der FPGA leicht zu verstehen.
+Umfang sowie Geschwindigkeit der Konfiguration ist hier jedoch prinzipiell durch Logigdichte sowie Signallaufzeit des FPGA beschränkt.
 
 \subsection{Kalorimeter}
 Kalorimeter dienen in der Teilchenphysik zur Messung der Energie einfallender Teilchen.
@@ -47,12 +60,12 @@ Der hierbei entstehende Fehler ist dabei proportional zu $\frac{1}{E}$, wobei E 
   \caption{Beispielhafte Darstellung eines Pile-Ups}
   \label{pileup}
 \end{figure}
-Für die analyse der Detektoren ist es wesentlich, dieses Rauschen zu unterdrücken. 
+Für die analyse der Detektoren ist es wesentlich dieses Rauschen zu unterdrücken. 
 Eine Möglichkeit dafür besteht in der Verwendung digitaler Filteralgorithmen, welche z. B. in FPGA implementiert werden können.
 Um die Untergrundstrahlung bzw. das Pile-Up, welche zu einem ständigen anwachsen des Impulses bzw. einem verschieben der Nulllinie führen, zu unterdrücken, wird der Impuls durch eine Kombination von RC- bzw. CR-Schaltungen (R = Widerstand, C = Kondensator) geführt.
-Diese Schaltungen "integrieren" bzw. "differenzieren" den Impuls und wirken gleichzeitig als Frequenzfilter.
+Diese Schaltungen ``integrieren'' bzw. ``differenzieren'' den Impuls und wirken gleichzeitig als Frequenzfilter.
 
-Als nächstes wird auf den Impuls eine "digitale Filterung" angewandt.
+Als nächstes wird auf den Impuls eine ``digitale Filterung'' angewandt.
 Dabei werden die nun diskreten Spannungswerte mit speziellen, vorher bestimmten Konstanten multipliziert, was das Rauschen im Impuls unterdrückt (ohne Beweis).
 Aufsummieren der gefilterten Werte gibt nun Energiewerte (also die Pulshöhe), die als Ausgabe des FPGA dienen können.
 Damit ergibt sich die Energie zu:
@@ -66,9 +79,16 @@ In diesem Versuch, soll daher eine digitale Filterung, wie sie im vorherigen Abs
 
 
 \section{Versuchsaufbau}
-In diesem Versuch wird ein Elvis II Entwicklungsboard der Firma der Firma National Instruments verwendet.
+In diesem Versuch wird ein Elvis II Entwicklungsboard der Firma der Firma National Instruments verwendet (siehe Abb. \ref{board}).
+Dieses verfügt neben eines FPGA über einen An/Aus-Schalter, eine LED, vier ansteuerbare Siebensegmentanzeigen, mehrere Schalter sowie eine USB-Verbindung.
 
-Zur Konfiguration der FPGA werden Programmcodes in der Programmiersprache VHDL geschrieben.
-Nach Simulation dieser zum Test der Funktionalität, werden diese Programme in
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{board.png}
+  \caption{Elvis II Entwicklungsboard}
+  \label{board}
+\end{figure}
 
-Im Folgenden wird noch ein kurzer Überblick über VHDL gegeben.
+Zur Konfiguration der FPGA werden Programmcodes in der Programmiersprache VHDL geschrieben (Details zu dieser sind in der Auswertung zu finden).
+Diese Skripte werden danach auf einem PC simuliert, um Funktionalität zu gewährleisten sowie um eventuelle Fehlerquellen zu finden.
+Wenn keine vorhanden sind, wird das Skript auf das FPGA übertragem wobei dieses Konfiguriert wird.
+Einzelne Skripte konnten dann direkt auf dem FPGA getestet werden.
