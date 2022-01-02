@@ -1,0 +1,30 @@
+\section{Mystery Datensatz}
+
+In diesem Versuchsteil wurden mehere Datensätze eines unbekannten Ereignisses im Atlasdetektor vorgegeben.
+Aufgabe war es, anhand der sichtbaren und markanten Eigenschaften auf das zu Grunde liegende Ereignis zu schlussfolgern. 
+Die Datensätze wurden dabei jedoch so vorselektiert, dass stets mindestens zwei Leptonen ($e$ oder $\mu$) vorhanden waren.
+Im Versuch wurde Datensatz X (muss ich noch raussuchen) verwendet.
+Einige Beispielhafte Detektoraufnahmen des Datensatzes sind in X (muss ich noch einfügen) dargestellt.
+Zusätzlich wurden folgende mögliche Ereignisse vorgegeben:
+\begin{itemize}
+\item $t \overline{t}$
+\item $b \overline{b}$
+\item ZZ
+\item WZ
+\item Z  $\rightarrow  \tau \overline{\tau}$
+\item H $\rightarrow  \tau \overline{\tau}$
+\end{itemize}
+
+Als Ereignis haben wir hier den ZZ-Zerfall identifiziert (bin mir nichtmehr so sicher).
+Zur Begründung rekapitulieren wir die möglichen Zerfallskanäle:
+Das Top-Quark zerfällt in 96\% aller Fälle in ein Bottom-Quark, ein Lepton und ein Neutrino.
+Danach ist der weitere Zerfallsweg, aufgrund des Bottom-Quarks, weitgehend identisch zum $b \overline{b}$ Ereignis.
+Da das Bottom-Quark über die starke Wechselwirkung zerfallen kann, muss es bei diesen Ereignis häufige hadronische Schauer geben, die im hadronischen Kalorimeter deutlich zu sehen sein müssten.
+Da dies offenbar nicht zu sehen ist (siehe Abb. X), können beide Ereignise ausgeschlossen werden.
+
+Das Z-Boson kann, untder der Vorgabe dass zwei Leptonen entstehen, hier nur in ein Lepton-Antilepton-Paar zerfallen.
+Beim ZZ-Ereignis wäre jedoch daneben noch der Zerfall in ein Neutrino-Antineutrino-Paar möglich.
+
+Dass W-Boson hat leptonische Zerfallskanäle, in Lepton und Antineutrino sowie hadronische in ein Quark und ein Antiquark.
+Da das W-Boson eine Ladung besitzt, muss beim WZ Ereignis, aufgrund der Ladungserhaltung, eine überschüssige Ladung vorhanden sein.
+Dies wurde in den Datensätzen nicht beobachtet, weshalb auch diese Ereignis ausgeschlossen wurde.
