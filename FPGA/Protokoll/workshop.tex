@@ -1,21 +1,21 @@
 \section{Workshop}
 In dem Workshop haben wir gelernt wie man VHDL schreibt, wie man VHDL-Dateien simuliert und synthetisiert und wie man synthetisierte Dateien auf einen Hardware FPGA überträgt.
 Zu beachten ist dabei, dass wir selbst immer nur einen Teil der VHDL-Dateien ergänzt haben um im Praktikum Zeit zu sparen.
-Es sei nochmal darauf hingewiesen das ein FPGA von sich aus nicht sequentiell arbeitet.
+Es sei nochmal darauf hingewiesen dass ein FPGA von sich aus nicht sequentiell arbeitet.
 Einige Formulierungen von Verarbeitungsabläufen könnten als zeitliche Abfolge fehlinterpretiert werden.
 Dies ist jedoch nur der Fall wenn dies explizit erwähnt wird.
 
 \subsection{Beispiel - NAND-Gatter}
 Das erste Beispiel das wir uns angeschaut haben ist ein NAND-Gatter.
-Anhand diesem wollen wir die grundlegende Syntax erklären.
+Anhand von diesem wollen wir die grundlegende Syntax erklären.
 Dazu ist hier der verwendete Code:
 
 \lstinputlisting[firstline = 10]{../Daten/example/example.vhd}
 
-Die ersten beiden Zeilen binden aus der Bibliothek \textbf{IEEE} den Datentyp \textbf{std\_logic} ein, der im wesentlichen einen boolean darstellt.
+Die ersten beiden Zeilen binden aus der Bibliothek \textbf{IEEE} den Datentyp \textbf{std\_logic} ein, der im Wesentlichen einen boolean darstellt.
 Daraufhin wird in Zeile $4$ eine \textbf{entity} erstellt.
 Diese stellen Schnittstellen für Logikbausteine dar.
-Im Abschitt \textbf{port} werden Verbindungen nach Außen definiert.
+Im Abschitt \textbf{port} werden Verbindungen nach außen definiert.
 Es wird mittels der Schlüsselwörter \textbf{in} und \textbf{out} definiert welche Signale als Ein- und Ausgänge genutzt werden, und es wird ihnen ein Typ zugewiesen.
 Außerdem können diese Signale initialisiert werden wie z.B. in Zeile $8$.
 Später werden wir auch den Abschnitt \textbf{generic} verwenden, mit dem die \textbf{entity} parametrisiert werden kann um einfache Variationen von Instanzen zu ermöglichen.
@@ -25,8 +25,8 @@ In Zeile $12$ wird eine \textbf{architecture} erstellt die die Funktionalität d
 Darauf wird ein internes \textbf{std\_logic} Signal, auf das von außen nicht zugegriffen werden kann, erstellt und initialisiert.
 Im Folgenden wird die eigentliche Logik des NAND-Gatters implementiert.
 Dazu wird dem internen Signal das Ergebnis der boolschen AND Verknüpfung zugewiesen und dem Ausgabesignal der negierte Wahrheitswert des internen Signals.
-Hierbei ist zu beachten das diese Zuweisung nicht sequenziell passiert, sondern das tatsächliche Verknüpfungen der Signale durch Gatter gemeint sind.
-Eine Änderung des Eingangssignals wirk sich damit (bis auf Signallaufzeiten) sofort auf den Ausgang aus.
+Hierbei ist zu beachten dass diese Zuweisung nicht sequenziell passiert, sondern das tatsächliche Verknüpfungen der Signale durch Gatter gemeint sind.
+Eine Änderung des Eingangssignals wirkt sich damit (bis auf Signallaufzeiten) sofort auf den Ausgang aus.
 Es ist daher auch nicht wichtig in welcher Reihenfolge diese Verknüpfungen aufgelistet sind.
 In Zeile $19$ wird dann schlussendlich das Beschreiben der \textbf{architecture} beendet.
 
@@ -45,7 +45,7 @@ Dazu haben wir folgende VHDL Datei erstellt:
 
 In der Beschreibung der \textbf{entity} \textbf{gates} sind die drei Schalter und der Knopf als Eingang, sowie die drei LEDs als Ausgang zu erkennen.
 Um die Funktionalität zu implementieren wurde in der \textbf{architecture} jedem LED-Ausgangssignal eine entsprechende Logikverknüpfung der Eingangssignale zugewiesen.
-So wurde zum Beispiel für die LED $1$ die Signale der Schalter jeweils Paarweise AND verknüpft und die Erbegnisse davon OR verknüpft.
+So wurde zum Beispiel für die LED $1$ die Signale der Schalter jeweils Paarweise AND verknüpft und die Ergebnisse davon OR verknüpft.
 
 \begin{figure}[ht]
 	\centering
@@ -55,7 +55,7 @@ So wurde zum Beispiel für die LED $1$ die Signale der Schalter jeweils Paarweis
 \end{figure}
 
 In Abb. \ref{img_gates} wurde diese VHDL Datei simuliert.
-Man sieht das die gewünschte Funktionalität gegeben ist:
+Man sieht dass die gewünschte Funktionalität gegeben ist:
 \begin{itemize}
     \item LED $0$ ist nur an wenn alle Schalter an sind
     \item LED $1$ ist an solange mindestens zwei Schalter an sind
@@ -82,7 +82,7 @@ Da wir hier mit vorgefertigten Daten arbeiten müssen wir ein Startsignal zum Se
 Dafür verwenden wir einen Knopf.
 Um das Senden der Daten nur einmal und in definierter Weise auszulösen müssen wir den Knopfdruck an die Clock koppeln.
 Dafür ist das Modul \textit{LoHi detect} zuständig.
-Die Aufgabe bestand darin das ausgehende Signal (sig\_o) dann auf $1$ zu setzen wenn zu einer steigenden Flanke der Clock der Knopf gedrück ist, zur wiederum nächsten steigenden Flanke der Clock sollte es jedoch wieder auf $0$ gesetzt werden.
+Die Aufgabe bestand darin das ausgehende Signal (sig\_o) dann auf $1$ zu setzen wenn zu einer steigenden Flanke der Clock der Knopf gedrückt ist, zur wiederum nächsten steigenden Flanke der Clock sollte es jedoch wieder auf $0$ gesetzt werden.
 Im Folgenden ist der Code dieses Moduls zu sehen:
 
 \lstinputlisting[firstline = 10]{../Daten/lohi_detect/lohi_detect.vhd}
@@ -96,8 +96,8 @@ Intern (beim synthetisieren) werden diese jedoch aufgedröselt, denn im FPGA lä
 In dem Code-Beispiel wird also zu jeder steigenden Flanke der Clock dem Ausgangssignal der Wert des Knopfes AND verknüpft mit dem inversen des internen Signal reg zugewiesen.
 Dies ist zum ersten Clock-Zyklus eine $1$.
 Dem interne Signal reg wiederum wird der Wert des Eingangssignals zugewiesen.
-Das verhindert das im nächsten Clock-Zyklus das Eingangssignal auf das Ausgangssignal übergeht; Statdessen wird das Ausgangssignal $0$.
-Solange der Knopf gedrück bleibt ändert sich daran nichts.
+Das verhindert das im nächsten Clock-Zyklus das Eingangssignal auf das Ausgangssignal übergeht; Stattdessen wird das Ausgangssignal $0$.
+Solange der Knopf gedrückt bleibt ändert sich daran nichts.
 Wird der Knopf losgelassen wird zur nächsten steigenden Flanke der Clock das interne Signal auf $0$ gesetzt und man befindet sich im Ausgangszustand.
 
 \begin{figure}[ht]
@@ -196,7 +196,7 @@ Dies wird wieder mit einer Simulation überprüft; sie ist in Abb. \ref{img_filt
 Man sieht das das Ausgangssignal einen Takt nach dem Auftreten des ersten Eingangswerts von $0$ verschieden ist.
 Auch sieht man das der erste Wert negativ ist, da $c(1)$ negativ ist.
 Der Leser sei versichert, dass die Ausgabewerte zahlenmäßig den Erwartungen entsprechen.
-Tritt in zwei aufeinanderfolgenden Takten das selbe Eingangssignal auf werden diese natürlich trotzdem als neue Werte gesehen und das Ausgangssignal passt sich im nächsten Zyklus an.
+Tritt in zwei aufeinanderfolgenden Takten dasselbe Eingangssignal auf werden diese natürlich trotzdem als neue Werte gesehen und das Ausgangssignal passt sich im nächsten Zyklus an.
 Auch hier läuft also alles wie gewünscht.
 
 \subsection{Übung - Sekundenzähler}
@@ -222,7 +222,7 @@ Er wird auf $0$ initialisiert (alle Segmente aus).
 Die \textbf{architecture} hat drei interne Signale: sec, counter und B.
 sec gibt einfach an welche Zahl auf dem Display stehen soll.
 counter wird wie erwähnt verwendet um bis zur vollen Sekunde zu zählen.
-B ist ein Hilfssignal, dass eine binäre Representation von sec hält.
+B ist ein Hilfssignal, dass eine binäre Repräsentation von sec hält.
 Wieder wird ein \textbf{process} bei steigender Flanke der Clock ausgeführt.
 In jedem Fall wird der counter um eins erhöht.
 Ist der counter eins vor counter\_max ist eine Sekunde vergangen.
@@ -341,6 +341,7 @@ Daher wurde das Modul synthetisiert und dem FPGA aufgespielt.
 \end{figure}
 
 Das Ergebnis kurz nach drücken des Startknopfes ist in Abb. \ref{photo_top} zu sehen.
-Hier ist zu erwähnen das der FPGA sich etwas eigenartig verhalten hat; es war nicht sofort klar welcher Knopf der Start- und welcher der Rücksetzknopf ist.
+Hier ist zu erwähnen dass der FPGA sich etwas eigenartig verhalten hat; es war nicht sofort klar welcher Knopf der Start- und welcher der Rücksetzknopf ist.
 In jedem Falle sah es für uns so aus als hätte der Test soweit funktioniert.
 Ob die $2457$ tatsächlich das richtige Maximum nach anwenden des Filters ist können wir nicht sagen, da wir die eingehenden Daten nicht kennen.
+
