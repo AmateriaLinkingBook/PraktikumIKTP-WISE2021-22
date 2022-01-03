@@ -1,5 +1,5 @@
 \section{Aufgabenstellung}
-In diesem Versuch sollen grundlegende Kentnisse der elektronischen Datenverarbeitung mittels FPGA, sowie die Konfiguration dieser mittels VHDL vermittelt werden.
+In diesem Versuch sollen grundlegende Kenntnisse der elektronischen Datenverarbeitung mittels FPGA, sowie die Konfiguration dieser mittels VHDL vermittelt werden.
 Dazu sollen folgende Module programmiert, simuliert und zum Teil auf ein vorliegendes FPGA übertragen werden:
 \begin{itemize}
 \item mehrere einfache Logikschaltungen (Details sind in der Auswertung zu finden)
@@ -7,7 +7,7 @@ Dazu sollen folgende Module programmiert, simuliert und zum Teil auf ein vorlieg
 \item Ein Modul \glqq Max Find\grqq{} welches das Maximum des Inputs ausgibt
 \item Ein Modul \glqq Filter\grqq{} das einen Wiener Filter zur Unterdrückung des Rauschens im Input implementiert
 \item Eine Uhr die \SI{9}{\s} auf einer Digitalanzeige zählt und sich danach zurücksetzt
-\item Ein Modul \glqq ssd\grqq{} das einen vierstelligen Input auf einem digitalenm Display anzeigt
+\item Ein Modul \glqq ssd\grqq{} das einen vierstelligen Input auf einem digitalen Display anzeigt
 \end{itemize}
 Die vier Module sollten im Anschluss in einem Modul \glqq top\grqq{} zusammengeschlossen werden, welches als Filter für einen elektronischen Impuls, wie er bei einem Kalorimeter auftritt, fungieren soll.
 
@@ -22,7 +22,7 @@ Gleichzeitig existieren aber auch diverse Nachteile, wie geringere Taktfrequenze
 
 FPGA besitzen Eingangs- und Ausgangssignale (I/O-Port).
 Die Eingangssignale können mithilfe von Logikblöcken verbunden werden und so ein gewünschtes Ausgangssignal, abhängig vom Eingang, erzeugt werden.
-Um die Rekonfigurierbarkeit von FPGA zu ermöglichen, werden \glqq Schalter\grqq{} zwischen den Logikblöcken eingefügt, die durch anlegen einer Spannung manipuliert werden können.
+Um die Rekonfigurierbarkeit von FPGA zu ermöglichen, werden \glqq Schalter\grqq{} zwischen den Logikblöcken eingefügt, die durch Anlegen einer Spannung manipuliert werden können.
 Ein Beispiel für die Schaltung zwischen Logikblöcken ist in Abb. \ref{schalter} zu sehen.
 \begin{figure}[h]
   \includegraphics[width=\linewidth]{../Daten/schalter.png}
@@ -32,7 +32,7 @@ Ein Beispiel für die Schaltung zwischen Logikblöcken ist in Abb. \ref{schalter
 Um ein FPGA auf gewünschte Art zu konfigurieren, müssen Hardware-Programmiersprachen (\glqq Hardware Description Language\grqq{} oder HDL) verwendet werden.
 Bei FPGA stellen diese eine Art \glqq Schaltplan\grqq{} der logischen Verknüpfungen innerhalb des FPGA dar.
 Hierbei ist zu beachten, dass bei der Konfiguration auch wirklich Signale vom Eingang zum Ausgang geleitet und dabei mittels logischer Funktionen manipuliert werden.
-Aufgrunddessen ist auch die gute Parallisierbarkeit des FPGA leicht zu verstehen.
+Aufgrund dessen ist auch die gute Parallelisierbarkeit des FPGA leicht zu verstehen.
 Umfang sowie Geschwindigkeit der Konfiguration ist hier jedoch prinzipiell durch Logikdichte sowie Signallaufzeit des FPGA beschränkt.
 
 \subsection{Kalorimeter}
@@ -43,7 +43,7 @@ Innerhalb der Absorberschichten geben die Teilchen Energie ab, wobei das Absorbe
 Durch die Hochspannung werden die so freigesetzten Ladungen abgesaugt, wodurch ein elektrischer Impuls entsteht.
 In der Theorie bewegen sich hochenergetische Teilchen nahezu mit Lichtgeschwindigkeit durch den Kalorimeter und ionisieren entlang ihres Weges, was zu Dreiecksimpulsen führt.
 Das heißt die gemessene Spannung springt auf einen Wert, der abhängig von der Energie des Teilchens ist, und fällt dann linear ab.
-In der Praxis gibt es im wesentlichen drei Störquellen, die den Impuls verzerren:
+In der Praxis gibt es im Wesentlichen drei Störquellen, die den Impuls verzerren:
 \begin{itemize}
 \item Eine ist rein stochastischer Natur und verhält sich proportional zu $\frac{1}{\sqrt{E}}$.
 Diese entsteht dadurch, dass die Genauigkeit eines Kalorimeters von der Bestimmung der Anzahl ionisierter Teilchen abhängig ist, welche wiederum einer Poisson-Statistik genügt.
