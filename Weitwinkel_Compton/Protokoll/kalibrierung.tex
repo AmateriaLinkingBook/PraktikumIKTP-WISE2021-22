@@ -3,15 +3,15 @@
 \subsection{Vergleich der Detektorspektren}
 
 Im ersten Schritt wurden die Spektren mehrerer Quellen für den Szintillator, wie auch den Ge-Detektor, aufgenommen und die Ergebnisse verglichen.
-Genutzt wurden hierfür eine $^{22}$Na und eine $^{133}$Ba Probe, welche auf den Ge-Detektor und neben den Szintillator gelegt wurden.
-Die Messzeit betrug für $^{22}$Na 5 min und für $^{133}$Ba 4min.
+Genutzt wurden hierfür eine $^{22}$Na- und eine $^{133}$Ba-Probe, welche auf den HPGe-Detektor und neben den Szintillator gelegt wurden.
+Die Messzeit betrug für $^{22}$Na \SI{5}{\minute} und für $^{133}$Ba \SI{4}{\minute}.
 Eine Messung der Untergrundstrahlung wurde nicht durchgeführt, da sie für den einfachen Vergleich zweier Spektren auch nicht notwendig wäre.
 Wie in Abb. \ref{NaGe} und \ref{NaSzin} zu sehen ist, war die Aktivität der $^{22}$Na Probe recht niedrig.
-Im Ge-Spektrum lässt sich prinzipiel ein stark ausgeprägter Peak, zwischen den Kanälen 500 und 600, erkennen, das Compton-Kontinuum ist jedoch recht verschwommen.
-Das Szintillator-Spektrum wiederrum scheint hier unbrauchbar.
+Im Ge-Spektrum lässt sich prinzipiell ein stark ausgeprägter Peak, zwischen den Kanälen 500 und 600, erkennen, das Compton-Kontinuum ist jedoch recht verschwommen.
+Das Szintillator-Spektrum wiederum scheint hier unbrauchbar.
 Es lässt sich nur ungefähr der Bereich des Comtpon-Kontinuums erahnen.
 Eine Kalibrierung mithilfe dieser Probe sollte nur schwer möglich sein, da für den Ge-Detektor mehrere Peaks notwendig wären und das Szintillator-Spektrum einfach zu schwach ausgeprägt ist.
-Prinzipiell könnten die Spektren mit einer längeren Messzeit verbessert werden,in diesem Versuch standen jedoch mehrere Proben zur Auswahl, weshalb dies nicht gemacht wurde.
+Prinzipiell könnten die Spektren mit einer längeren Messzeit verbessert werden, in diesem Versuch standen jedoch mehrere Proben zur Auswahl, weshalb dies nicht gemacht wurde.
 
 \begin{figure}[h]
 \minipage{0.5\textwidth}
@@ -26,15 +26,15 @@ Prinzipiell könnten die Spektren mit einer längeren Messzeit verbessert werden
 \endminipage\hfill
 \end{figure}
 
-Die $^{133}$Ba Probe besaß eine im Vergleich dazu deutlich stärkere Aktivität, was sich positiv auf die Spektren (\ref{BaGe} und \ref{BaSzin}) ausgewirkt hat.
+Die $^{133}$Ba Probe besaß eine im Vergleich dazu deutlich stärkere Aktivität, was sich positiv auf die Spektren (Abbildungen \ref{BaGe} und \ref{BaSzin}) ausgewirkt hat.
 Im Spektrum des Ge-Detektors lassen sich jetzt mehrere Peaks deutlich erkennen.
 Eine Kalibirierung anhand dieser sollte jetzt möglich sein.
-Das Szintillator Spektrum dieser Probe wird, wie  zu erwarten war, vom Compton-Kontinuum dominiert.
-Die Compton-Kante ist hierbei schwach ausgeprägt, was eine herkömliche Kalibrierung, wieder wie zu erwarten, erschweren würde.
-Eine längere Messzeit oder Beseitigung der Untergrundstrahlung, würde hier jedoch möglicherweise aushelfen können.
+Das Szintillator-Spektrum dieser Probe wird, wie  zu erwarten war, vom Compton-Kontinuum dominiert.
+Die Compton-Kante ist hierbei schwach ausgeprägt, was eine herkömmliche Kalibrierung, wieder wie zu erwarten, erschweren würde.
+Eine längere Messzeit oder Beseitigung der Untergrundstrahlung würde hier zwar helfen, aber die erreichbaren Genauigkeiten bei der Kalibrierung mit dem Rückstreupeak oder Compton-Kante allein sind für eine Anwendung nicht ausreichend.
 Aufällig ist außerdem ein recht stark ausgeprägter Peak im niederenergetischen Bereich (ungefähr bei Kanal 50).
 Hierbei könnte es sich um einen stark ausgeprägten Rückstreupeak handeln.
-Aufgrund der besseren Spektren, wird im folgenden die $^{133}$Ba Probe genutzt.
+Aufgrund der besseren Spektren wird im folgenden die $^{133}$Ba-Probe genutzt.
 
 \begin{figure}[h]
 \minipage{0.5\textwidth}
@@ -51,8 +51,8 @@ Aufgrund der besseren Spektren, wird im folgenden die $^{133}$Ba Probe genutzt.
 
 \subsection{Energiekalibrierung des Ge-Detektors}
 
-Ausgehend vom aufgenommenen Spektrum wird im folgenden eine Energiekalibrierung des Ge-Detektors mitels einer Vollenergiepeak-Analyse durchgeführt.
-Dafür ist es als erstes notwendig die sichtbaren Peaks zu identifizieren.
+Ausgehend vom aufgenommenen Spektrum wird im folgenden eine Energiekalibrierung des Ge-Detektors mittels einer Vollenergiepeak-Analyse durchgeführt.
+Dafür ist es als erstes notwendig, die sichtbaren Peaks zu identifizieren.
 Dies wurde durch Vergleiche mit bekannten Nuklid-Karten (z.B. \cite{IAEA}) realisiert.
 Die Ergebnisse sind in Abb. \ref{GeKali} zu sehen.
 Eine Identifikation der Peaks mittels der häufigsten Gammazerfälle von $^{133}$Ba war möglich.
@@ -71,9 +71,7 @@ Die entsprechenden Peaks wurden mit einer Gaussfunktionen entsprechend
 \begin{equation}
 N(K) = a \cdot \exp \left( - \frac{(K - K_{0})^{2}}{2 \sigma ^{2}} \right)
 \end{equation}
-
-
-gefittet um Mittelwerte ($\mu$) und Standardabweichungen {$\sigma$} dieser zu bestimmen.
+gefittet, um Mittelwerte $\mu$ und Standardabweichungen $\sigma$ dieser zu bestimmen.
 In der Gaussfunktion dient $a$ als Normierungsfaktor, der für die weitere Betrachtung keine Rolle spielt.
 Die Ergebnisse sind in Tabelle \ref{peaks} zusammengefasst.
 Hier fällt auf, dass die Standardabweichungen der Peaks recht konstant sind.
@@ -95,14 +93,13 @@ $E_{\gamma}$ [\si{\kilo\electronvolt}]  & $\mu$ & $\sigma$ \\
 \label{peaks}
 \end{table}
 
-Aus den Mittelwerten wird der Kanal welcher mit der Zerfallsenergie korrespondiert bestimmt, indem der Mittelwert ($\mu$) zur nächsten natürlichen Zahl K gerundet wird.
+Aus den Mittelwerten wird der Kanal, welcher mit der Zerfallsenergie korrespondiert bestimmt, indem der Mittelwert $\mu$ zur nächsten natürlichen Zahl K gerundet wird.
 Als Maß für die Unsicherheit der Energiebestimmung wird die mittlere Halbwertsbreite (FWHM), ebenfalls auf natürliche Zahlen gerundet, genutzt.
 Diese ist defininiert als Breite der Gaussfunktion bei halber Höhe und dient uns als Unsicherheit der Energiebestimmung.
-Sie berechnet sich aus der Standardabweichung ($\sigma$) mit:
+Sie berechnet sich aus der Standardabweichung $\sigma$ mit:
 \begin{equation}
-\text{FWHM} = 2 \sqrt{2 ln2} \sigma
+\text{FWHM} = 2 \sqrt{2 \ln{2}} \cdot \sigma
 \end{equation}
-
 Die Ergebnisse sind in Tab. \ref{kanal} zusammengefasst.
 
 \begin{table}[h]
@@ -123,22 +120,18 @@ $E_{\gamma}$ [\si{\kilo\electronvolt}]  & $K_{\gamma}$ & FWHM \\
 \end{table}
 
 Mit Kentnis der fünf Energiepeaks sowie der korrespondierenden Kanäle ist jetzt die Bestimmung einer Kalibriergerade des Ge-Detektors möglich.
-Dafür wurden die Energien über die Kanäle geplottet und eine lineare Regression vorgenommen.
-Das Ergebnis dieser ist in \ref{Gegerade} zu sehen.
-Als Regressionsparameter ergaben sich ein Anstieg von: $n = 0.924 \pm 0.002$ sowie ein Schnittpunkt von $m = -1.1 \pm 0.7$.
-Die Ungenauigkeiten ergeben sich hierbei aus der Regression.
-Damit ergibt sich die Kalibriergerade des Ge-Detektors zu:
-\begin{equation}
-E(K) = (0.924 \cdot K - 1.1) \ \si{\kilo\electronvolt}
-\end{equation}
-Ausgehend von den Ungenauigkeiten der Regressionsparameter, lässt sich eine Ungenauigkeit der Energie mithilfe der Fehlerfortpflanzung bestimmen.
-Damit ergibt sich für jeden Kanal K eine Ungenauigkeit der Energie von:
-\begin{equation}
-\sigma E(K) = \sqrt{4 \cdot 10^{-6} K^2 + 0.49} \ \si{\kilo\electronvolt}
-\end{equation}
-Im betrachteten Energiebereich von bis zu einigen hundert \si{\kilo\electronvolt}, entspricht dies ungefähr einer Abweichung von $0.7 \ \si{\kilo\electronvolt}$ für jeden Kanal.
-
-Dabei ist zu beachten, dass dies in erster Linie eine numerische Ungenaugkeit aus der Regression ist.
+Dafür wurden die Energien über die Kanäle geplottet und eine lineare gefittet.
+Das Ergebnis davon ist in \ref{Gegerade} zu sehen.
+Dieser Fit wurde mithilfe des in \cite{Fit_bivariate} beschriebenen Algorithmus nach York durchgeführt, wobei für die Fehler in der Energie extrem kleine Werte angenommen wurden (da die Photonenenergien sehr gut bekannt sind), sodass diese keinen Einfluss auf das Ergebnis haben.
+Damit ergibt sich die Kalibrierung des HPGe-Detektors:
+\begin{gather}
+    E_{\text{HPGe-Detektor}} (K) = [(0.925 \pm 0.028) \cdot K + (-1.155 \pm 8.678)] \ \si{\kilo\electronvolt}
+\end{gather}
+Es sollte erwähnt werden, dass die scheinbar große Unsicherheit des Schnittpunktes mit der y-Achse von $8.678$ in anbetracht der FWHM der Gaussfits sinnvoll erscheinen.
+Schaut man sich die Kalibriergerade an so sieht man, dass beim parallelverschieben der Fitgerade zu den Rändern des Fehlerbereichs durchaus eine Unsicherheit in dieser Größenordnung für den Schnittpunkt mit der y-Achse entstehen kann.
+Diese Unsicherheit entspringen also nahezu ausschließlich aus dem FWHM.
+Da die Punkte alle sichtlich gut auf einer geraden liegen, ist der Fehler des Anstiegs klein (Relativfehler etwa \SI{3}{\percent}).
+Daher liegt auch der Zahlenwert der Unsicherheit des Schnittpunktes mit der y-Achse von $8.678$ so nahe am durchschnittlichen Wert der oben genannten FWHM ($8.4$).
 Physikalische oder technische Ungenauigkeiten, wie z. B. die Untergrundstrahlung, wurden hier nicht betrachtet.
 
 \begin{figure}[h!]

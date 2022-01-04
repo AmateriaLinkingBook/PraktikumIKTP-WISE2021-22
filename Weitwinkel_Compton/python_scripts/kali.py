@@ -17,21 +17,20 @@ def fwhm(sigma):
     return 2.3548 * sigma
 
 #data = np.loadtxt("/Users/alexl/OneDrive/Documents/Uni/Master/Praktikum/WK/NA22_GE_kalibrierung_5min.txt", delimiter=';')
-data = np.loadtxt("../Daten/Ba133_SZin_kalibirierung_3min.txt", delimiter=';')
+data = np.loadtxt("../Daten/NA22_GE_kalibrierung_5min.txt", delimiter=';')
 #data = np.loadtxt("/Users/alexl/OneDrive/Documents/Uni/Master/Praktikum/WK/Ba133_Ge_kalibirierung_4min.txt", delimiter=';')
 #data = np.loadtxt("/Users/alexl/OneDrive/Documents/Uni/Master/Praktikum/WK/Na22_(-33, 10, 7)_60min.txt", delimiter=';')
 
-data = data[data[:,0] == 1.0]
-binN = int(np.max(data[:,2]))
+data = data[data[:,0] == 1]
 
-# %%
-print(binN)
 # %%
 
 x = data[:,1]
 y = data[:,2]
 
-n, bins, patches = plt.hist(y, bins=binN, range=[13, 700])
+print(y)
+
+plt.hist(y, bins=np.arange(20, 500, 2))
 
 """
 # First Peak
@@ -67,6 +66,7 @@ plt.plot(x_fit3, y_fit3, color="r")
 
 plt.xlabel('Kanal', fontsize=14)
 plt.ylabel('Ereignisse', fontsize=14)
-#plt.yscale('log')
+plt.yscale('log')
+plt.title(r'Gammaspektrum organischer Szintillator für $^{22}$Na')
 plt.grid(True)
 plt.show()

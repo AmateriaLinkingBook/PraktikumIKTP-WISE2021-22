@@ -5,24 +5,25 @@ matplotlib.use('QT5Agg')
 import matplotlib.pyplot as plt
 
 prefix = "../Daten/"
-"""
+
 names = np.array(["Na22_(-33, 10, 7)_60min.txt", "Na22_(-33, 4, 15)_30min.txt", "Na22_(-33, 6, 20)_30min.txt", "Na22_(-33, 9, 24)_30min.txt", "Na22_(-33, 20, 27)_30min.txt"])
+
 """
 names = np.array(["Ba133_2.5h.txt", "Ba133_2h.txt"])
-"""
+
 names = np.array(["Na22_2h.txt", "Na22_(-33, 10, 7)_60min.txt", "Na22_(-33, 4, 15)_30min.txt", "Na22_(-33, 6, 20)_30min.txt", "Na22_(-33, 9, 24)_30min.txt", "Na22_(-33, 20, 27)_30min.txt"])
 """
 data = []
 for name in names:
     data.append(np.transpose(np.loadtxt(prefix + name, delimiter=';', skiprows=2)[:, 2:]))
 
-
+"""
 temp = data[0]
 for i in range(1, len(data)):
     temp = np.concatenate((temp, data[i]), axis = 1)
 
 data = [temp]
-
+"""
 # 0 - HPGermanium, 1 - Szintillator
 
 coords = np.array([[-33, 10, 7],
@@ -35,8 +36,8 @@ coords = np.array([[-33, 10, 7],
 # %%
 # Data manipulation
 
-channel_max_Germanium = 1800
-channel_max_Szintillator = 1000
+channel_max_Germanium = 700
+channel_max_Szintillator = 350
 
 for i in range(0, len(data)):
     data[i] = data[i][:, data[i][0] <= channel_max_Germanium]
@@ -45,9 +46,9 @@ for i in range(0, len(data)):
 # Filter the linear area
 
 ### FILTER SETTINGS
-data_filter_m = -233.0/383.0  # delta y / delta x
-data_filter_n_low = 212
-data_filter_n_high = 260
+data_filter_m = -353.0/550.0  # delta y / delta x
+data_filter_n_low = 310
+data_filter_n_high = 400
 ### END FILTER SETTINGS
 
 filtered_data = [None] * len(data)
@@ -102,9 +103,10 @@ print(angles)
 # Plot
 
 fontsize = 24
+binstep = 2
 binfactor = 1/2
 
-plot_single = -1
+plot_single = 4
 
 u = int(np.ceil(np.sqrt(len(data))))   # Find subplot x and y amount
 w = int(np.ceil(len(data)/u))
@@ -124,18 +126,21 @@ if (plot_single < 0):
         colorbar_helper = fig.colorbar(helper[3], ax=axes[x_idx][y_idx])
         colorbar_helper.ax.tick_params(labelsize = fontsize)
         axes[x_idx][y_idx].set_title(r"Streuwinkel: ${wink:.1f}°$".format(wink=angles[i]), fontsize = fontsize)
+        axes[x_idx][y_idx].set_xlabel("Kanal HPGe-Detektor", fontsize=fontsize)
+        axes[x_idx][y_idx].set_ylabel("Kanal Szintillationsdetektor", fontsize=fontsize)
 else:
     fig, axes = plt.subplots(1, 1, squeeze = False)
     fig.set_figheight(9.0)
     fig.set_figwidth(11.0)
 
     helper = axes[0][0].hist2d(data[plot_single][0], data[plot_single][1], \
-        bins = [np.linspace(0, channel_max_Germanium, int(channel_max_Germanium*binfactor)), np.linspace(0, channel_max_Szintillator, int(channel_max_Szintillator*binfactor))], \
-        range=[[30, channel_max_Germanium], [20, channel_max_Szintillator]])
+        bins = [np.linspace(0, channel_max_Germanium, int(channel_max_Germanium*binfactor)), np.arange(18, channel_max_Szintillator, binstep)])
     colorbar_helper = fig.colorbar(helper[3], ax=axes[0][0])
     colorbar_helper.ax.tick_params(labelsize = fontsize)
     #axes[0][0].plot([0, -(reg_results[plot_single].intercept / reg_results[plot_single].slope)], [reg_results[plot_single].intercept, 0], color="greenyellow", label="linear fit", alpha = 0.3)
     axes[0][0].set_title(r"Streuwinkel: ${wink:.1f}°$".format(wink=angles[plot_single]), fontsize = fontsize)
+    axes[0][0].set_xlabel("Kanal HPGe-Detektor", fontsize=fontsize)
+    axes[0][0].set_ylabel("Kanal Szintillationsdetektor", fontsize=fontsize)
 
 plt.yticks(fontsize=fontsize)
 plt.xticks(fontsize=fontsize)
@@ -147,7 +152,7 @@ plt.show()
 
 # filtered data
 
-x_max = 1800
+x_max = 700
 
 plot_single = -1
 
@@ -173,6 +178,8 @@ if (plot_single < 0):
         axes[x_idx][y_idx].set_xlim(20, x_max)
         axes[x_idx][y_idx].set_title(r"$x = 0$ intercept: ${inter:.3f}$, error: $\pm{err:.3f}$".format(inter=reg_results[i].intercept, err=n_shift_array[i]), fontsize=fontsize)
         axes[x_idx][y_idx].legend(loc="best", fontsize=fontsize)
+        axes[x_idx][y_idx].set_xlabel("Kanal HPGe-Detektor", fontsize=fontsize)
+        axes[x_idx][y_idx].set_ylabel("Kanal Szintillationsdetektor", fontsize=fontsize)
 
 else:
     fig, axes = plt.subplots(1, 1, squeeze = False)
@@ -191,6 +198,8 @@ else:
     axes[0][0].plot([0, -((reg_results[plot_single].intercept-n_shift_array[plot_single]) / reg_results[plot_single].slope)], [(reg_results[plot_single].intercept-n_shift_array[plot_single]), 0], color="lime")
     axes[0][0].set_xlim(20, x_max)
     axes[0][0].legend(loc="best", fontsize=fontsize)
+    axes[0][0].set_xlabel("Kanal HPGe-Detektor", fontsize=fontsize)
+    axes[0][0].set_ylabel("Kanal Szintillationsdetektor", fontsize=fontsize)
 
 plt.yticks(fontsize=fontsize)
 plt.xticks(fontsize=fontsize)
