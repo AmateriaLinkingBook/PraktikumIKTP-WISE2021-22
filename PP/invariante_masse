@@ -3,7 +3,7 @@
 
 Die invariante Masse beim Zerfall eines Teilchens in zwei Teilchen, ergibt sich mithilfe ihrer Vierervektoren zu:
 \[
-M^2 =\left[ \left( \begin{array}{c} E_1 \\ {\vec{p}_1}  \end{array} \right) + \left( \begin{array}{c} E_2 \\ {\vec{p}_2}  \end{array} \right) \right]
+M^2 =\left[ \left( \begin{array}{c} E_1 \\ {\vec{p}_1}  \end{array} \right) + \left( \begin{array}{c} E_2 \\ {\vec{p}_2}  \end{array} \right) \right]^2
 \]
 \[
 = m_1^2 + m_2^2 + 2 E_1 E_2 - 2 \textbf{p}_1  \textbf{p}_2 \cos \vartheta
@@ -32,11 +32,12 @@ Zusammen mit den gegebenen Daten ergaben sich folgende invariante Massen:
 \end{tabular}
 \end{center}
 Die Angabe der Nachkommastellen der invarianten Masse zeigt hier nicht die Messgenauigkeit, sondern soll die Unterschiede in der Berechnung zeigen.
-Wie zu sehen ist, bewirkt die vernachlässigung der Masse in diesem Fall erst einen Unterschied in der sechsten Nachkommastelle, was für die Praxis kaum relevant ist und unter Umständen völlig von anderen Messunsicherheiten überdeckt wird.
-Das ist auch nicht verwunderlich, da die Masse des Z-Bosons und damit auch die Energie die beim Zerfall zur verfügung steht bei $91$ GeV beträgt, während die Masse des Elektrons bei $510$ keV liegt.
 
+Wie zu sehen ist, bewirkt die vernachlässigung der Masse in diesem Fall erst einen Unterschied in der sechsten Nachkommastelle, was für die Praxis kaum relevant ist und unter Umständen völlig von anderen Messunsicherheiten überdeckt wird.
+Das ist auch nicht verwunderlich, da die Masse des Z-Bosons und damit auch die Energie die beim Zerfall zur verfügung steht bei $91$ GeV liegt, während die Masse des Elektrons bei $510$ keV liegt.
 
 Jetzt könnte als Frage aufkommen, warum die invarianten Massen doch recht weit von der Masse des Z-Bosons entfernt liegen.
 Das Z-Boson äußert sich in der Messung als Resonanz mit endlicher Breite.
 Aufgrund dieser Breite kann die Masse auch nicht exakt bestimmt werden, die gemessenen Werte werden um den wahren Wert gestreut.
 Der Mittelwert von $M$ bei einer genügend großen Anzahl Messungen sollte dann jedoch der Z-Masse entsprechen.
+
