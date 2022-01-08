@@ -1,10 +1,10 @@
 \section{Mystery Datensatz}
 
 In diesem Versuchsteil wurden mehere Datensätze eines unbekannten Ereignisses im Atlasdetektor vorgegeben.
-Aufgabe war es, anhand der sichtbaren und markanten Eigenschaften auf das zu Grunde liegende Ereignis zu schlussfolgern. 
+Aufgabe war es, anhand der sichtbaren, markanten Eigenschaften, auf das zu Grunde liegende Ereignis zu schlussfolgern. 
 Die Datensätze wurden dabei jedoch so vorselektiert, dass stets mindestens zwei Leptonen ($e$ oder $\mu$) vorhanden waren.
-Im Versuch wurde Datensatz $12$ verwendet.
-Einige Beispielhafte Detektoraufnahmen des Datensatzes sind in X (einfügen) dargestellt.
+Im Versuch wurde Datensatz 12 verwendet.
+Einige Beispielhafte Detektoraufnahmen des Datensatzes sind in Abb. \ref{mysterydata} dargestellt.
 Zusätzlich wurden folgende mögliche Ereignisse vorgegeben:
 \begin{itemize}
 \item $t \overline{t}$
@@ -15,35 +15,56 @@ Zusätzlich wurden folgende mögliche Ereignisse vorgegeben:
 \item H $\rightarrow  \tau \overline{\tau}$
 \end{itemize}
 
+
 Als Ereignis haben wir hier den ZZ-Zerfall identifiziert.
 Zur Begründung rekapitulieren wir die möglichen Zerfallskanäle:
 Das Top-Quark zerfällt in 96\% aller Fälle in ein Bottom-Quark, ein Lepton und ein Neutrino.
 Danach ist der weitere Zerfallsweg, aufgrund des Bottom-Quarks, weitgehend identisch zum $b \overline{b}$ Ereignis.
 Da das Bottom-Quark über die starke Wechselwirkung zerfallen kann, muss es bei diesen Ereignis häufige hadronische Schauer geben, die im hadronischen Kalorimeter deutlich zu sehen sein müssten.
-Da dies offenbar nicht zu sehen ist (siehe Abb. X), können beide Ereignise ausgeschlossen werden.
+Da dies offenbar nicht zu sehen ist (siehe Abb. \ref{mysterydata}), können beide Ereignisse ausgeschlossen werden.
 
-Das Z-Boson kann, untder der Vorgabe dass zwei Leptonen entstehen, hier nur in ein Lepton-Antilepton-Paar zerfallen.
-Beim ZZ-Ereignis wäre daneben noch der Zerfall in ein Neutrino-Antineutrino-Paar möglich.
+Das Z-Boson kann, unter der Vorgabe dass zwei Leptonen entstehen, hier nur in ein Lepton-Antilepton-Paar zerfallen.
+Beim ZZ-Ereignis wäre jedoch daneben noch der Zerfall in ein Neutrino-Antineutrino-Paar möglich.
 
 Dass W-Boson hat leptonische Zerfallskanäle, in Lepton und Antineutrino sowie hadronische in ein Quark und ein Antiquark.
 Da das W-Boson eine Ladung besitzt, muss beim WZ Ereignis, aufgrund der Ladungserhaltung, eine überschüssige Ladung vorhanden sein.
 Dies wurde in den Datensätzen nicht beobachtet, weshalb auch diese Ereignis ausgeschlossen wurde.
 
 Zuletzt betrachten wir die Zerfälle des Z- und Higgs-Bosons in 2 Tauonen.
-Da der Zerfall, mit Ausnahme der zur verfügung stehenden Energie, identisch ist, sollte eine exakte Unterscheidung zwischen beiden Ereignissen ohne weitere Berechnungen kaum möglich sein.
 Tauonen zerfallen entweder in ein leichteres Lepton sowie 2 Neutrinos oder, was bevorzugt geschieht, auf hadronischen Weg.
 Da hier jedoch beim Zerfall 2 Leptonen entstehen müssen, ist der hadronische Zerfall ausgeschlossen.
-Damit ergeben sich hier als Zerfallsprodukte; 2 Leptonen, 2 Neutrinos und 2 Antineutrinos.
-Aufgrund der entstehenden Neutrinos beim Zerfall der Tauonen, sollte hier so gut wie immer eine nennswerte fehlende Transversale Energie vorhanden sein. 
+Damit ergeben sich hier als Zerfallsprodukte: 2 Leptonen, 2 Neutrinos und 2 Antineutrinos.
+Aufgrund der entstehenden Neutrinos beim Zerfall der Tauonen, sollte hier häufig eine nennswerte fehlende transversale Energie vorhanden sein. 
 Da beim ZZ Ereignis Neutrinos nicht unbedingt entstehen müssen, wäre eine Unterscheidung anhand der fehlenden Energie möglich.
 Es war auch zu sehen, dass diese in den Daten ab und zu recht hoch und ab und zu quasi nicht vorhanden war, was für das ZZ Ereignis spricht.
 
-Ein Zusätzliches Argument für das ZZ Ereignis lässt sich bei Betrachtung der detektierten Neutrinos sehen.
+Ein zusätzliches Argument für das ZZ Ereignis lässt sich bei Betrachtung der detektierten Neutrinos sehen.
 Da die Zerfallswahrscheinlichkeiten in Elektronen bzw. Myonen gleich sind, würden wir in $50\%$ der Fälle ein Elektron und 1 Myon erwarten und sonst jeweils 2 Elektronen oder 2 Myonen.
 Damit wäre bei diesem Ereignis zu erwarten, dass häufig nur 1 Myon detektiert wird.
 Beim ZZ Ereignis, wären wiederum entweder 0, 2 oder 4 Myonen zu erwarten.
 
-Wie in Abb. (Einfügen) zu sehen ist, waren in den Daten so gut wie immer 2 Myonen zu sehen.
+Wie in Abb. \ref{mysterydaten} zu sehen ist, waren in den Daten so gut wie immer 2 Myonen zu sehen.
 Ein Ereignis mit nur einem war nicht vorhanden, was für das ZZ Ereignis spricht.
 
+\begin{figure}[h!]
+\begin{subfigure}{.6\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{MysteryEvent2.png}
+  \caption{Ereignis 2}
+\end{subfigure}%
+ \vskip\baselineskip
+\begin{subfigure}{.6\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{MysteryEvent16.png}
+  \caption{Ereignis 16}
+\end{subfigure}%
+ \vskip\baselineskip
+\begin{subfigure}{.6\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{MysteryEvent21.png}
+  \caption{Ereignis 21}
+\end{subfigure}%
+\caption{Beispielhafte Ereignisse der Mysterydaten}
+\label{mysterydata}
+\end{figure}
 
