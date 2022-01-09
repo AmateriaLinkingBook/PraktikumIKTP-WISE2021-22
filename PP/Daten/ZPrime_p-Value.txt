@@ -1,0 +1,13 @@
+ZPrime1000: 
+- Maximum Likelihood Schaetzer: 0.0
+- Beobachteter Wert der Teststatistik fuer mu = 0, t_obs_0 = -0.0
+- P-Value: 1.0000000000000002
+- Obere Grenze fuer mu: 3.8200000000000003
+ 
+ZPrime2000: 
+- Maximum Likelihood Schaetzer: 0.0
+- Beobachteter Wert der Teststatistik fuer mu = 0, t_obs_0 = -0.0
+- P-Value: 1.0000000000000004
+- Obere Grenze fuer mu: Upper limit out of bounds.
+ 
+Dauer der gesamten Rechnung: 67.224680233 min
