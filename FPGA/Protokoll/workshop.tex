@@ -6,7 +6,7 @@ Einige Formulierungen von Verarbeitungsabläufen könnten als zeitliche Abfolge 
 Dies ist jedoch nur der Fall wenn dies explizit erwähnt wird.
 
 \subsection{Beispiel - NAND-Gatter}
-Das erste Beispiel das wir uns angeschaut haben ist ein NAND-Gatter.
+Das erste Beispiel das wir uns angeschaut haben, ist ein NAND-Gatter.
 Anhand von diesem wollen wir die grundlegende Syntax erklären.
 Dazu ist hier der verwendete Code:
 
@@ -80,7 +80,7 @@ In solchen Anwendungen wird üblicherweise mit einer \textit{Clock}, einem Takts
 Die Clock ermöglicht es der Datenverarbeitung nun auch eine Zeitdimension (neben Signallaufzeiten im FPGA) zu geben.
 Da wir hier mit vorgefertigten Daten arbeiten müssen wir ein Startsignal zum Senden der Daten von außerhalb (vom PC) geben.
 Dafür verwenden wir einen Knopf.
-Um das Senden der Daten nur einmal und in definierter Weise auszulösen müssen wir den Knopfdruck an die Clock koppeln.
+Um das Senden der Daten nur einmal und in definierter Weise auszulösen, müssen wir den Knopfdruck an die Clock koppeln.
 Dafür ist das Modul \textit{LoHi detect} zuständig.
 Die Aufgabe bestand darin das ausgehende Signal (sig\_o) dann auf $1$ zu setzen wenn zu einer steigenden Flanke der Clock der Knopf gedrückt ist, zur wiederum nächsten steigenden Flanke der Clock sollte es jedoch wieder auf $0$ gesetzt werden.
 Im Folgenden ist der Code dieses Moduls zu sehen:
@@ -96,9 +96,9 @@ Intern (beim synthetisieren) werden diese jedoch aufgedröselt, denn im FPGA lä
 In dem Code-Beispiel wird also zu jeder steigenden Flanke der Clock dem Ausgangssignal der Wert des Knopfes AND verknüpft mit dem inversen des internen Signal reg zugewiesen.
 Dies ist zum ersten Clock-Zyklus eine $1$.
 Dem interne Signal reg wiederum wird der Wert des Eingangssignals zugewiesen.
-Das verhindert das im nächsten Clock-Zyklus das Eingangssignal auf das Ausgangssignal übergeht; Stattdessen wird das Ausgangssignal $0$.
-Solange der Knopf gedrückt bleibt ändert sich daran nichts.
-Wird der Knopf losgelassen wird zur nächsten steigenden Flanke der Clock das interne Signal auf $0$ gesetzt und man befindet sich im Ausgangszustand.
+Das verhindert das im nächsten Clock-Zyklus das Eingangssignal auf das Ausgangssignal übergeht, stattdessen wird das Ausgangssignal $0$.
+Solange der Knopf gedrückt bleibt, ändert sich daran nichts.
+Wird der Knopf losgelassen, wird zur nächsten steigenden Flanke der Clock das interne Signal auf $0$ gesetzt und man befindet sich im Ausgangszustand.
 
 \begin{figure}[ht]
 	\centering
@@ -247,26 +247,26 @@ Dieses Modul wurde ebenfalls simuliert, zu sehen in Abb. \ref{img_seconds}.
 Um nicht bis zu riesigen Zahlen zu zählen wurde in der Simulation counter\_max auf $5$ gesetzt.
 Es ist schnell zu erkennen das nach immer $5$ steigenden Flanken der Clock eine Sekunde dazugezählt wird.
 Ganz rechts ist auch das Zurücksetzten auf $0$ zu erkennen.
-Man macht sich auch ohne Kenntnis der genauen Belegung der Segmente durch zählen der Nullen in der letzten Zeile klar, dass tatsächlich die richtige Zahl angezeigt wird.
+Man macht sich auch ohne Kenntnis der genauen Belegung der Segmente durch Zählen der Nullen in der letzten Zeile klar, dass tatsächlich die richtige Zahl angezeigt wird.
 Dies ist genau das gewünschte Verhalten.
 
-Dies wurde auch durch synthetisieren und aufspielen des Moduls auf den FPGA überprüft.
+Dies wurde auch durch Synthetisieren und Aufspielen des Moduls auf den FPGA überprüft.
 Leider haben wir dafür kein Bild, es sei aber versichert, dass alles wie gewünscht geklappt hat.
 
 \subsection{Modul 4 - \textit{ssd}}
-Die Werte die Dargestellt werden sollen sind vierstellig.
+Die Werte die dargestellt werden sollen sind vierstellig.
 Daher ist es notwendig die Stellen zu trennen und einzeln darzustellen.
 Das ist die Aufgabe des Moduls \textit{ssd} (seven-segment-display). Der Code dieses Moduls ist im Folgenden gegeben:
 
 \lstinputlisting[firstline = 12]{../Daten/ssd/ssd.vhd}
 
-Die vier Ausgangssignale sind ss\_d1\_o bis ss\_d4\_o welche jeweils die LEDs der 7-Segment-Anzeigen repräsentieren.
+Die vier Ausgangssignale sind ss\_d1\_o bis ss\_d4\_o, welche jeweils die LEDs der 7-Segment-Anzeigen repräsentieren.
 Um die Funktionalität dieses Moduls zu implementieren wurde in der \textbf{architecture} der Befehl \textbf{generate} verwendet.
 Dieser ermöglicht es einen Code-Baustein leicht abgewandelt zu duplizieren (wird vom Compiler durchgeführt).
 Er wird hier verwendet um alle 7-Segment-Anzeigen auf einmal zu behandeln.
 Zuerst werden die Dezimalstellen in Zeile $45$ voneinander getrennt und im internen Signal quotient gespeichert.
 Wir nehmen zum besseren Verständnis die Zahl $1234$ als Beispiel und wollen uns ansehen wie die zweite Dezimalstelle von links, also die $2$, herausgetrennt wird.
-Dafür wird das Eingangssignal in einen integer umgewandelt, da für diesen Datentyp die algebraischen Operationen Division und Modulo implementiert sind.
+Dafür wird das Eingangssignal in einen integer umgewandelt, da für diesen Datentyp die algebraischen Operationen Division und Modulo leichter zu nutzen sind.
 Dann wird durch eine Zehnerpotenz geteilt, sodass die Dezimalstelle von Interesse gerade die Stelle links vom Komma ist.
 Der nicht-ganzzahlige Anteil wird dabei automatisch abgeschnitten.
 Für unser Beispiel wird also durch $100$ geteilt und es bleibt $12$.
@@ -285,8 +285,8 @@ In den Zeilen $58$ bis $61$ werden dann die finalen Verknüpfungen zum Ausgangss
 
 Auch dieses Modul wurde natürlich simuliert, zu sehen in Abb. \ref{img_ssd}.
 Das Trennen der Dezimalstellen hat offenbar funktioniert.
-Es ist zu erkennen, dass die ausgegebenen Signale gerade den erwarteten entsprechen (vergleich mit dem vorherigen Modul).
-Bei Änderung der anzuzeigenden Zahlen folgt die Darstellung noch im selben Takt.
+Es ist zu erkennen, dass die ausgegebenen Signale gerade den erwarteten entsprechen (vergleiche mit dem vorherigen Modul).
+Bei Änderung der anzuzeigenden Zahlen folgt die Darstellung noch im selben Takt, da kein Prozess mit clock-synchronisation verwendet wurde.
 
 \subsection{Modul 5 - \textit{top}}
 
@@ -327,7 +327,7 @@ Auch dieses letzte Modul wurde zunächst simuliert, zu sehen in Abb. \ref{img_to
 Man erkennt, dass die Module wie geplant miteinander funktionieren.
 Der Knopfdruck wird in ein definiertes Startsignal umgewandelt, zur nächsten steigenden Flanke der Clock werden Daten empfangen.
 Nach einem weiteren Zyklus sind die ersten Daten aus dem Filter berechnet.
-Negative Zahlen werden beim finden des Maximums ignoriert (bzw. $0$ ist größer als die negativen Werte und wird daher beibehalten).
+Negative Zahlen werden beim Finden des Maximums ignoriert (bzw. $0$ ist größer als die negativen Werte und wird daher beibehalten).
 Das Maximum $7049$ wird bald erkannt und sofort für die 7-Segment-Anzeigen übersetzt.
 
 Damit blieb nur noch das Modul \textit{top} in der Praxis zu testen.
