@@ -38,21 +38,22 @@ Umfang sowie Geschwindigkeit der Konfiguration ist hier jedoch prinzipiell durch
 \subsection{Kalorimeter}
 Kalorimeter dienen in der Teilchenphysik zur Messung der Energie einfallender Teilchen.
 Die Idee hinter diesen ist es, die einfallenden Teilchen (z. B. Elektronen oder Photonen) vollständig im Kalorimeter zu stoppen und die dabei freigesetzte Energie zu messen.
-In der Praxis geschieht dies, z. B. bei einem elektromagnetischen Kalorimeter, mit einem Verbund aus mehreren Absorber- und Ausleseschichten, an die eine Hochspannung geschlossen ist.
+Um Kalorimeter in der Praxis umzusetzen gibt es verschiedene mögliche Bauarten, auch abhängig davon welche Teilchen gemessen werden sollen.
+Im folgenden beschreiben wir ein elektromagnetisches Sampling-Kalorimeter, wie es auch im ATLAS-Detektor verwendet wird.
+Ein solches besteht aus einem Verbund von mehreren Absorber- und Ausleseschichten, an die eine Hochspannung geschlossen ist.
 Innerhalb der Absorberschichten geben die Teilchen Energie ab, wobei das Absorbermaterial ionisiert wird.
 Durch die Hochspannung werden die so freigesetzten Ladungen abgesaugt, wodurch ein elektrischer Impuls entsteht.
 In der Theorie bewegen sich hochenergetische Teilchen nahezu mit Lichtgeschwindigkeit durch den Kalorimeter und ionisieren entlang ihres Weges, was zu Dreiecksimpulsen führt.
 Das heißt die gemessene Spannung springt auf einen Wert, der abhängig von der Energie des Teilchens ist, und fällt dann linear ab.
-In der Praxis gibt es im Wesentlichen drei Störquellen, die den Impuls verzerren:
+In der Praxis gibt es im Wesentlichen drei Störquellen, die den Impuls verzerren und so den relativen Fehler beeinflußen:
 \begin{itemize}
 \item Eine ist rein stochastischer Natur und verhält sich proportional zu $\frac{1}{\sqrt{E}}$.
 Diese entsteht dadurch, dass die Genauigkeit eines Kalorimeters von der Bestimmung der Anzahl ionisierter Teilchen abhängig ist, welche wiederum einer Poisson-Statistik genügt.
 
 \item Desweitern gibt es eine konstante Störquelle durch Inhomgenitäten im Detektor sowie Energieverluste der Teilchen außerhalb der Absorberschichten.
 
-\item In diesen Versuch von besonderem Interesse ist das elektrische Rauschen, das sich unweigerlich im Detektor ergibt.
-Dieses entsteht zum Beispiel durch Untergrundstrahlung oder das Pile-Up, das entsteht, wenn eine Überlagerung mehrerer zu detektierender Ereignisse im Detektor stattfindet (siehe zum Beispiel Abb. \ref{pileup}).
-Der hierbei entstehende Fehler ist dabei proportional zu $\frac{1}{E}$, wobei E die im Kalorimeter deponierte Energie ist.
+\item In diesen Versuch von besonderem Interesse ist der sog. \glqq Noise-Term\grqq{} der proportional zu $\frac{1}{E}$ ist, wobei $E$ die im Detektor deponierte Energie ist.
+Dieser entsteht einerseits durch elektronisches Rauschen und andererseits durch Untergrundstrahlung oder das Pile-Up, das entsteht, wenn eine Überlagerung mehrerer zu detektierender Ereignisse im Detektor stattfindet (siehe zum Beispiel Abb. \ref{pileup}).
 \end{itemize}
 
 \begin{figure}[h]
@@ -60,14 +61,14 @@ Der hierbei entstehende Fehler ist dabei proportional zu $\frac{1}{E}$, wobei E 
   \caption{Beispielhafte Darstellung eines Pile-Ups}
   \label{pileup}
 \end{figure}
-Für die Analyse der Detektoren ist es wesentlich dieses Rauschen zu unterdrücken.
+Für die Analyse der Detektoren ist es wesentlich dieses Rauschen zu unterdrücken und auch allgemeiner die Impulse in eine digital auslesbare Form zu bringen.
 Eine Möglichkeit dafür besteht in der Verwendung digitaler Filteralgorithmen, welche z. B. im FPGA implementiert werden können.
 Um die Untergrundstrahlung bzw. das Pile-Up, welche zu einem ständigen Anwachsen des Impulses bzw. einem verschieben der Nulllinie führen, zu unterdrücken, wird der Impuls durch eine Kombination von RC- bzw. CR-Schaltungen (R = Widerstand, C = Kondensator) geführt.
 Diese Schaltungen \glqq integrieren\grqq{} bzw. \glqq differenzieren\grqq{} den Impuls und wirken gleichzeitig als Frequenzfilter.
 
 Als nächstes wird auf den Impuls eine \glqq digitale Filterung\grqq{} angewandt.
-Dabei werden die nun diskreten Spannungswerte mit speziellen, vorher bestimmten Konstanten multipliziert, was das Rauschen im Impuls unterdrückt (ohne Beweis).
-Aufsummieren der gefilterten Werte gibt nun Energiewerte (also die Pulshöhe), die als Ausgabe des FPGA dienen können.
+Dabei werden die nun diskreten Spannungswerte mit speziellen, vorher bestimmten Konstanten multipliziert und aufsummiert, was das Rauschen im Impuls unterdrückt (ohne Beweis).
+Diese Summe ergibt nun Energiewerte (also die Pulshöhe), was als Ausgabe des FPGA dienen kann.
 Damit ergibt sich die Energie zu:
 \begin{equation}
 E = \sum_{i = 1}^{N} a_i S_i
@@ -79,7 +80,7 @@ In diesem Versuch soll daher eine digitale Filterung, wie sie im vorherigen Absa
 
 
 \section{Versuchsaufbau}
-In diesem Versuch wird ein Elvis II Entwicklungsboard der Firma National Instruments verwendet (siehe Abb. \ref{board}).
+In diesem Versuch wird ein Entwicklungsboard mit Intel/Altera Cyclone III FPGA verwendet (siehe Abb. \ref{board}).
 Dieses verfügt neben einem FPGA über einen An/Aus-Schalter, LEDs, vier ansteuerbare Siebensegmentanzeigen, mehrere Schalter sowie eine USB-Verbindung.
 
 \begin{figure}[h]
@@ -90,5 +91,5 @@ Dieses verfügt neben einem FPGA über einen An/Aus-Schalter, LEDs, vier ansteue
 
 Zur Konfiguration des FPGA werden Programmcodes in der Programmiersprache VHDL geschrieben (Details zu dieser sind in der Auswertung zu finden).
 Diese Skripte werden danach auf einem PC simuliert, um Funktionalität zu gewährleisten und eventuelle Fehlerquellen zu finden.
-Wenn keine vorhanden sind, wird das Skript auf das FPGA übertragen wobei dieses synthetisiert wird.
+Wenn keine vorhanden sind, wird das Skript auf das FPGA übertragen.
 Einzelne Skripte konnten dann direkt auf dem FPGA getestet werden.
