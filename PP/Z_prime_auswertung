@@ -1,0 +1,52 @@
+\section{Suche nach neuer Physik}
+
+In diesem letzten Versuchsteil soll nun innerhalb unserer Daten nach neuer Physik, genauer gesagt nach dem $Z'$-Boson gesucht werden.
+Genauer wird nach einem $Z'$ gesucht, das in ein $t \overline{t}$ Paar zerfällt.
+Dafür stehen wieder Monte-Carlo-Simulationen zur Verfügung, die solche Zerfälle für verschiedene Massen des $Z'$ im Bereich von 400 bis 3000 GeV simulieren.
+Wie bei der Higgs-Analyse sollen dafür als erstes wieder Cuts implementiert werden.
+Da dies völlig analog zur vorherigen Aufgabe geschah, werden wir auf Details dazu nicht groß eingehen und einfach den Einfluss der Cuts auf die Daten darstellen, siehe Abb. \ref{zcuts}.
+Im Abb.\ref{Cuts_z} sind beispielhaft die Impulse der Leptonen mit und ohne Cuts, sowie die invariante Masse dargestellt.
+Hier ist zu beachten, dass die $Z'$-Ereignisse aufgrund ihrer geringen Häufigkeit um den Faktor 10 hervorgehoben wurden.
+Von den verschiedenen simulierten $Z'$-Massen wurden lediglich 2 ausgewählt und in diesen Versuch analysiert.
+\begin{figure}[h!]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{before.png}
+  \caption{Impulse ohne Cuts}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{after.png}
+  \caption{Impulse mit Cuts}
+\end{subfigure}%
+ \vskip\baselineskip
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{mass_before.png}
+  \caption{invariante Masse ohne Cuts}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{mass_after.png}
+  \caption{invariante Masse mit Cuts}
+\end{subfigure}%
+\caption{Auswirkungen der Cuts auf die Ereignisse }
+\label{Cuts_z}
+\end{figure}
+
+Mit den so erhaltenen Daten wurden wieder p-Value Berechnungen für beide ausgewählte Massen durchgeführt.
+Diesmal wurden für die Berechnungen jedoch nicht für das gesamte vorhandene Spektrum, sondern nur für den Bereich mit dem besten Verhältnis aus Signal und Untergrund genutzt.
+Als Ergebnis ergaben sich folgende Werte:
+\begin{center}
+\begin{tabular}{c | c |  c }
+Massenbereich [GeV] &  p-Value & Signifikanz \\
+\hline
+$760-1100  $   & 1 & 0,39 \\
+$1560-2060$ & 1 & 0,02 \\
+\end{tabular}
+\end{center}
+
+Ein p-Value von 1 lässt sich so interpretieren, dass die Nullhypothese mit an Sicherheit grenzender Wahrscheinlichkeit wahr ist, dass es also keinen Hinweis auf ein $Z'$ mit simulierten Eigenschaften in den Daten gibt.
+Dies passt natürlich zu den aktuellen physikalischen Erkentnissen, nach denen kein $Z'$-Boson in diesem Bereich existiert.
+Es ist aber trotzdem überraschend, dass für beide Massen ein Wert von exakt 1 berechnet wurde, insbesondere da die Signifikanz für den niedrigeren Massenbereich recht hoch war.
+Auch würde man allein schon durch Rauschen oder Untergrundprozesse eigentlich Werte ungleich 1 erwarten.
