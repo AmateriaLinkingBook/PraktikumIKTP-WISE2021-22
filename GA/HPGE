@@ -1,0 +1,97 @@
+\section{HPGE}
+
+In this part we were tasked with calibrating a HPGE-szintilator.
+This calibration was done by a full-energy-peak analysis.
+For this we took the gamma-spectra of multiple sources, these were: $^{60}\text{Co}$, $^{137}\text{Cs}$, $^{133}\text{Ba}$ and $^{152}\text{Eu}$. 
+In these spectra, we identified the photopeaks with the corresponding channels.
+With the known energies and the identified channels, we could do a linear fitting, which gave us the linear energy-channel-relationship.
+
+As a first measurement, the background radiation was measured for 15 days with the detector.
+The result can be seen in Fig. \ref{hpge_background}
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{hgpe_untergrund.png}
+  \caption{Backgroundradiation, measured for 15 days}
+  \label{hpge_untergrund}
+\end{figure}
+For the analysis, we substracted the background sepctrum from the measured spectrum of the samples, to reduce the uncertainty.
+Because the measured times for the samples were much lower, we rescaled the background for every sample with a factor $\frac{t}{15 \text{d}}$, with the measured time $t$. 
+The resulting spectras can be seen in Fig. \ref{hpge}.
+For the analysis, lets first analyse the spectrum of $^{137}$Cs and identify the specific structures.
+In the outmost left and right, we can see peaks that result from decay radiation.
+By comparision with (Quelle IAEA einfügen) we can identify the left peak, as resulting from beta-decay with a energy of $174$ keV and the left one from gamma-decay with a energy of $661$ keV.
+In the middle, we can see two smaller peaks. These can again easily be identified as the compton edge to the right and the backscatter peak to the left with the compton contiuum in between.
+For a full energy peak analysis, we are only interested in gammapeaks. 
+The peak resulting from gamma-decay was marked and fitted by using a gaussian function:
+\begin{equation}
+N(K) = a \cdot exp \left( - \frac{(K - K_{0}^{2}}{2 \sigma ^{2}} \right)
+\end {equation}
+Where N are the counts and K is the channel.
+From this fit, we used the mean value ($K_0$) as the channel, corresponding to the energy of the decay.
+As a measurement of uncertainty, we used the $\textbf{full width at half maximum (FWHM)}$, which us defined as the width of a gaussian distribution at half height.
+It can be calculated by:
+\begin{equation}
+FWHM = 2 \sqrt{2 ln2} \sigma \approx 2.3548 \sigma
+\end{equation}
+This was done for every measured spectrum.
+In every spectrum , we used one or two peaks with high intensity, which could be identified and distuinguished from other peaks.
+The measurements and choosen peaks can be seen in Fig. \ref{hpge}.
+The results of the fits can be seen in \ref{hpge_peaks}
+
+\begin{figure}[h]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{hpge_co.png}
+  \caption{$^{60}\text{Co}$}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{hpge_cs.png}
+  \caption{$^{137}\text{Cs}$}
+\end{subfigure}%
+ \vskip\baselineskip
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{hpge_ba.png}
+  \caption{$^{133}\text{Ba}$}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{hpge_eu.png}
+  \caption{$^{152}\text{Eu}$}
+\end{subfigure}%
+\caption{gamma spectra of the measured sources}
+\label{hpge}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c |c | c |c}
+\hline
+Isotop & $E_{\gamma}$ [keV]  & Channel & FWHM \\
+\hline
+$^{137}Cs$ & $661.657$ & 1647 & 8 \\
+$^{60}Co$ & $1173.228$ & 2925 & 8 \\
+$^{60}Co$ & $1332.508$  & 3323 & 8 \\
+$^{152}Eu$ & $121.782$  & 303 & 7 \\
+$^{133}Ba$ & $356.913$  & 887 & 7 \\
+\hline
+\end{tabular}
+\caption{HPGE full energy peaks}
+\label{hpge_peaks}
+\end{table}
+
+With the known energies and channels, we could now find the relationship between these for the HPGE detector.
+For this we plotted the energy over the channels and made a linear fit. 
+The parameters from the fitting gave us the relationship between these quantities.
+The results can be seen in Fig. \ref{hpge_kali}
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{hgpe_kali.png}
+  \caption{Calibration curve of the HPGE detector}
+  \label{hpge_kali}
+\end{figure}
+Fitparameters were calculated to a slope of $m = 0.40090 \pm 0.00020$ and an intercept of $n = 0.59 \pm 0,43$
+Putting this all together gives us for the HPGE detector a function of:
+\begin{equation}
+E(K) = [(0.40090 \pm 0.00020) \cdot K + (0.59 \pm 0.43)]  \text{keV}
+\end {equation}
