@@ -1,0 +1,12 @@
+% braucht lualatex statt pdflatex (und muss ohne bibtex ausgeführt werden).
+\documentclass[crop,tikz]{standalone}[2022/01/17]
+%\usetikzlibrary{...}% tikz package already loaded by 'tikz' option
+\usepackage{tikz-feynman}
+\makeatletter
+\begin{document}
+\feynmandiagram [large, horizontal=W_in to center, layered layout] {
+  W_in [particle = W] -- [boson, same layer] center,
+  q [particle = $\overline{\nu}_{l}$] -- [fermion] center -- [fermion] q_bar [particle = $l$],
+  {[same layer] q, q_bar}
+  };
+\end{document}
