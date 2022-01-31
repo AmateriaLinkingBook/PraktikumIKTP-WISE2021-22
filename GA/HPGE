@@ -1,16 +1,18 @@
 \section{HPGE}
 
+\subsection{Calibration Curve}
+
 In this part we were tasked with calibrating a HPGE-szintilator.
-This calibration was done by a full-energy-peak analysis.
-For this we took the gamma-spectra of multiple sources, these were: $^{60}\text{Co}$, $^{137}\text{Cs}$, $^{133}\text{Ba}$ and $^{152}\text{Eu}$. 
+This calibration was done by a full energy peak analysis.
+For this we took the gamma spectra of multiple sources, these were: $^{60}\text{Co}$, $^{137}\text{Cs}$, $^{133}\text{Ba}$ and $^{152}\text{Eu}$. 
 In these spectra, we identified the photopeaks with the corresponding channels.
 With the known energies and the identified channels, we could do a linear fitting, which gave us the linear energy-channel-relationship.
 
 As a first measurement, the background radiation was measured for 15 days with the detector.
 The result can be seen in Fig. \ref{hpge_background}
 \begin{figure}[h]
-  \includegraphics[width=\linewidth]{hgpe_untergrund.png}
-  \caption{Backgroundradiation, measured for 15 days}
+  \includegraphics[width=\linewidth]{pictures/hgpe_untergrund.png}
+  \caption{Background radiation, measured for 15 days}
   \label{hpge_untergrund}
 \end{figure}
 For the analysis, we substracted the background sepctrum from the measured spectrum of the samples, to reduce the uncertainty.
@@ -30,33 +32,33 @@ From this fit, we used the mean value ($K_0$) as the channel, corresponding to t
 As a measurement of uncertainty, we used the $\textbf{full width at half maximum (FWHM)}$, which us defined as the width of a gaussian distribution at half height.
 It can be calculated by:
 \begin{equation}
-FWHM = 2 \sqrt{2 ln2} \sigma \approx 2.3548 \sigma
+\text{FWHM} = 2 \sqrt{2 \text{ln} 2} \sigma \approx 2.3548 \sigma
 \end{equation}
 This was done for every measured spectrum.
 In every spectrum , we used one or two peaks with high intensity, which could be identified and distuinguished from other peaks.
 The measurements and choosen peaks can be seen in Fig. \ref{hpge}.
-The results of the fits can be seen in \ref{hpge_peaks}
+The results of the fits can be seen in Fig. \ref{hpge_peaks}.
 
 \begin{figure}[h]
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=.9\linewidth]{hpge_co.png}
+  \includegraphics[width=.9\linewidth]{pictures/hpge_co.png}
   \caption{$^{60}\text{Co}$}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=.9\linewidth]{hpge_cs.png}
+  \includegraphics[width=.9\linewidth]{pictures/hpge_cs.png}
   \caption{$^{137}\text{Cs}$}
 \end{subfigure}%
  \vskip\baselineskip
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=.9\linewidth]{hpge_ba.png}
+  \includegraphics[width=.9\linewidth]{pictures/hpge_ba.png}
   \caption{$^{133}\text{Ba}$}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=.9\linewidth]{hpge_eu.png}
+  \includegraphics[width=.9\linewidth]{pictures/hpge_eu.png}
   \caption{$^{152}\text{Eu}$}
 \end{subfigure}%
 \caption{gamma spectra of the measured sources}
@@ -86,12 +88,103 @@ The parameters from the fitting gave us the relationship between these quantitie
 The results can be seen in Fig. \ref{hpge_kali}
 
 \begin{figure}[h]
-  \includegraphics[width=\linewidth]{hgpe_kali.png}
+  \includegraphics[width=\linewidth]{pictures/hgpe_kali.png}
   \caption{Calibration curve of the HPGE detector}
   \label{hpge_kali}
 \end{figure}
 Fitparameters were calculated to a slope of $m = 0.40090 \pm 0.00020$ and an intercept of $n = 0.59 \pm 0,43$
-Putting this all together gives us for the HPGE detector a function of:
+Putting this all together gives us for the HPGE the calibration curve:
 \begin{equation}
 E(K) = [(0.40090 \pm 0.00020) \cdot K + (0.59 \pm 0.43)]  \text{keV}
 \end {equation}
+
+\clearpage
+
+\subsection{Energy Resolution}
+
+After we got the calibration curve, we looked into the energy resolution of the detector.
+The energy resolution means how good peaks can be seperated from each other.
+Peaks usually have a gaussian shape, so we can use the width of this curve as a measure of the resolution.
+The energy resolution of a detector should follow the following formular:
+\begin{equation}
+\frac{\Delta E}{E} = \frac{\sqrt{a + bE + cE^2}}{E}
+\label{resolution}
+\end{equation}
+In this formular, $\Delta E$ is the FHWM and $a$, $b$, $c$ are constants which describe different unvertainites from the detector.
+From Eq. \ref{resolution} we get:
+\begin{itemize}
+\item $\frac{\Delta E}{E} \propto \frac{\sqrt{a}}{E}$ This term is caused by electronic noise inside the detector, background radiation or pile-up of multiple events.
+\item $\frac{\Delta E}{E} \propto \frac{b}{\sqrt{E}}$  This terms follows statistical fluctuations during the detection.
+\item $\frac{\Delta E}{E} \propto c$ This constant comes from inhomgeneities inside the detector, nonlinearrity of the detector or inter-calibration of detectors cells.
+\end{itemize}
+In the following part of the lab course, calculate these uncertainties  $a$, $b$, $c$.
+The FHWM was already calculated for every peak in Tab. \ref{hpge_peaks}.
+To get $\frac{\Delta E}{E}$ we have plotted the FHWM over the energy of the peaks.
+These points were than fitted according to Eq. \ref{resolution}.
+The result can be seen in Fig. \ref{hpge_res}.
+Fitparameters were calculated to: $a = 47 \pm 5$, $b = -3.6 \pm 1.7$ and $c = 3.6 \pm 1.9$.
+
+We can see, that Eq. \ref{resolution} is a good approximation for our data.
+In the parameters we see, that the electronic noise seems to be the dominant uncertainty of the detector.
+It is noticeable, that the calculated uncertainty for $b$ and $c$  are quite high.
+This might be for numerical reasons, because of the fit function.
+
+
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{pictures/hpge_resolution.png}
+  \caption{Energy reslution of the HPGE detector}
+  \label{hpge_res}
+\end{figure}
+
+\clearpage
+
+\subsection{Peak Efficiency}
+In the last part of the detector calibration, we will analiyse the peak efficiency of the detector.
+The peak efficiency of a detector can be calculated for a detected peak as:
+\begin{equation}
+\eta = \frac{N_{obs}}{N_{emit}} = \frac{N_{obs}}{At_{live}P}
+\end {equation}
+With the observed counts for this peak $N_{obs}$, the acitivty of the sample $A$, the live time of the detector $t_{live}$ and the probability of this decay to happen $P$.
+The observed counts can be calculated by integrating under the peak or, what we did, with the equation:
+\begin{equation}
+N_{obs} = I \sigma \sqrt{2\pi}
+\label{gauss_area}
+\end {equation}
+Where $I$ is the amplitude of the peak and $\sigma$ is the standard deviation.
+$A$ and $\sigma$ were calculated together with Tab. \ref{hpge_peaks}.
+The probabilitys were taken from (iaea einfügen).
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c |c | c |c | c | c | c}
+\hline
+Isotop & $E_{\gamma}$ [keV] & $P$ & $t_{live}[s]$  & $A [kBq]$ & $N_{obs}$ & $\eta$ \\
+\hline
+$^{137}Cs$ & $661.657$ & 85.12  & 725   & $23.0 \pm 0.9$ & 96380  & $ (6.79 \pm 0.27)10^{-3}$ \\
+$^{60}Co$ & $1173.228$ & 99.85  & 1206 & $1.09 \pm 0.04$ & 5872  & $ (4.47 \pm 0.18)10^{-3}$ \\
+$^{60}Co$ & $1332.508$  & 99.98 & 1206 & $1.09 \pm 0.04$ & 5220  & $ (3.97 \pm 0.16)10^{-3}$ \\
+$^{152}Eu$ & $121.782$  & 28.53 & 925   & $9.9 \pm 0.5$ & 62798    & $ (2.40 \pm 0.12)10^{-2}$\\
+$^{133}Ba$ & $356.913$  & 62.05 & 971   & $7.3 \pm 0.4$ & 51132    & $ (1.163 \pm 0.037)10^{-2}$\\
+\hline
+\end{tabular}
+\caption{HPGE full energy peaks}
+\label{hpge_eff_calc}
+\end{table}
+
+This efficiency should in theory follow an exponential law:
+\begin{equation}
+\eta = a \cdot E^{-b}
+\end {equation}
+Ploting the calculated $\eta$ over the corresponding energies and fitting these points (see Fig. \ref{hgpe_eff} gave us the following peak efficiency of the HPGE detector:
+\begin{figure}[h]
+  \includegraphics[width=\linewidth]{../pictures/hpge_eff.png}
+  \caption{Peak efficiency of the HPGE detector}
+  \label{hpge_eff}
+\end{figure}
+\begin{equation}
+\eta = (0.755 \pm 0.014) \cdot E^{-(0.7174  \pm 0.0035)}
+\label{peak_eff_eq}
+\end {equation}
+
+\clearpage
+
