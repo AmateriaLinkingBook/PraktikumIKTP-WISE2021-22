@@ -92,7 +92,7 @@ for i in np.arange(0, N, 1):
 
 # IDENTIFICATION
 
-identify_num = 0
+identify_num = 1
 
 possible_ions = [["16_O_1+", 16, 1],
                  ["16_O_2+", 16, 2],
@@ -237,7 +237,7 @@ for i in np.arange(0, peaks[plot_num].size, 1):
 # for j in np.arange(0, peaks[plot_num].size, 1):
 #     ax.plot(beautiful_x, cauchy(beautiful_x, peak_fits[plot_num][j][0], peak_fits[plot_num][j][1], peak_fits[plot_num][j][2]))
 ax.set_yscale('log')
-ax.set_ylim(1.0e-4, np.max(data[plot_num]["intensity"])*1.5)
+ax.set_ylim(1.0e-10, np.max(data[plot_num]["intensity"])*1.5)
 ax.set_xlabel("Strom durch Magneten / " + current_unit, fontsize = fsize)
 ax.set_ylabel("Intensität / " + intensity_unit[plot_num], fontsize = fsize)
 ax.tick_params(axis='both', labelsize = fsize)
