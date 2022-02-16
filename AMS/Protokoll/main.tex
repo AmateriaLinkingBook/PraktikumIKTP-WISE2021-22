@@ -13,6 +13,7 @@ parskip=full,  % Absätze durch Leerzeile trennen
 
 % Mathematik und Größen
 \usepackage{amsmath}
+\usepackage{amsfonts} 
 \usepackage[locale=DE,  % deutsche Eigenarten, englisch -> US
 separate-uncertainty,  % Unsicherheiten seperat angeben (mit ±)
 ]{siunitx}
@@ -39,6 +40,9 @@ separate-uncertainty,  % Unsicherheiten seperat angeben (mit ±)
 % SI-Einheiten darstellen
 \usepackage{siunitx}
 
+% Tabellen mit geteilten Zeilen
+\usepackage{multirow}
+
 % Kopf-/Fußzeilen setzen
 \pagestyle{scrheadings}  % Stil für die Seite setzen
 \clearmainofpairofpagestyles  % Stil zurücksetzen, um ihn neu zu definieren
@@ -49,6 +53,9 @@ separate-uncertainty,  % Unsicherheiten seperat angeben (mit ±)
 \usepackage[hidelinks]{hyperref}  % Links und weitere PDF-Features
 
 % TODO: Titel und Autor, … festlegen
+
+%\newcommand\norm[1]{\left\lVert#1\right\rVert} % Norm
+
 \newcommand*{\titel}{Beschleunigermas­senspektrometrie und Methoden zur Altersbestimmung}
 \newcommand*{\autor}{Sebastian Thiede, Alexander Lettau}
 \newcommand*{\abk}{BM}
@@ -80,9 +87,15 @@ Betreuer: & \betreuer\end{tabular}}
 % ----- DOKUMENT ANFANG -----
 
 \input{Aufgabenstellung.tex}
+% --- Theorie ---
+\input{Versuchsaufbau.tex}
+\input{Auswertung.tex}
 
 \nocite{*} % alle resourcen auflisten
 \printbibliography
+
+\appendix
+\input{Appendix.tex}
 
 % ----- DOKUMENT ENDE -----
 
