@@ -92,7 +92,7 @@ for i in np.arange(0, N, 1):
 
 # IDENTIFICATION
 
-identify_num = 1
+identify_num = 0
 
 possible_ions = [["16_O_1+", 16, 1],
                  ["16_O_2+", 16, 2],
@@ -233,9 +233,7 @@ for i in np.arange(0, peaks[plot_num].size, 1):
             data[plot_num]["intensity"].iloc[peaks[plot_num][i]],
             np.round(peak_avg[plot_num][i], 1),
             fontsize=fsize)
-# beautiful_x = np.linspace(np.min(data[plot_num]["channel"]), np.max(data[plot_num]["channel"]), 2000)
-# for j in np.arange(0, peaks[plot_num].size, 1):
-#     ax.plot(beautiful_x, cauchy(beautiful_x, peak_fits[plot_num][j][0], peak_fits[plot_num][j][1], peak_fits[plot_num][j][2]))
+
 ax.set_yscale('log')
 ax.set_ylim(1.0e-10, np.max(data[plot_num]["intensity"])*1.5)
 ax.set_xlabel("Strom durch Magneten / " + current_unit, fontsize = fsize)
@@ -243,8 +241,8 @@ ax.set_ylabel("Intensität / " + intensity_unit[plot_num], fontsize = fsize)
 ax.tick_params(axis='both', labelsize = fsize)
 fig.tight_layout()
 
-# fig.savefig("../Protokoll/Pictures/new_figure.pdf", format="pdf")
-
 plt.show()
+
+# fig.savefig("../Protokoll/Pictures/new_figure.pdf", format="pdf")
 
 # %%

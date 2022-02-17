@@ -14,7 +14,7 @@ names = np.array(["3.mpa",
 name_AB = "NAME=AxB"    # Identifizierung für A-B-Spektren
 name_CD = "NAME=CxD"    # Identifizierung für C-D-Spektren
 name_begin = "[DATA]"   # Zeile/Zeichen vor Beginn der Daten
-name_end = "["          # Zeile/Zeichen vor Beginn der Daten
+name_end = "["          # Zeile/Zeichen vor Ende der Daten
 data_len = 256
 
 # %%
@@ -63,7 +63,7 @@ for i in np.arange(0, N_names, 1):
 
 # Plot-Einstellungen
 
-plot_num = 2 # Nummer der Datei in names, die geplottet wird
+plot_num = 0 # Nummer der Datei in names, die geplottet wird
 max_xy = 160 # Maximum der x/y-Achse
 
 fsize = 16 # Schriftgröße

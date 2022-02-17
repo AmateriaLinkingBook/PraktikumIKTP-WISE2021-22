@@ -166,3 +166,54 @@ Damit erhält man folgende Permutation als best-passende:
   \label{Auswertung_tab_Teilchenspezies_BeO_HE}
 \end{center}
 Die Intensitäten der Peaks wurden bisher noch gar nicht beachtet.
+Erstaunlich ist der hohe Anteil an Aluminium.
+Da wir eine chemisch reine Probe benutzt haben sollte das Aluminium nicht von dieser stammen.
+Es ist möglich, dass es von Bauteilen der Anlage stammt, aus denen es von anderen Ionen herausgeschlagen wurde.
+
+\subsection{Isobarentrennung}
+Wie in dem vorherigen Abschnitt bereits erwähnt ist es bis hierhin noch nicht möglich gewesen Isobare zu unterscheiden.
+Um Abhilfe zu schaffen ist im weiteren Strahlenverlauf eine dünne Schicht aus Siliziumnitrid angebracht.
+Da der Verlust an kinetischer Energie von Atomen in Materie stark von der Kernladungszahl abhängt erlaubt dies die Isobarentrennung.
+den Faktor $\frac{\Delta E}{\Delta x}$ erhalten wir aus der frei verfügbaren Software SRIM.
+Für $^{10}\text{Be}$ ist $\left (\frac{\Delta E}{\Delta x}\right )_{^{10}\text{Be}} = \SI{766.7}{\kilo\electronvolt\per\micro\metre}$.
+Die SiN-Folie hat eine Dicke von \SI{1}{\micro\metre}.
+Damit ergibt sich ein Energieverlust der $^{10}\text{Be}$-Atome von \SI{766.7}{\kilo\electronvolt}.
+Die verbleibende Energie der $^{10}\text{Be}$-Ionen ist dann, abhängig von deren Energie vorher:
+\begin{center}
+  \begin{tabular}{|c|c|c|}
+    \hline
+    Ion & Energie nach Beschleuniger & Energie nach Folie \\
+    \hline
+    $^{10}\text{Be}^{1+}$ & \SI{7.3}{\mega\electronvolt}  & \SI{6.5}{\mega\electronvolt}  \\
+    $^{10}\text{Be}^{2+}$ & \SI{12.5}{\mega\electronvolt} & \SI{11.6}{\mega\electronvolt} \\
+    $^{10}\text{Be}^{3+}$ & \SI{17.8}{\mega\electronvolt} & \SI{17.0}{\mega\electronvolt} \\
+    $^{10}\text{Be}^{4+}$ & \SI{23.0}{\mega\electronvolt} & \SI{22.3}{\mega\electronvolt} \\
+    \hline
+  \end{tabular}
+  \captionof{table}{Ionenenergien nach ser SiN Folie in Abhängigkeit der Ladungszustände aus dem Beschleuniger.}
+  \label{Auswertung_tab_Ionenenergien_nach_Folie}
+\end{center}
+Nach der Folie wird $^{10}\text{Be}$ nur noch im Ladungszustand $4+$ erwartet, da die Atome durch die Foile weiter ionisiert werden.
+
+Um nun die Isobare $^{10}\text{Be}$ und $^{10}\text{B}$ zu trennen ist nach der Folie ein elektrostatischer Analysierer angebracht.
+Die Spannung die angelegt werden muss kann berechnet werden durch Kräftegleichgewicht:
+\begin{gather}
+    q_{\text{Ion+}} \cdot \frac{U_{\text{Platte}}}{d_{\text{Platte}}} = \frac{mv^{2}}{r}
+\end{gather}
+Wobei $d_{\text{Platte}} = \SI{3.6}{\centi\metre}$ und $r = \SI{2.6}{\metre}$ ist.
+Die Spannung, die einzustellen ist, ist jedoch nur die halbe, da auf den Platten jeweils $+U_{\text{Platte}}$ und $-U_{\text{Platte}}$ erzeugt wird (die Spannung wird beim einstellen relativ zur Erdung gemessen).
+Für das Ion $^{10}\text{Be}^{4+}$ ergibt sich daher in Abhängigkeit der Energie nach der Folie eine Ablenkspannung von:
+\begin{center}
+  \begin{tabular}{|c|c|c|}
+    \hline
+    Ion & Energie nach Folie & $\frac{U_{\text{Platte}}}{2}$ \\
+    \hline
+    \multirow{4}*{$^{10}\text{Be}^{4+}$} & \SI{6.5}{\mega\electronvolt}  & \SI{22.5}{\kilo\volt} \\
+                                         & \SI{11.6}{\mega\electronvolt} & \SI{40.7}{\kilo\volt} \\
+                                         & \SI{17.0}{\mega\electronvolt} & \SI{58.9}{\kilo\volt} \\
+                                         & \SI{22.3}{\mega\electronvolt} & \SI{77.0}{\kilo\volt} \\
+    \hline
+  \end{tabular}
+  \captionof{table}{Ablenkspannug für den ESA für verschiedene Ionenenergien.}
+  \label{Auswertung_tab_Ablenkspannung_ESA}
+\end{center}
