@@ -11,30 +11,35 @@ prefix = "../Daten/"
 names = np.array(["HEMass60-140pos153BeOTUDPract.asc",
                   "LEMass40-85pos153BeOTUDPract.asc",
                   "LEMass40-85pos173KY13STUDPract.asc",
-                  "LEMass40-85pos173KY13STUDPract2.asc"])
+                  "LEMass40-85pos173KY13STUDPract2.asc",
+                  "LEMass40-85pos174KY14TUDPract.asc",
+                  "LEMass40-85pos175KY16TUDPract.asc",
+                  "LEMass40-85pos176KY17TUDPract.asc"])
 intensity_unit = np.array(["%",  # minimum height peak has to have, in amounts used in files (y-coordinate (intensity)), for finding peaks
+                           "A",
+                           "A",
+                           "A",
                            "A",
                            "A",
                            "A"])
 intensity_factor = np.array([1,
                              -1/100,  # Weil in % angegeben
                              -1/100,  # Weil in % angegeben
+                             -1/100,  # Weil in % angegeben
+                             -1/100,  # Weil in % angegeben
+                             -1/100,  # Weil in % angegeben
                              -1/100]) # Weil in % angegeben
 current_unit = "A"
 min_peak_height = np.array([1.0e-3,  # minimum height peak has to have, in amounts used in files (y-coordinate (intensity)), for finding peaks
-                            5.0e-9,
-                            5.0e-9,
-                            5.0e-9])
-peak_width = 1.0 # approximate width peak can have, in amounts used in files (x-coordinate (mass)), for fitting peaks
+                            1.0e-10,
+                            1.0e-10,
+                            1.0e-10,
+                            1.0e-10,
+                            1.0e-10,
+                            1.0e-10])
+peak_width = 0.5 # approximate width peak can have, in amounts used in files (x-coordinate (mass)), for fitting peaks
 
 # %%
-
-def gaussian(x, scale, mu, sigma):
-    sigma2 = sigma**2
-    return scale*(1.0/(np.sqrt(2.0*np.pi*sigma2)) * np.exp(-(x-mu)**2)/(2*sigma2))
-
-def cauchy(x, scale, x_0, gamma):
-    return scale*(1/(np.pi*gamma*(1+((x-x_0)/gamma)**2)))
 
 N = names.size
 
@@ -58,26 +63,9 @@ print("Finding Peaks...")
 
 peaks = np.empty(N, dtype=np.ndarray)
 for i in np.arange(0, N, 1):
-    peaks[i] = find_peaks(data[i]["intensity"], height = min_peak_height[i])[0]
+    scale_fac = data[i]["channel"].size/(np.max(data[i]["channel"])-np.min(data[i]["channel"]))
+    peaks[i] = find_peaks(data[i]["intensity"], height = min_peak_height[i], distance = int(peak_width*scale_fac))[0]
     print(i, "- peak amount:", peaks[i].size)
-
-"""
-print("Fitting peaks...")
-
-peak_fits = np.empty(N, dtype=np.ndarray)
-for i in np.arange(0, N, 1):
-    peak_fits[i] = np.empty(peaks[i].size, dtype=np.ndarray)
-    for j in np.arange(0, peaks[i].size, 1):
-        scale_fac = data[i]["channel"].size/(np.max(data[i]["channel"])-np.min(data[i]["channel"]))
-        lower_idx = int(np.floor(peaks[i][j] - peak_width*scale_fac))
-        upper_idx = int(np.ceil(peaks[i][j] + peak_width*scale_fac))
-        peak_fits[i][j] = curve_fit(cauchy,
-                          data[i]["channel"].iloc[lower_idx:upper_idx],
-                          data[i]["intensity"].iloc[lower_idx:upper_idx],
-                          p0 = [min_peak_height, data[i]["channel"].iloc[peaks[i][j]], peak_width/5],
-                          bounds = ([-np.inf, data[i]["channel"].iloc[lower_idx], 0],[np.inf, data[i]["channel"].iloc[upper_idx], peak_width*2]))[0]
-        print(peak_fits[i][j])
-"""
 
 peak_avg = np.empty(N, dtype=np.ndarray)
 for i in np.arange(0, N, 1):
@@ -92,7 +80,7 @@ for i in np.arange(0, N, 1):
 
 # IDENTIFICATION
 
-identify_num = 0
+identify_num = 1
 
 possible_ions = [["16_O_1+", 16, 1],
                  ["16_O_2+", 16, 2],
@@ -124,54 +112,8 @@ possible_ions_sorted = [possible_ions[i] for i in np.argsort(sorter)]
 
 # for i in np.arange(0, N_ions, 1):
 #     print(possible_ions_sorted[i])
-
-# %%
-
 """
-
-# calculate ratios for peak combinations
-
-N_recommend = 10
-
-N_ratio = int((N_ions*(N_ions-1))/2)
-ratios = [[]]*N_ratio
-for i in np.arange(0, N_ions-1, 1):
-    for j in np.arange(1, N_ions-i, 1):
-        ratios[int(i*(N_ions-1)-i*(i-1)/2+(j-1))] = [i,
-                                                     i+j,
-                                                     np.sqrt(possible_ions[i+j][1]/possible_ions[i][1])/(possible_ions[i+j][2]/possible_ions[i][2])]
-
-N_peak_ratio = int((N_peak*(N_peak-1))/2)
-peak_ratios = [[]]*N_peak_ratio
-for i in np.arange(0, N_peak-1, 1):
-    for j in np.arange(1, N_peak-i, 1):
-        peak_ratios[int(i*(N_peak-1)-i*(i-1)/2+(j-1))] = [i,
-                                                          i+j,
-                                                          peak_avg[identify_num][i]/peak_avg[identify_num][i+j]]
-
-# ratio print
-
-best_ratio_sorters = np.empty(N_peak_ratio, dtype=np.ndarray)
-for i in np.arange(0, N_peak_ratio, 1):
-    diff_arr = np.abs(np.array([ratios[i][2] for i in np.arange(0, N_ratio, 1)]) - peak_ratios[i][2])
-    best_ratio_sorters[i] = np.argsort(diff_arr)
-
-if N_recommend > N_ratio:
-    N_recommend = N_ratio
-
-for i in np.arange(0, N_peak_ratio, 1):
-    print("--- peaks @", np.round(peak_avg[identify_num][peak_ratios[i][0]], 1), current_unit, "and", np.round(peak_avg[identify_num][peak_ratios[i][1]], 1), current_unit, "---")
-    print("peak ratio:", np.round(peak_ratios[i][2], 4))
-    print("nearest ratios:")
-    print("Ion 1 (@" + str(np.round(peak_avg[identify_num][peak_ratios[i][1]], 1)) + " " + current_unit + ")\t\tIon 2 (@" + str(np.round(peak_avg[identify_num][peak_ratios[i][0]], 1)) + " " + current_unit + ")\t\tratio")
-    for j in np.arange(0, N_recommend, 1):
-        temp = [ratios[l] for l in best_ratio_sorters[i]]
-        print(possible_ions[temp[j][0]][0], "\t\t", possible_ions[temp[j][1]][0], "\t\t", np.round(temp[j][2], 4))
-
-"""
-
 # %%
-
 N_overall_recomend = 10
 
 # find best overall combinations
@@ -217,10 +159,10 @@ for i in np.arange(0, N_overall_recomend, 1):
         print("{item:<12}     ".format(item = sorted_all_combinations[i][j][0]), sep="", end="")
     print("{item:<12}   ".format(item = sorted_all_combinations[i][N_peak-1][0]), sep="", end="\n\n")
     print("uncertainty:", np.round(sorted_all_combinations_err[i], 4), end="\n\n")
-
+"""
 # %%
 
-plot_num = identify_num
+plot_num = 7
 fsize = 16
 
 fig = plt.figure(figsize=(16, 9))
@@ -231,18 +173,18 @@ ax.plot(peak_avg[plot_num], data[plot_num]["intensity"].iloc[peaks[plot_num]], "
 for i in np.arange(0, peaks[plot_num].size, 1):
     ax.text(peak_avg[plot_num][i]+0.5,
             data[plot_num]["intensity"].iloc[peaks[plot_num][i]],
-            np.round(peak_avg[plot_num][i], 1),
+            np.round(peak_avg[plot_num][i], 2),
             fontsize=fsize)
 
 ax.set_yscale('log')
-ax.set_ylim(1.0e-10, np.max(data[plot_num]["intensity"])*1.5)
+ax.set_ylim(1.0e-10, np.max(data[plot_num]["intensity"])*2.0)
 ax.set_xlabel("Strom durch Magneten / " + current_unit, fontsize = fsize)
 ax.set_ylabel("Intensität / " + intensity_unit[plot_num], fontsize = fsize)
 ax.tick_params(axis='both', labelsize = fsize)
 fig.tight_layout()
 
-plt.show()
+fig.savefig("../Protokoll/Pictures/" + names[plot_num][:-4] +".pdf", format="pdf")
 
-# fig.savefig("../Protokoll/Pictures/new_figure.pdf", format="pdf")
+plt.show()
 
 # %%
