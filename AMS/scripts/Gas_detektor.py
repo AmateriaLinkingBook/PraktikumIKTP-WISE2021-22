@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib
 matplotlib.use('QT5Agg')
 import matplotlib.pyplot as plt
+from mpl_toolkits.axes_grid1 import ImageGrid
 
 # Einstellungen
 
@@ -10,6 +11,11 @@ prefix = "../Daten/"
 names = np.array(["3.mpa",
                   "19.mpa",
                   "22.mpa"])    # Dateien = prefix + names[i]
+
+live_times = np.array([1245.252,
+                       845.399,
+                       474.138])
+
 
 name_AB = "NAME=AxB"    # Identifizierung für A-B-Spektren
 name_CD = "NAME=CxD"    # Identifizierung für C-D-Spektren
@@ -63,28 +69,40 @@ for i in np.arange(0, N_names, 1):
 
 # Plot-Einstellungen
 
-plot_num = 0 # Nummer der Datei in names, die geplottet wird
+plot_num = 1 # Nummer der Datei in names, die geplottet wird
+ref_num = 2 # Nummer der Referenzdatei
 max_xy = 160 # Maximum der x/y-Achse
 
+color_scale = 0.5 # Skalierung um Farben an den Rändern schöner zu machen
 fsize = 16 # Schriftgröße
-colormap_name = "YlOrBr" # Farbschema
+colormap_name_one = "YlOrBr"
+colormap_name_ref = "RdGy" # Farbschema
 
-# Plotten
+# %%
+
+# Plotten einzelne Spektren
+
+AB_plot_data = data_fill[plot_num, 0, 0:max_xy+1, 0:max_xy+1]/live_times[plot_num]
+CD_plot_data = data_fill[plot_num, 1, 0:max_xy+1, 0:max_xy+1]/live_times[plot_num]
+
+scale = np.max(np.abs([AB_plot_data, CD_plot_data]))*color_scale
 
 fig = plt.figure(figsize=(16, 8))
 axAB = fig.add_subplot(1, 2, 1)
 axCD = fig.add_subplot(1, 2, 2)
 
-axAB.imshow(data_fill[plot_num, 0, 0:max_xy+1, 0:max_xy+1],
+axAB.imshow(AB_plot_data,
             origin = "lower",
-            cmap = colormap_name,
+            cmap = colormap_name_one,
             aspect = "equal",
-            interpolation = "none")
-axCD.imshow(data_fill[plot_num, 1, 0:max_xy+1, 0:max_xy+1],
+            interpolation = "none",
+            vmin = 0, vmax=scale)
+axCD.imshow(CD_plot_data,
             origin = "lower",
-            cmap = colormap_name,
+            cmap = colormap_name_one,
             aspect = "equal",
-            interpolation = "none")
+            interpolation = "none",
+            vmin = 0, vmax=scale)
 
 axAB.set_xlabel("Anode A", fontsize = fsize)
 axAB.set_ylabel("Anode B", fontsize = fsize)
@@ -94,6 +112,69 @@ axCD.set_xlabel("Anode C", fontsize = fsize)
 axCD.set_ylabel("Anode D", fontsize = fsize)
 axCD.tick_params(axis='both', labelsize = fsize)
 
-fig.tight_layout()
+plt.subplots_adjust(left=0.07, right=0.97, top=0.99, bottom=0.05)
+
+# fig.savefig("../Protokoll/Pictures/Gasdetektor/Gasdetektor_2DSpektrum_" + names[plot_num][:-4] +".png", format="png")
 
 plt.show()
+
+# %%
+
+# Plotten Abweichung
+
+AB_plot_data = data_fill[plot_num, 0, 0:max_xy+1, 0:max_xy+1]/live_times[plot_num] - data_fill[ref_num, 0, 0:max_xy+1, 0:max_xy+1]/live_times[ref_num]
+CD_plot_data = data_fill[plot_num, 1, 0:max_xy+1, 0:max_xy+1]/live_times[plot_num] - data_fill[ref_num, 1, 0:max_xy+1, 0:max_xy+1]/live_times[ref_num]
+
+scale = np.max(np.abs([AB_plot_data, CD_plot_data]))*color_scale
+
+if (ref_num != plot_num):
+
+    fig = plt.figure(figsize=(16, 8))
+
+    grid = ImageGrid(fig, 111,
+                    nrows_ncols=(1,2),
+                    axes_pad=1.0,
+                    share_all=False,
+                    label_mode = "all",
+                    cbar_location="right",
+                    cbar_mode="single",
+                    cbar_size="7%",
+                    cbar_pad=0.15)
+
+    # Add data to image grid
+
+    im = grid[0].imshow(AB_plot_data,
+                        origin = "lower",
+                        cmap = colormap_name_ref,
+                        aspect = "equal",
+                        interpolation = "none",
+                        vmin = -scale, vmax=scale)
+    im = grid[1].imshow(CD_plot_data,
+                        origin = "lower",
+                        cmap = colormap_name_ref,
+                        aspect = "equal",
+                        interpolation = "none",
+                        vmin = -scale, vmax=scale)
+
+    # Colorbar
+
+    grid[0].set_xlabel("Anode A", fontsize = fsize)
+    grid[0].set_ylabel("Anode B", fontsize = fsize)
+    grid[0].tick_params(axis='both', labelsize = fsize)
+
+    grid[1].set_xlabel("Anode C", fontsize = fsize)
+    grid[1].set_ylabel("Anode D", fontsize = fsize)
+    grid[1].tick_params(axis='both', labelsize = fsize)
+
+    cbar = grid[1].cax.colorbar(im)
+    cbar.ax.tick_params(labelsize=fsize)
+    grid[1].cax.toggle_label(True)
+
+    plt.tight_layout()    # Works, but may still require rect paramater to keep colorbar labels visible
+
+#    fig.savefig("../Protokoll/Pictures/Gasdetektor/Gasdetektor_2DSpektrum_" + names[plot_num][:-4] + "_relativ_zu_" + names[ref_num][:-4] + ".png", format="png")
+
+    plt.show()
+
+else:
+    print("Err.: reference is equal to sample.")
