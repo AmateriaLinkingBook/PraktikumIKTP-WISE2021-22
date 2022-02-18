@@ -1,4 +1,4 @@
-\section{Experimenteller Teil}
+s \section{Experimenteller Teil}
 Im ersten Teil der Auswertung verfolgen wir im Wesentlichen Ionen durch die Anlage.
 Untersucht werden soll dabei eine vorbereitete BeO-Probe, genannt \glqq 153BeO\grqq{}, und die Proben \glqq 13KY\grqq{}, \glqq 14KY\grqq{}, \glqq 16KY\grqq{} und \glqq 17KY\grqq{}.
 Im zweiten Teil betrachten wir aufgenommene Spektren und untersuchen eine unbekannte Probe.
@@ -117,7 +117,7 @@ Dafür müsste man jedoch sicherstellen, dass der ADC des Faraday-Cups nicht üb
 \centering
 \includegraphics[width=.95\linewidth]{Pictures/LEMass40-85pos173KY13STUDPract.pdf}
 \caption{Probe KY13}
-\end{subfigure}
+\end{subfigure} \quad
 \begin{subfigure}{.45\textwidth}
 \centering
 \includegraphics[width=.95\linewidth]{Pictures/LEMass40-85pos174KY14TUDPract.pdf}
@@ -128,7 +128,7 @@ Dafür müsste man jedoch sicherstellen, dass der ADC des Faraday-Cups nicht üb
 \centering
 \includegraphics[width=.95\linewidth]{Pictures/LEMass40-85pos175KY16TUDPract.pdf}
 \caption{Probe KY16}
-\end{subfigure}
+\end{subfigure} \quad
 \begin{subfigure}{.45\textwidth}
 \centering
 \includegraphics[width=.95\linewidth]{Pictures/LEMass40-85pos176KY17TUDPract.pdf}
@@ -147,38 +147,32 @@ Dafür müsste man jedoch sicherstellen, dass der ADC des Faraday-Cups nicht üb
 \clearpage
 
 \subsection{Teilchenenergien nach dem Beschleuniger}
-Die Vorselektierten Ionen werden im ersten Teil des Beschleunigers mit der angelegten Spannung beschleunigt.
+Die vorselektierten Ionen werden im ersten Teil des Beschleunigers mit der angelegten Spannung beschleunigt.
 In der Mitte treffen sie auf Argon an welchem sie sich umladen und die Moleküle aufbrechen.
 (Das Aufbrechen der Moleküle ist kein Problem, da chemische Bindungsenergien typischerweise im \si{\electronvolt}-Bereich liegen, die Ionen bis dahin aber schon mehrere \si{\mega\electronvolt} an kinetischer Energie haben.)
-Die entstandenen Ionen werden dann mit ihrer positiven Ladung noch ein weiteres Mal mit der angelegten Spannung beschleunigt.
-Daher ergibt sich ihre Energie nach dem Beschleuniger zu:
-\begin{gather}
-    E_{\text{tot}} = e \cdot (U_{\text{Ionenquelle}} + U_{\text{Beschleuniger}}) \cdot \frac{m_{\text{Ion}^{+}}}{m_{\text{Molekül}^{-}}} + U_{\text{Beschleuniger}} \cdot q_{\text{Ion}^{+}}
-\end{gather}
-Wobei im erste Summand der Term $\frac{m_{\text{Ion}^{+}}}{m_{\text{Molekül}^{-}}}$ benutzt wird um die anteilige kinetische Energie des entstandenen Ions bis zum Argongas zu beschreiben.
-Der zweite Summand beschreibt die Beschleunigung nach dem Argongas.
+Die entstandenen Ionen werden dann mit ihrer positiven Ladung noch ein weiteres Mal mit der angelegten Spannung beschleunigt (s. Gleichung \ref{Theo_Energie_nach_Beschleuniger}).
 
 In unserem Versuch betrug die Spannung des Beschleunigers \SI{5.2479e6}{\volt}.
 Damit ergeben sich für entstandene Ionen eine Energie nach dem Beschleuniger von:
 \begin{center}
   \begin{tabular}{|c|c|}
     \hline
-    Ion & Energie \\
+    Ion & Energie / \si{\mega\electronvolt} \\
     \hline
-    $^{9}\text{Be}^{1+}$ & \SI{7.1}{\mega\electronvolt} \\
-    $^{9}\text{Be}^{2+}$ & \SI{12.3}{\mega\electronvolt} \\
-    $^{9}\text{Be}^{3+}$ & \SI{17.6}{\mega\electronvolt} \\
-    $^{9}\text{Be}^{4+}$ & \SI{22.8}{\mega\electronvolt} \\
+    $^{9}\text{Be}^{1+}$ & \num{7.1} \\
+    $^{9}\text{Be}^{2+}$ & \num{12.3} \\
+    $^{9}\text{Be}^{3+}$ & \num{17.6} \\
+    $^{9}\text{Be}^{4+}$ & \num{22.8} \\
     \hline
-    $^{10}\text{Be}^{1+}$ & \SI{7.3}{\mega\electronvolt} \\
-    $^{10}\text{Be}^{2+}$ & \SI{12.5}{\mega\electronvolt} \\
-    $^{10}\text{Be}^{3+}$ & \SI{17.8}{\mega\electronvolt} \\
-    $^{10}\text{Be}^{4+}$ & \SI{23.0}{\mega\electronvolt} \\
+    $^{10}\text{Be}^{1+}$ & \num{7.3} \\
+    $^{10}\text{Be}^{2+}$ & \num{12.5} \\
+    $^{10}\text{Be}^{3+}$ & \num{17.8} \\
+    $^{10}\text{Be}^{4+}$ & \num{23.0} \\
     \hline
-    $^{16}\text{O}^{1+}$ & \SI{8.5}{\mega\electronvolt} \\
-    $^{16}\text{O}^{2+}$ & \SI{13.7}{\mega\electronvolt} \\
-    $^{16}\text{O}^{3+}$ & \SI{19.0}{\mega\electronvolt} \\
-    $^{16}\text{O}^{4+}$ & \SI{24.2}{\mega\electronvolt} \\
+    $^{16}\text{O}^{1+}$ & \num{8.5} \\
+    $^{16}\text{O}^{2+}$ & \num{13.7} \\
+    $^{16}\text{O}^{3+}$ & \num{19.0} \\
+    $^{16}\text{O}^{4+}$ & \num{24.2} \\
     \hline
   \end{tabular}
   \captionof{table}{Ionenenergien nach dem Beschleuniger für ausgewählte Ionen}
@@ -186,9 +180,9 @@ Damit ergeben sich für entstandene Ionen eine Energie nach dem Beschleuniger vo
 \end{center}
 
 \subsection{Faraday-Cups}
-Nachdem wir nun Ionen mit hoher Geschwindigkeit nach dem Beschleuniger haben können wir versuchen häufig auftretende Nuklide nachzuweisen.
-Aufgrund der hohen Anteile dieser Nuklide im Telichenstrahl entsteht durch sie ein nennenswerter Ladungsstrom der mit sogenannten Faraday-Cups gemessen werden kann.
-Um einzelne Ionsorten detektieren zu können ist nach dem Beschleuniger ein \ang{90} Ablenkmagnet angebracht, der funktioniert wie der auf der Niederenergieseite.
+Nachdem wir nun Ionen mit hoher Geschwindigkeit nach dem Beschleuniger haben können wir versuchen, häufig auftretende Nuklide nachzuweisen.
+Aufgrund der hohen Anteile dieser Nuklide im Telichenstrahl entsteht durch sie ein nennenswerter Ladungsstrom der mit Faraday-Cups gemessen werden kann.
+Um einzelne Ionsorten detektieren zu können ist nach dem Beschleuniger ein \ang{90} Ablenkmagnet angebracht, der funktioniert, wie der auf der Niederenergieseite.
 Im Faraday-Cup werden dann die auftreffenden Ströme gemessen, die bei einem bestimmten Strom durch die Spule durch die abgelenkten Ionen entsteht.
 Zunächst wollen wir sehen ob sich die Nuklide unserer BeO-Probe nachweisen lassen.
 Dafür wurde in Abb. \ref{Auswertung_Bild_Faraday_Cup_BeO_HE} die gemessenen Ionenströme über dem Strom durch den Ablenkmagneten aufgetragen.
@@ -236,33 +230,33 @@ Um diese durchzuführen wurden verschiedene Stromstärken im erwarteten Arbeitsb
 Mit den so gewonnen Punkten wurde ein linearer Fit durchgeführt, der uns die Kalibriergerade gab.
 Die Messdaten und Kurve sind in Abb. \ref{Magnet_kali} zu sehen, die Gerade ergab sich zu:
 \begin{equation}
-B(I) = ( [6,9 \pm 1,3] + [5,498 \pm 0,012] \cdot I ) \; mT.
+B(I) = ( [\num{6.9} \pm \num{1.3}] + [\num{5.498} \pm \num{0.012}] \cdot I ) \; \si{\milli\tesla}.
 \label{kali}
 \end{equation}
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.7\linewidth]{Pictures/magnet.png}
+  \includegraphics[width=0.95\linewidth]{Pictures/magnet.png}
   \caption{Kalibriergerade des Dipolmagneten.}
-  \label{kali}
+  \label{Magnet_kali}
 \end{figure}
 
-Mit Kenntnis des Magneten, sowie der Energie, Masse und Ladung der Teilchen ist es uns jetzt möglich die erwartete Stromstärke für alle Ionen zu berechnen.
+Mit Kenntnis des Magnetfeldes, sowie der Energie, Masse und Ladung der Teilchen ist es uns jetzt möglich die erwartete Stromstärke für alle Ionen zu berechnen.
 Diese folgt aus den Formeln \ref{Auswertung_eq_Magnet} und \ref{kali} zu;
 \begin{equation}
-I(E, m, q) = \frac{\frac{{\sqrt{2mE}}}{qr}-6,9}{5,498}
+I(E, m, q) = \frac{\frac{{\sqrt{2mE}}}{qr}-\num{6.9}}{\num{5.498}}
 \label{HE_ion}
 \end{equation}
 Als Unsicherheit betrachten wir bei dieser Rechnung nur die Unsicherheit der Fitparameter.
-Unsicherheiten durch Hysterese an den Magneten sollte zwar einen EInfluss haben, wird aber hier nicht beachtet.
+Unsicherheiten durch Hysterese an den Magneten sollten zwar einen Enfluss haben, wird aber hier nicht beachtet da keine passende Messung durchgeführt wurde.
 
-Durch Kentniss des Magneten ist es uns jetzt möglich den Messpunkt eines bekannten Ions, in diesem Fall $^{10}$Be$^{2+}$, welches im Faraday-Cup gemessen wird.
-Völlig analog zur Niedrigenergieseite ergibt sich das Magnetfeld hier zu $B \rho = \frac{p}{q} = \frac{\sqrt{wmE}}{q}$, mit dem Radius des Magneten $\rho = 1,5$ m.
-Für $^{10}$Be$^{2+}$ ergibt sich damit mit der Energie nach Beschleunigung von $E = 12,5$ MeV: $B = 537$ mT.
-Mit Formel \ref{kali} ergibt sich damit für die Stromstärke für $^{10}$Be$^{2+}$: $I = 96,4$ A, was uns wieder als Ausgangspunkt zur Identifikation des Strahls dient.
+Nun ist es möglich den Messpunkt eines bekannten Ions, in diesem Fall $^{10}$Be$^{2+}$, einzusetzen, welches im Faraday-Cup gemessen wird.
+Völlig analog zur Niedrigenergieseite ergibt sich das Magnetfeld hier zu $B \rho = \frac{p}{q} = \frac{\sqrt{2mE}}{q}$, mit dem Radius des Magneten $\rho = \SI{1.5}{\metre}$ m.
+Für $^{10}$Be$^{2+}$ ergibt sich damit mit der Energie nach Beschleunigung von $E = \SI{12.5}{\mega\electronvolt}$: $B = \SI{537}{\milli\tesla}$.
+Mit Formel \ref{kali} ergibt sich damit für die Stromstärke für $^{10}$Be$^{2+}$: $I = \SI{96.4}{\ampere}$, was uns wieder als Ausgangspunkt zur Identifikation des Strahls dient.
 Die Masse für gemessene Stromstärken ergibt sich jetzt zu:
 \begin{equation}
-m_2 = m_1 \cdot \left( \frac{B_2}{B_1} \right)^2 = 10 \: \text{u} \cdot \left( \frac{I}{96.40} \right)^{2} \: \text{A}
+m_2 = m_1 \cdot \left( \frac{B_2}{B_1} \right)^2 = \SI{10}{\atomicmassunit} \cdot \left( \frac{I}{\SI{96.4}{\ampere}} \right)^{2}
 \end{equation}
 Die so berechneten Massen sind in Tab. \ref{highenergy} zu sehen.
 Durch betrachten der möglichen Verhältnisse von Ladung und Masse sowie Vergleich mit $^{10}$Be$^{2+}$ konnten dann die Teilchen identifiziert werden.
@@ -274,17 +268,17 @@ Auch zu beachten ist, dass wir die Messgenauigkeiten (z. B. Hystereseeffekte bei
 \caption{Berechnung der Massen im Hochenergiebereich für Probe 153Be.}
 \begin{tabular}{|c |c| c|}
 \hline
-I[A] & m[u] & Ion \\
+I / \si{A} & m / \si{\atomicmassunit} & Ion \\
 \hline
-60,5   & 4,0   &  $^{12}$C$^{2+}$  \\
-67,1   & 4,9   &  $^{10}$Be$^{4+}$ \\
-71,9   & 5,6   &  $^{9}$Be$^{3+}$\\
-74,5   & 6,0   &  $^{10}$Be$^{3+}$\\
-84,8   & 7,4   &  $^{16}$O$^{4+}$ \\
-90,8   & 8,9   &  $^{9}$Be$^{2+}$ \\
-100,3 & 10,8 &  $^{26}$Al$^{4+}$\\
-128,5 & 17,7 &  $^{16}$O$^{2+}$\\
-138,7 & 20,7 &  $^{9}$Be$^{1+}$ \\
+\num{60.5}   & \num{4.0}  &  $^{12}$C$^{2+}$  \\
+\num{67.1}   & \num{4.9}  &  $^{10}$Be$^{4+}$ \\
+\num{71.92}  & \num{5.6}  &  $^{9}$Be$^{3+}$  \\
+\num{74.54}  & \num{6.0}  &  $^{10}$Be$^{3+}$ \\
+\num{84.76}  & \num{7.4}  &  $^{16}$O$^{4+}$  \\
+\num{90.83}  & \num{8.9}  &  $^{9}$Be$^{2+}$  \\
+\num{100.26} & \num{10.8} &  $^{26}$Al$^{4+}$ \\
+\num{128.47} & \num{17.7} &  $^{16}$O$^{2+}$  \\
+\num{138.68} & \num{20.7} &  $^{9}$Be$^{1+}$  \\
 \hline
 \end{tabular}
 \label{highenergy}
@@ -292,7 +286,7 @@ I[A] & m[u] & Ion \\
 
 Dabei ist zu beachten, dass $^{10}\text{B}$ nicht von $^{10}\text{Be}$ unterschieden werden kann und es daher auch keinen Sinn macht es mit aufzunehmen.
 Isobare können erst im weiteren Verlauf getrennt werden.
-Das Vorhandensein von $^{26}$Al$^{4+}$ lässt sich ebenfalls damit erklären, dass dieses Aufgrund seiner Masse bisher nicht magnetisch herausgefiltert wurde.
+Das Vorhandensein von $^{26}$Al$^{4+}$ lässt sich damit erklären, dass dieses aufgrund seiner Masse bisher nicht magnetisch herausgefiltert wurde.
 Wie bereits im Niedrigenergiebereich erwähnt, ist dieses schwer vom BeO zu trennen.
 Nicht beachtet wurden hier die verschiedenen Sauerstoffisotope, da diese relativ selten selten sind.
 Prinzipiel wäre es durch Kentnis des Magneten mit den Formeln \ref{Auswertung_eq_Magnet} und \ref{kali} auch möglich direkt die erwartete Stromstärke eines Ions zu berechnen und durch vergleich der erwarteten mit den berechneten auf die Ionen zu schließen.
