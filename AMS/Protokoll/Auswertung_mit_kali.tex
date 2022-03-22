@@ -1,4 +1,4 @@
-s \section{Experimenteller Teil}
+\section{Experimenteller Teil}
 Im ersten Teil der Auswertung verfolgen wir im Wesentlichen Ionen durch die Anlage.
 Untersucht werden soll dabei eine vorbereitete BeO-Probe, genannt \glqq 153BeO\grqq{}, und die Proben \glqq 13KY\grqq{}, \glqq 14KY\grqq{}, \glqq 16KY\grqq{} und \glqq 17KY\grqq{}.
 Im zweiten Teil betrachten wir aufgenommene Spektren und untersuchen eine unbekannte Probe.
@@ -7,7 +7,7 @@ Im zweiten Teil betrachten wir aufgenommene Spektren und untersuchen eine unbeka
 Nach der Produktion der negativen Ionen durch sputtern werden diese wie erwähnt mit insgesamt \SI{29}{\kilo\electronvolt} beschleunigt.
 Sie durchlaufen dann einen elektrostatischen Analysierer und einen ersten Ablenkmagneten.
 Das Ziel hier ist eine Ionenmasse vorzuselektieren.
-Da wir BeO untersuchen sind mögliche gesuchte Ionen $^{9}\text{Be}^{16}\text{O}^{-}$ (stabiles Beryllium-Iosotop) und $^{10}\text{Be}^{16}\text{O}^{-}$ (radioaktives Beryllium-Iostop mit einer Halbwertszeit von \num{1.51e6} Jahren).
+Da wir BeO untersuchen sind mögliche gesuchte Ionen $^{9}\text{Be}^{16}\text{O}^{-}$ (stabiles Beryllium-Iosotop) und $^{10}\text{Be}^{16}\text{O}^{-}$ (radioaktives Beryllium-Iostop mit einer Halbwertszeit von \num{1.387e6} Jahren).
 Zu beachten ist, dass Sauerstoff zwar zum Großteil aus $^{16}$O besteht, jedoch in geringen Mengen auch die stabilen Isotope $^{17}$O und $^{18}$O vorkommen können, was eine gewisse Quelle für Unsicherheiten ist.
 Wir kennen die kinetische Energie $E_{\text{kin}}$, den Ladungszustand $q_{\text{ion}}$, die Masse der Ionen $m_{\text{ion}}$ und den Krümmungsradius der weiterführenden Trajektorie $\rho$.
 Daher kann man durch geeignete Wahl der Stärke des Magnetfeldes die Ionenmasse auswählen:
@@ -16,12 +16,15 @@ Daher kann man durch geeignete Wahl der Stärke des Magnetfeldes die Ionenmasse 
     \label{Auswertung_eq_Magnet}
 \end{gather}
 Ionen mit einer anderen Masse oder anderem Ladungszustand haben im Magneten eine anders gekrümmte Trajektorie und gelangen daher nicht durch die Eintrittsöffnung zum Beschleuniger.
+Negative Ionen mit einem anderen Ladungszustand als 1 treten jedoch nur sehr selten auf.
 (Tatsächlich lässt sich wie in Gleichung \ref{Auswertung_eq_Magnet} zu sehen nur nach $\frac{\sqrt{m_{\text{ion}}}}{q_{\text{ion}}}$ selektieren.
 Ionen mit vierfacher Masse und doppelter Ladung würden also auch weiterkommen. Derart schwere Teilchen sind jedoch fast gar nicht in der Probe vorhanden.)
 An dieser Stelle lässt sich jedoch nicht unterscheiden zwischen Molekularen isobaren, so zum Beispiel zwischen $^{10}\text{Be}^{16}\text{O}^{-}$ und $^{9}\text{Be}^{17}\text{O}^{-}$ (wobei $^{17}\text{O}$ in der Natur sehr selten vorkommt) oder $^{10}\text{Be}^{16}\text{O}^{-}$ und $^{10}\text{B}^{16}\text{O}^{-}$ ($^{10}\text{B}$ entsteht beim Beta-Zerfall von $^{10}\text{Be}$).
 Für $\rho$ war ein Wert von \SI{0.4}{\metre} gegeben.
 Damit ergeben sich für einfach negativ geladene Ionen folgende benötigte Magnetfeldstärken:
-\begin{center}
+\begin{table}[H]
+  \centering
+  \caption{Benötigte Magnetfeldstärken im ersten Ablenkmagneten für Ionen vor dem Beschleuniger}
   \begin{tabular}{|c|c|}
     \hline
     Ion & Magnetfeldstärke / \si{\tesla} \\
@@ -31,9 +34,8 @@ Damit ergeben sich für einfach negativ geladene Ionen folgende benötigte Magne
     $^{10}\text{Be}^{16}\text{O}^{-}$ & \num{-0.313} \\
     \hline
   \end{tabular}
-  \captionof{table}{Benötigte Magnetfeldstärken im ersten Ablenkmagneten für Ionen vor dem Beschleuniger}
   \label{Auswertung_tab_Ionenenergien_vor_Besch}
-\end{center}
+\end{table}
 Um diese Magnetfelder anzulegen ist im besten Fall eine Kalibrierung des Magneten vorhanden, die jedoch in diesem Versuch nicht durchgeführt wurde.
 Stattdessen haben wir die chemisch reine Probe 153BeO genutzt, um die Stromstärke zu bestimmen, welche der Magnetfeldstärke zur Selektion von BeO$^{1-}$ entspricht.
 Diese kann dann als Vergleichswert dienen, um aus den Verhältnissen der Magnetfeldstärken bzw. Stromstärken die Teilchen zu identifizeren.
@@ -53,7 +55,7 @@ Leider haben wir dies in dem Versuch nicht gemacht.
 In Abb. \ref{lowenergy} sind jetzt die Messungen dargestellt.
 Zur Identifikation betrachten wir als erstes die 153BeO Probe.
 Die berechneten Massen sind in Tabelle \ref{153Be} zu sehen.
-Die Höhe der Peaks wird für die folgende Analyse nicht betrachtet, da der ADC des Faraday-Cup gerade an den Maxima häufig übersteuert hat und wir damit keinen zuverlässigen Messwert haben.
+Die Höhe der Peaks wird für die folgende Analyse nicht betrachtet, da das Amperemeter des Faraday-Cup gerade an den Maxima häufig übersteuert hat und wir damit keinen zuverlässigen Messwert haben.
 \begin{table}[h]
     \centering
     \caption{Berechnung der Massen im Niedrigenergiebereich für Probe 153Be.}
@@ -68,18 +70,17 @@ Die Höhe der Peaks wird für die folgende Analyse nicht betrachtet, da der ADC 
     \end{tabular}
     \label{153Be}
 \end{table}
-Die entsprechenden Massen sind hier eindeutig zuordbar, was bei einer reinen Probe auch zu erwarten war.
+Die entsprechenden Massen sind hier gut zuordbar, was bei einer reinen Probe auch zu erwarten war.
 \begin{itemize}
     \item \SI{16}{\atomicmassunit} entsprechen der Masse von $^{16}$O$^{1-}$.
     \item \SI{25}{\atomicmassunit} entsprechen der Masse von $^{9}$Be$^{16}$O$^{1-}$.
-    \item \SI{28}{\atomicmassunit} entsprechen der Masse von $^{10}$Be$^{18}$O$^{1-}$.
+    \item \SI{28}{\atomicmassunit} entsprechen der Masse von $^{12}$C$^{16}$O$^{1-}$ oder auch $^{28}$Si$^{1-}$.
 \end{itemize}
 Hier ist auffällig, dass zwar sowohl $^{16}$O$^{1-}$ als auch $^{10}$Be$^{18}$O$^{1-}$ nachweisbar sind, einzelne $^{18}$O$^{1-}$ Ionen oder  weitere Kombinationen der verschiedenen Isotope jedoch nicht gefunden wurden.
 
 Die Probe KY13 besitzt weitgehend dieselben Peaks.
 Neu hinzugekommen ist bei dieser einer bei \SI{42.29}{\ampere}, was einer Masse von \SI{12}{\atomicmassunit} entspricht.
 Eine Erklärung dieser Masse wären $^{12}$C$^{1-}$ Ionen, welche aus der Probe oder auch durch Lufteinschlüsse in der Probe zu finden sind.
-Ebenfalls möglich, jedoch wäre hier die Abweichung etwas hoch, wären $^{10}$Be$^{16}$O$^{2-}$ Teilchen.
 
 In Tabelle \ref{KY_rest} sind die weiteren Peaks und die dazu passenden Ionen dargestellt.
 Auf bereits bestimmte Peaks werden wir hier nicht weiter eingehen, wir identifizieren nur neu erscheinende.
