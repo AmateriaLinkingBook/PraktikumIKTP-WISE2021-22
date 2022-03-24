@@ -20,19 +20,21 @@ Die Konzentration des Radionuklides berechnet sich damt zu:
 c_{sample} = r_{real, sample} \cdot \frac{m_{spike}}{M_{sample}}
 \end{equation}
 mit der Masse der Probe $M_{sample}$ und der Menge des stabilen Isotops $m_{spike}$.
+Diese Konzentration entspricht nun dem Anteil von $^{10}\text{Be}$ in der Probe.
+Mit Kentniss der Probenmasse lässt sich daraus dann die Konzentration in Atome pro gramm ($\frac{At}{g}$) berechnen.
 Die gemessenen Werte der Proben und die berechneten Konzentrationen sind in Tab. \ref{concentrations} zu finden.
 
 \begin{table}[h]
 \centering
 \caption{Gemessene Werte zur Berechnung der $^{10}$Be Konzentration in den Proben.}
-\begin{tabular}{|c |c| c|c|c|}
+\begin{tabular}{|c |c| c|c|c|c|}
 \hline
-Probe& $M_{sample}$ / \si{\gram} & $m_{spike}$ / \si{\gram} & $ r_{meas, sample}$ & $c_{sample}$ \\
-\hline
-KY13 & \num{14.692} &  \num{3.11e-4} & $ (\num{4.15} \pm \num{0.19})\cdot 10^{-13}$   &   $(\num{1.668} \pm \num{0.076}) \cdot 10^{-17}$ \\
-KY14 & \num{16.775} &  \num{3.09e-4} & $ (\num{4.11} \pm \num{0.19})\cdot 10^{-13}$   &   $(\num{1.438} \pm \num{0.066}) \cdot 10^{-17}$ \\
-KY16 & \num{16.586} &  \num{3.05e-4} & $ (\num{3.28} \pm \num{0.15})\cdot 10^{-13}$   &   $(\num{1.146} \pm \num{0.054}) \cdot 10^{-17}$ \\
-KY17 & \num{9.489}  &  \num{3.04e-4} & $ (\num{1.533} \pm \num{0.081})\cdot 10^{-13}$ &   $(\num{9.330} \pm \num{0.049}) \cdot 10^{-17}$ \\
+Probe& $M_{sample}$ / \si{\gram} & $m_{spike}$ / \si{\gram} & $ r_{meas, sample}$ & $c$ / $\frac{\text{At}}{\si{\gram}}$ \\
+\hline 
+KY13 & \num{14.692} &  \num{3.11e-4} & $ (\num{4.15} \pm \num{0.19})\cdot 10^{-13}$     & $(\num{1.115} \pm \num{0.050}) \cdot 10^{6} $ \\
+KY14 & \num{16.775} &  \num{3.09e-4} & $ (\num{4.11} \pm \num{0.19})\cdot 10^{-13}$     & $(\num{9.61} \pm \num{0.44}) \cdot 10^{5} $ \\
+KY16 & \num{16.586} &  \num{3.05e-4} & $ (\num{3.28} \pm \num{0.15})\cdot 10^{-13}$     & $(\num{7.66} \pm \num{0.36}) \cdot 10^{5} $ \\
+KY17 & \num{9.489}  &  \num{3.04e-4} &  $ (\num{1.533} \pm \num{0.081})\cdot 10^{-13}$ & $(\num{6.23} \pm \num{0.33}) \cdot 10^{5} $ \\
 \hline
 \end{tabular}
 \label{concentrations}
