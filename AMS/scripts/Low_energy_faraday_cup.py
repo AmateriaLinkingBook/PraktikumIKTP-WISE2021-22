@@ -15,7 +15,8 @@ names = np.array(["HEMass60-140pos153BeOTUDPract.asc",
                   "LEMass40-85pos174KY14TUDPract.asc",
                   "LEMass40-85pos175KY16TUDPract.asc",
                   "LEMass40-85pos176KY17TUDPract.asc"])
-intensity_unit = np.array(["%",  # minimum height peak has to have, in amounts used in files (y-coordinate (intensity)), for finding peaks
+
+intensity_unit = np.array(["%",  # intensity unit
                            "A",
                            "A",
                            "A",
@@ -162,7 +163,7 @@ for i in np.arange(0, N_overall_recomend, 1):
 """
 # %%
 
-plot_num = 7
+plot_num = 1
 fsize = 16
 
 fig = plt.figure(figsize=(16, 9))

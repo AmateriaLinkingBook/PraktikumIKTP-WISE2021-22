@@ -7,7 +7,7 @@ Im zweiten Teil betrachten wir aufgenommene Spektren und untersuchen eine unbeka
 Nach der Produktion der negativen Ionen durch sputtern werden diese wie erwähnt mit insgesamt \SI{29}{\kilo\electronvolt} beschleunigt.
 Sie durchlaufen dann einen elektrostatischen Analysierer und einen ersten Ablenkmagneten.
 Das Ziel hier ist eine Ionenmasse vorzuselektieren.
-Da wir BeO untersuchen sind mögliche gesuchte Ionen $^{9}\text{Be}^{16}\text{O}^{-}$ (stabiles Beryllium-Iosotop) und $^{10}\text{Be}^{16}\text{O}^{-}$ (radioaktives Beryllium-Iostop mit einer Halbwertszeit von \num{1.387e6} Jahren).
+Da wir BeO untersuchen, sind mögliche gesuchte Ionen $^{9}\text{Be}^{16}\text{O}^{-}$ (stabiles Beryllium-Iosotop) und $^{10}\text{Be}^{16}\text{O}^{-}$ (radioaktives Beryllium-Iostop mit einer Halbwertszeit von \num{1.387e6} Jahren).
 Zu beachten ist, dass Sauerstoff zwar zum Großteil aus $^{16}$O besteht, jedoch in geringen Mengen auch die stabilen Isotope $^{17}$O und $^{18}$O vorkommen können, was eine gewisse Quelle für Unsicherheiten ist.
 Wir kennen die kinetische Energie $E_{\text{kin}}$, den Ladungszustand $q_{\text{ion}}$, die Masse der Ionen $m_{\text{ion}}$ und den Krümmungsradius der weiterführenden Trajektorie $\rho$.
 Daher kann man durch geeignete Wahl der Stärke des Magnetfeldes die Ionenmasse auswählen:
@@ -18,7 +18,7 @@ Daher kann man durch geeignete Wahl der Stärke des Magnetfeldes die Ionenmasse 
 Ionen mit einer anderen Masse oder anderem Ladungszustand haben im Magneten eine anders gekrümmte Trajektorie und gelangen daher nicht durch die Eintrittsöffnung zum Beschleuniger.
 Negative Ionen mit einem anderen Ladungszustand als 1 treten jedoch nur sehr selten auf.
 (Tatsächlich lässt sich wie in Gleichung \ref{Auswertung_eq_Magnet} zu sehen nur nach $\frac{\sqrt{m_{\text{ion}}}}{q_{\text{ion}}}$ selektieren.
-Ionen mit vierfacher Masse und doppelter Ladung würden also auch weiterkommen. Derart schwere Teilchen sind jedoch fast gar nicht in der Probe vorhanden.)
+Ionen mit vierfacher Masse und doppelter Ladung würden also auch weiterkommen. Andere Ladungszustände entstehen beim sputtern jedoch sehr selten, und derart schwere Teilchen sind fast gar nicht in der Probe vorhanden.)
 An dieser Stelle lässt sich jedoch nicht unterscheiden zwischen Molekularen isobaren, so zum Beispiel zwischen $^{10}\text{Be}^{16}\text{O}^{-}$ und $^{9}\text{Be}^{17}\text{O}^{-}$ (wobei $^{17}\text{O}$ in der Natur sehr selten vorkommt) oder $^{10}\text{Be}^{16}\text{O}^{-}$ und $^{10}\text{B}^{16}\text{O}^{-}$ ($^{10}\text{B}$ entsteht beim Beta-Zerfall von $^{10}\text{Be}$).
 Ebenfalls wichtig ist, dass hier keine leichten Moleküle oder Ionen mit einem anderen Ladungszustand als 1 vorkommen, theoretisch vorhandene schwere Moleküle könnten jedoch hier mit höheren Ladungszuständen auftauchen.
 Für $\rho$ war ein Wert von \SI{0.4}{\metre} gegeben.
@@ -79,18 +79,17 @@ Die entsprechenden Massen sind hier gut zuordbar, was bei einer reinen Probe auc
     \item \SI{28}{\atomicmassunit} entsprechen der Masse von $^{12}$C$^{16}$O$^{1-}$ oder auch $^{28}$Si$^{1-}$.
 \end{itemize}
 Letztere sind auch einfach durch Verschmutzungen der Probe mit Luft zu erklären.
-Theoretisch könnte hier auch $^{10}$Be$^{18}$O$^{1-}$ gemessen werden, beide Isotope sind jedoch bereits für sich alleine selten, ein Strom von diesen Molekülen ist dementsprechend unwahrscheinlich.
-Außerdem wäre in diesen Fall ein zusätzllicher Peak bei \SI{18}{\atomicmassunit} für $^{18}$O$^{-1}$ zu erwarten.
-
+Theoretisch könnte hier auch $^{10}$Be$^{18}$O$^{1-}$ gemessen werden, beide Isotope sind jedoch bereits für sich alleine selten, ein mit Faraday-Cup messbarer Strom von diesen Molekülen ist dementsprechend nicht zu erwarten.
+Außerdem müsste in diesen Fall ein zusätzllicher Peak bei \SI{18}{\atomicmassunit} für $^{18}$O$^{1-}$ gesehen werden, da auch $^{16}$O$^{1-}$ identifiziert wurde, welches in gleichem Maß Ionen bildet.
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=0.85\textwidth]{Pictures/LE_BeO_neu.pdf}
+	\caption{Gemessene Stromstärken der Strahlen (im Faraday-Cup) in Abhängigkeit der zugeordneten Ionenmasse (s. Formel \ref{Auswertung_LE_masse}) für die 153BeO Probe. Bei dem Peak bei \SI{16}{\atomicmassunit} gab es eine Übersteuerung des Amperemeters, daher ist die genaue Intensität des Peaks nicht bekannt. Sie ist jedoch definitiv deutich größer als die der anderen beiden Peaks.}
+	\label{Probe_Be}
+\end{figure}
 Die Probe KY13 besitzt weitgehend dieselben Peaks.
 Neu hinzugekommen ist bei dieser einer bei \SI{42.29}{\ampere}, was einer Masse von \SI{12}{\atomicmassunit} entspricht.
 Eine Erklärung dieser Masse wären $^{12}$C$^{1-}$ Ionen, welche aus der Probe oder auch durch Lufteinschlüsse in der Probe zu finden sind.
-\begin{figure}[ht]
-	\centering
-           \includegraphics[width=0.85\textwidth]{../Pictures/Be_low.png}
-	\caption{Gemessene Stromstärken der Strahlen (im Faraday-Cup) in Abhängigkeit der eingestellten Stromstärke am BI \ang{90} Bouncer-Magneten für die BeO-Probe}
-	\label{Probe_Be}
-\end{figure}
 
 In Tabelle \ref{KY_rest} sind die Peaks der Probe KY13 und die dazu passenden Ionen dargestellt.
 Bei den gemessenen Strömen ist zu beachten, dass wir aufgrund der Vollausschläge bei einigen Strömen keinen Messwert am Peak hatten.
@@ -102,20 +101,20 @@ Ein Vergleich der Intensitäten hier ist daher nicht unbedingt aussagekräftig, 
         \hline
         Probe & I$_{\text{Magnet}}$ / \si{\ampere} & I$_{\text{gemessen}}$ / \si{\ampere} & m / \si{\atomicmassunit} & Teilchen \\
         \hline
-        \multirow{KY13} &  \num{42.205} &  \num{-1.216} $\cdot$ $10^{-7}$ & \num{11.9}  & $^{12}$C$^{1-}$ \\
- 		       &  \num{44.009} &  \num{-4.579} $\cdot$ $10^{-8}$ & \num{13.0}  & $^{13}$C$^{1-}$ \\
-		       & \num{48.82}   &   $10^{-4}$ & \num{16.0} &  $^{16}$O$^{1-}$ \\
-		       & \num{50.423} & \num{-6.664} $\cdot$ $10^{-8}$ & \num{17.1}  & $^{17}$O$^{1-}$ \\
-		       & \num{51.927} & \num{-8.388} $\cdot$ $10^{-8}$ & \num{18.1}  & $^{10}$O$^{1-}$ \\
-		       & \num{59.944} & \num{-2.926} $\cdot$ $10^{-7}$ & \num{24.1}  & $^{12}$C$_{2}^{1-}$ ?  \\
-		       & \num{61.147} &  \num{-6.527} $\cdot$ $10^{-6}$ & \num{25.1}   & $^{9}$Be$^{16}$O$^{1-}$ \\
-		       & \num{62.55} &  \num{-8.547} $\cdot$ $10^{-9}$ & \num{26.2}   & $^{10}$Be$^{16}$O$^{1-}$, $^{26}$Al$^{1-}$, $^{9}$BeH$^{16}$O$^{1-}$ \\
-		       & \num{64.755} &  \num{-1.680} $\cdot$ $10^{-7}$ & \num{28.1}  & $^{12}$C$^{16}$O$^{1-}$ \\
-		       & \num{65.958} &  \num{-5.040} $\cdot$ $10^{-9}$ & \num{29.1}   & $^{17}$O$^{12}$C$^{1-}$, $^{16}$O$^{13}$C$^{1-}$ \\
-		       & \num{69.265} &  \num{-2.344} $\cdot$ $10^{-7}$& \num{32.2}  & $^{16}$O$_{2}^{1-}$  \\
-		       & \num{73.675} &  \num{-3.302} $\cdot$ $10^{-8}$& \num{36.4}  &  $^{18}$O$_{2}^{1-}$ ?  \\
-		       & \num{78.486} &  \num{-5.783} $\cdot$ $10^{-7}$ & \num{41.3}   &$^{26}$Al$^{16}$O$^{1-}$ \\
-		       & \num{80.59} &  $10^{-8}$ & \num{43.6}   & $^{27}$Al$^{16}$O$^{1-}$ \\
+        \multirow{14}*{KY13} & \num{42.205} & (\num{-1.216} $\cdot$ $10^{-7}$) & \num{11.9} & $^{12}$C$^{1-}$ \\
+ 		                     & \num{44.009} & \num{-4.579} $\cdot$ $10^{-8}$   & \num{13.0} & $^{13}$C$^{1-}$ \\
+                		     & \num{48.82}  & ($10^{-4}$)                      & \num{16.0} & $^{16}$O$^{1-}$ \\
+		                     & \num{50.423} & (\num{-6.664} $\cdot$ $10^{-8}$) & \num{17.1} & $^{17}$O$^{1-}$ \\
+		                     & \num{51.927} & (\num{-8.388} $\cdot$ $10^{-8}$) & \num{18.1} & $^{10}$O$^{1-}$ \\
+		                     & \num{59.944} & (\num{-2.926} $\cdot$ $10^{-7}$) & \num{24.1} & $^{12}$C$_{2}^{1-}$ ?  \\
+		                     & \num{61.147} & (\num{-6.527} $\cdot$ $10^{-6}$) & \num{25.1} & $^{9}$Be$^{16}$O$^{1-}$ \\
+		                     & \num{62.55}  & \num{-8.547} $\cdot$ $10^{-9}$   & \num{26.2} & $^{10}$Be$^{16}$O$^{1-}$, $^{26}$Al$^{1-}$, $^{9}$BeH$^{16}$O$^{1-}$ \\
+		                     & \num{64.755} & (\num{-1.680} $\cdot$ $10^{-7}$) & \num{28.1} & $^{12}$C$^{16}$O$^{1-}$ \\
+		                     & \num{65.958} & \num{-5.040} $\cdot$ $10^{-9}$   & \num{29.1} & $^{17}$O$^{12}$C$^{1-}$, $^{16}$O$^{13}$C$^{1-}$ \\
+		                     & \num{69.265} & (\num{-2.344} $\cdot$ $10^{-7}$) & \num{32.2} & $^{16}$O$_{2}^{1-}$  \\
+		                     & \num{73.675} & (\num{-3.302} $\cdot$ $10^{-8}$) & \num{36.4} & $^{18}$O$_{2}^{1-}$ ?  \\
+		                     & \num{78.486} & \num{-5.783} $\cdot$ $10^{-7}$   & \num{41.3} & $^{26}$Al$^{16}$O$^{1-}$ \\
+		                     & \num{80.59}  & $10^{-8}$                        & \num{43.6} & $^{27}$Al$^{16}$O$^{1-}$ \\
     \hline
     \end{tabular}
     \label{KY_rest}
@@ -124,18 +123,18 @@ Die anderen Proben wiesen keine weiteren neuen Peaks auf und sind im wesentliche
 AlO ist ein Stoff der häufig in Quarz, aus dem die Proben bestehen, vorkommt und nur schwer von BeO zu trennen ist.
 Nicht perfekt zuordbare Peaks lassen sich wahrscheinlich auf Verschmutzungen oder Spurenelemente in der Probe zurückführen.
 Eine Analyse dieser könnte möglicherweise auch auf der Peakhöhe aufbauen, um z. B. zufällige Verschmutzungen durch entsprechend geringe Intensität als solche zu erkennen.
-Dafür müsste man jedoch sicherstellen, dass der ADC des Faraday-Cups nicht übersteuert wird.
+Dafür müsste man jedoch sicherstellen, dass das Amperemeter des Faraday-Cups nicht übersteuert wird.
 
 \begin{figure}[h]
 \begin{subfigure}{\textwidth}
 \centering
-\includegraphics[width=.95\linewidth]{../Pictures/LE_samples_current.png}
+\includegraphics[width=.95\linewidth]{Pictures/LE_samples_current.png}
 \caption{Gemessene Intensitäten für die KY Proben in abhängigkeit der Stromstärke am Magneten.}
 \end{subfigure} \quad
 \vskip\baselineskip
 \begin{subfigure}{\textwidth}
 \centering
-\includegraphics[width=.95\linewidth]{../Pictures/LE_samples_mass.png}
+\includegraphics[width=.95\linewidth]{Pictures/LE_samples_mass.png}
 \caption{Probe 153BeO}
 \end{subfigure}
 \caption{Gemessene Intensitäten für die KY Proben in abhängigkeit der zugeordneten Masse.}
@@ -146,13 +145,15 @@ Dafür müsste man jedoch sicherstellen, dass der ADC des Faraday-Cups nicht üb
 
 \subsection{Teilchenenergien nach dem Beschleuniger}
 Die vorselektierten Ionen werden im ersten Teil des Beschleunigers mit der angelegten Spannung beschleunigt.
-In der Mitte treffen sie auf Argon an welchem sie sich umladen und die Moleküle aufbrechen.
+In der Mitte treffen sie auf Argon, an welchem sie sich umladen und die Moleküle aufbrechen.
 (Das Aufbrechen der Moleküle ist kein Problem, da chemische Bindungsenergien typischerweise im \si{\electronvolt}-Bereich liegen, die Ionen bis dahin aber schon mehrere \si{\mega\electronvolt} an kinetischer Energie haben.)
 Die entstandenen Ionen werden dann mit ihrer positiven Ladung noch ein weiteres Mal mit der angelegten Spannung beschleunigt (s. Gleichung \ref{Theo_Energie_nach_Beschleuniger}).
 
 In unserem Versuch betrug die Spannung des Beschleunigers \SI{5.2479e6}{\volt}.
 Damit ergeben sich für entstandene Ionen eine Energie nach dem Beschleuniger von:
-\begin{center}
+\begin{table}[H]
+  \centering
+  \caption{Ionenenergien nach dem Beschleuniger für ausgewählte Ionen. Es wurde angenommen, dass die $^{16}$O Ionen aus $^{10}$Be$^{16}$O stammen. Die Zahlenwerte wurden mit Formel \ref{Theo_Energie_nach_Beschleuniger} berechnet. Dabei war die Spannung in der Sputter-Ionenquelle \SI{29e3}{\volt} und die Spannung des Tandem-Beschleunigers war \SI{5.2479e6}{\volt}. Somit war die kinetische Energie aller Ionen vor dem Tandem-Beschleuniger \SI{29}{\kilo\electronvolt}, da dort nur einfach negativ geladene Ionen auftraten. Als Unsicherheit der Spannung kann man von \SI{1.0e2}{\volt} (1 Digit) ausgehen. Die Unsicherheit der Spannung der Sputter-Ionenquelle ist dagegen vernachlässigbar.}
   \begin{tabular}{|c|c|}
     \hline
     Ion & Energie / \si{\mega\electronvolt} \\
@@ -173,9 +174,8 @@ Damit ergeben sich für entstandene Ionen eine Energie nach dem Beschleuniger vo
     $^{16}\text{O}^{4+}$ & \num{24.24} \\
     \hline
   \end{tabular}
-  \captionof{table}{Ionenenergien nach dem Beschleuniger für ausgewählte Ionen. Es wurde angenommen, dass die $^{16}$O Ionen aus $^{10}$Be$^{16}$O stammen.}
   \label{Auswertung_tab_Ionenenergien_nach_Besch}
-\end{center}
+\end{table}
 
 Zu beachten ist hier, dass $^9$Be aus $^{9}$Be$^{16}$O stammt und $^{10}$Be aus $^{10}$Be$^{16}$O.
 $^{16}$O kann daher prinzipiell von beiden Molekülen stammen.
@@ -186,42 +186,69 @@ Nachdem wir nun Ionen mit hoher Geschwindigkeit nach dem Beschleuniger haben kö
 Aufgrund der hohen Anteile dieser Nuklide im Telichenstrahl entsteht durch sie ein nennenswerter Ladungsstrom der mit Faraday-Cups gemessen werden kann.
 Um einzelne Ionsorten detektieren zu können ist nach dem Beschleuniger ein \ang{90} Ablenkmagnet angebracht, der funktioniert, wie der auf der Niederenergieseite.
 Im Faraday-Cup werden dann die auftreffenden Ströme gemessen, die bei einem bestimmten Strom durch die Spule durch die abgelenkten Ionen entsteht.
-Zunächst wollen wir sehen ob sich die Nuklide unserer BeO-Probe nachweisen lassen.
-Dafür wurde in Abb. \ref{Auswertung_Bild_Faraday_Cup_BeO_HE} die gemessenen Ionenströme über dem Strom durch den Ablenkmagneten aufgetragen.
-\begin{figure}[ht]
-	\centering
-           \includegraphics[width=0.85\textwidth]{Pictures/HEMass60-140pos153BeOTUDPract.png}
-	\caption{Massen gemessen im Faraday-Cup bei variieren des Magnetfeldes auf der Hochenergieseite für BeO-Probe. Zu beachten ist hier, dass die Massen durch Vergleich mit $^{9}$Be$^{2+}$ berechnet wurden. Für exakte Werte müsste die Ladung der Ionen in die Rechnung einbezogen werden.}
-	\label{Auswertung_Bild_Faraday_Cup_BeO_HE}
-\end{figure}
-
-Da durch Massenfilterung nur Teilchen mit der gewählten Masse zu diesem Punkt kommen sollten, wurde für die BeO-Probe folgende Ionen als möglich erachtet:
-\begin{center}
+Da durch diese Massenfilterung nur Teilchen mit der gewählten Masse weiterkommen, wurden für die BeO-Probe folgende Ionen als möglich erachtet:
+\begin{table}[H]
+  \centering
+  \caption{Mögliche Ionen auf Hochenergieseite für BeO-Probe.}
   \begin{tabular}{|c|c|c|c|}
     \hline
     Element & Masse $/\ \si{\atomicmassunit}$ & Ladungszustand $/\ e$ & $\frac{\sqrt{m_{\text{ion}}}}{q_{\text{ion}}}$\\
     \hline
-    \multirow{8}*{Be}    & \multirow{4}*{$9$}  & $1+$                & \num{3}             \\
+    \multirow{4}*{Li}    & \multirow{4}*{$7$}  & $1+$                & \num{2.65}          \\
+    \arrayrulecolor{lightgray}\cline{3-4}
+                         &                     & $2+$                & \num{1.32}          \\
+    \cline{3-4}
+                         &                     & $3+$                & \num{0.88}          \\
+    \cline{3-4}
+                         &                     & $4+$                & \num{0.66}          \\
+    \arrayrulecolor{black}\hline
+    \multirow{4}*{Be}    & \multirow{4}*{$9$}  & $1+$                & \num{3}             \\
+    \arrayrulecolor{lightgray}\cline{3-4}
                          &                     & $2+$                & \num{1.5}           \\
+    \cline{3-4}
                          &                     & $3+$                & \num{1}             \\
+    \cline{3-4}
                          &                     & $4+$                & \num{0.75}          \\
-    \cline{2-4}
-                         & \multirow{4}*{$10$} & $1+$                & \num{3.16}          \\
-                         &                     & $2+$                & \num{1.58}          \\
-                         &                     & $3+$                & \num{1.05}          \\
-                         &                     & $4+$                & \num{0.79}          \\
-    \hline
+    \arrayrulecolor{black}\hline
+    \multirow{4}*{B}     & \multirow{4}*{$11$} & $1+$                & \num{3.32}          \\
+    \arrayrulecolor{lightgray}\cline{3-4}
+                         &                     & $2+$                & \num{1.66}          \\
+    \cline{3-4}
+                         &                     & $3+$                & \num{1.11}          \\
+    \cline{3-4}
+                         &                     & $4+$                & \num{0.83}          \\
+    \arrayrulecolor{black}\hline
+    \multirow{4}*{C}     & \multirow{4}*{$12$} & $1+$                & \num{3.46}          \\
+    \arrayrulecolor{lightgray}\cline{3-4}
+                         &                     & $2+$                & \num{1.73}          \\
+    \cline{3-4}
+                         &                     & $3+$                & \num{1.15}          \\
+    \cline{3-4}
+                         &                     & $4+$                & \num{0.87}          \\
+    \arrayrulecolor{black}\hline
+    \multirow{4}*{N}     & \multirow{4}*{$14$} & $1+$                & \num{3.74}          \\
+    \arrayrulecolor{lightgray}\cline{3-4}
+                         &                     & $2+$                & \num{1.87}          \\
+    \cline{3-4}
+                         &                     & $3+$                & \num{1.25}          \\
+    \cline{3-4}
+                         &                     & $4+$                & \num{0.94}          \\
+    \arrayrulecolor{black}\hline
     \multirow{4}*{O}     & \multirow{4}*{$16$} & $1+$                & \num{4}             \\
+    \arrayrulecolor{lightgray}\cline{3-4}
                          &                     & $2+$                & \num{2}             \\
+    \cline{3-4}
                          &                     & $3+$                & \num{1.33}          \\
+    \cline{3-4}
                          &                     & $4+$                & \num{1}             \\
-    \hline
+    \arrayrulecolor{black}\hline
   \end{tabular}
-  \captionof{table}{Mögliche Ionen auf Hochenergieseite für BeO-Probe.}
   \label{Auswertung_tab_moegl_ionen}
-\end{center}
-
+\end{table}
 Zu erwarten sind noch andere Ionen, die aus Verschmutzungen der Probe oder bisher unerkannten Ionen stammen könnten.
+Vor dem Beschleuniger gab es oft den Fall, dass für eine Ionenmasse eine Vielzahl an Ionenspezies möglich sein können.
+Da viele der Ionen, die aus mehreren Atomen bestehen im Beschleuniger aufbrechen, gibt es danach nur noch atomare Ionen.
+Diese können dafür aber in verschiedenen Ladungszuständen auftreten.
 
 Mit Formel \ref{Auswertung_eq_Magnet} können wir jetzt wieder über die Verhältnisse der Magnetfelder auf die Ionenmassen schließen.
 Dafür ist jedoch zuerst eine Kalibrierung des Magneten erforderlich.
@@ -233,7 +260,7 @@ B(I) = ( [\num{6.9} \pm \num{1.3}] + [\num{5.498} \pm \num{0.012}] \cdot I ) \; 
 \label{kali}
 \end{equation}
 
-\begin{figure}[ht]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.95\linewidth]{Pictures/magnet.png}
   \caption{Kalibriergerade des Dipolmagneten.}
@@ -258,6 +285,7 @@ Dieser Punkt nutzen wir jetzt wieder als Ausgangspunkt zur Identifikation der we
 Das Verhältnis aus Masse und Ladung für gemessene Stromstärken ergibt sich jetzt zu:
 \begin{equation}
 m_2 = \frac{\sqrt{m_1}}{q_1} \cdot \left( \frac{B_2}{B_1} \right) = \frac{\SI{9}{\atomicmassunit}}{2} \cdot \left( \frac{I}{\SI{71.92}{\ampere}} \right)
+\label{Auswertung_kalib_HE_Magnet}
 \end{equation}
 Die so berechneten Verhältnisse sind in Tab. \ref{highenergy} zu sehen.
 Durch Vergleich mit den bekannten Verhältnissen eventuell vorhandener Isotope ist dann die Identifikation möglich.
@@ -266,81 +294,91 @@ Auch zu beachten ist, dass wir die Messgenauigkeiten (z. B. Hystereseeffekte bei
 Speziell beim Ausgangspunkt lag diese bei $\num{0.76}$ A.
 Um diese für andere Strahlen zu erfassen ist in der Tabelle für jeden identifizierten Peak auch der theoretische Wert angegeben.
 
-\begin{table}[h]
-\centering
-\caption{Berechnung der Massen im Hochenergiebereich für Probe 153Be.}
-\begin{tabular}{|c |c| c|c|}
-\hline
-I / \si{A} & $\frac{\sqrt{m}}{q}_{Berechnet}$ / \si{\atomicmassunit} & Ion & $\frac{\sqrt{m}}{q}_{Theorie}$ \\
-\hline
-\num{60.05}   & \num{1.25} &  $^{7}$Li$^{2+}$ & \num{1.32} \\
-\num{67.10}   & \num{1.40} &  $^{16}$O$^{3+}$ & \num{1.33} \\
-\num{71.92}  & \num{1.50}  &  $^{9}$Be$^{2+}$ & \num{1.50}\\
-\num{74.60}  & \num{1.60}  &  $^{11}$B$^{2+}$ & \num{1.66}\\
-\num{84.82}  & \num{1.77}  &  $^{12}$C$^{2+}$ & \num{1.73}\\
-\num{90.90}  & \num{1.90}  &  $^{15}$N$^{2+}$ & \num{1.93}\\
-\num{100.23} & \num{2.09} &  $^{16}$O$^{2+}$  & \num{2.00}\\
-\num{128.44} & \num{2.68} &  $^{7}$Li$^{1+}$  & \num{2.65}\\
-\num{138.70} & \num{2.90} &  $^{9}$Be$^{1+}$  & \num{3.00}\\
-\hline
-\end{tabular}
-\label{highenergy}
+\begin{figure}[H]
+	\centering
+    \includegraphics[width=0.95\textwidth]{Pictures/HEMass60-140pos153BeOTUDPract.png}
+	\caption{Intensität über den (durch Formel \ref{Auswertung_kalib_HE_Magnet} berechneten) Teilchenmassen, gemessen im Faraday-Cup bei variieren des Magnetfeldes auf der Hochenergieseite für BeO-Probe. Zu beachten ist hier, dass die Massen durch Vergleich mit $^{9}$Be$^{2+}$ berechnet wurden. Für exakte Werte müsste die Ladung der Ionen in die Rechnung einbezogen werden.}
+	\label{Auswertung_Bild_Faraday_Cup_BeO_HE}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \caption{Berechnung der Massen im Hochenergiebereich für Probe 153Be.}
+    \begin{tabular}{|c |c| c|c|}
+        \hline
+        I / \si{A} & $\frac{\sqrt{m}}{q}_{Berechnet}$ / \si{\atomicmassunit} & Ion & $\frac{\sqrt{m}}{q}_{Theorie}$ \\
+        \hline
+        \num{60.05}   & \num{1.25} &  $^{7}$Li$^{2+}$ & \num{1.32} \\
+        \num{67.10}   & \num{1.40} &  $^{16}$O$^{3+}$ & \num{1.33} \\
+        \num{71.92}  & \num{1.50}  &  $^{9}$Be$^{2+}$ & \num{1.50}\\
+        \num{74.60}  & \num{1.60}  &  $^{11}$B$^{2+}$ & \num{1.66}\\
+        \num{84.82}  & \num{1.77}  &  $^{12}$C$^{2+}$ & \num{1.73}\\
+        \num{90.90}  & \num{1.90}  &  $^{15}$N$^{2+}$ & \num{1.93}\\
+        \num{100.23} & \num{2.09} &  $^{16}$O$^{2+}$  & \num{2.00}\\
+        \num{128.44} & \num{2.68} &  $^{7}$Li$^{1+}$  & \num{2.65}\\
+        \num{138.70} & \num{2.90} &  $^{9}$Be$^{1+}$  & \num{3.00}\\
+        \hline
+    \end{tabular}
+    \label{highenergy}
 \end{table}
 
 Die neuen vorhandenen Ionen lassen sich durch natürliches Vorhandensein im Quarz oder Verschmutzungen durch die Luft ( $^{15}$N) erklären.
-Nicht beachtet wurden hier die verschiedenen Sauerstoffisotope oder andere mögliche Isotope, da diese relativ selten selten sind und die Unterschiede im Verhältnis recht gering sind.
-Prinzipiel wäre es durch Kentnis des Magneten mit den Formeln \ref{Auswertung_eq_Magnet} und \ref{kali} auch möglich direkt die erwartete Stromstärke eines Ions zu berechnen und durch vergleich der erwarteten mit den berechneten auf die Ionen zu schließen.
-Dabei wäre es jedoch nachteilig, dass ohne Verhältnisbildung die Unsicherheiten der Messung weniger eliminiert werden, welche uns nicht bekannt sind.
+Nicht beachtet wurden hier die verschiedenen Sauerstoffisotope oder andere mögliche Isotope, da diese relativ selten sind und die Unterschiede im Massen-Ladungs Verhältnis in Tabelle \ref{highenergy} ohnehin recht gering sind.
+Prinzipiel wäre es durch Kenntnis des Magneten mit der Formel \ref{HE_ion} auch möglich, direkt die erwartete Stromstärke eines Ions zu berechnen und somit auf die Ionen zu schließen. Ebenfalls könnte man umgekehrt für alle Ladungszustände die aus den Stromstärken folgenden Massen bestimmen.
+Dabei wäre es jedoch jeweils nachteilig, dass ohne Verhältnissbildung die Unsicherheiten der Messung weniger eliminiert werden, welche uns nicht bekannt sind.
 
 \clearpage
 
 \subsection{Isobarentrennung}
 Wie in dem vorherigen Abschnitt bereits erwähnt ist es bis hierhin noch nicht möglich gewesen Isobare zu unterscheiden.
-Um Abhilfe zu schaffen ist im weiteren Strahlenverlauf eine dünne Schicht aus Siliziumnitrid angebracht.
+Um Abhilfe zu schaffen ist im weiteren Strahlenverlauf eine Folie aus Siliziumnitrid angebracht.
 Da der Verlust an kinetischer Energie von Atomen in Materie stark von der Kernladungszahl abhängt erlaubt dies die Isobarentrennung.
-den Faktor $\frac{\Delta E}{\Delta x}$ erhalten wir aus der frei verfügbaren Software SRIM.
+den Faktor $\frac{\Delta E}{\Delta x}$ erhalten wir aus der frei verfügbaren Software SRIM/TRIM.
 Die SiN-Folie hat eine Dicke von \SI{1}{\micro\metre}.
-Die verbleibende Energie der $^{10}\text{Be}$-Ionen un der $^{10}\text{B}$-Ionen ist dann, abhängig von deren Energie vorher:
-\begin{center}
-  \captionof{table}{Ionenenergien nach der SiN Folie in Abhängigkeit der Ladungszustände aus dem Beschleuniger.}
+Die verbleibende Energie der $^{10}\text{Be}$-Ionen und der $^{10}\text{B}$-Ionen ist dann, abhängig von deren Energie vorher:
+\begin{table}[H]
+  \centering
+  \caption{Ionenenergien nach der SiN Folie in Abhängigkeit der Ladungszustände aus dem Beschleuniger.}
   \begin{tabular}{|c|c|c|c|}
     \hline
     Ion & Energie nach Beschleuniger & $\frac{\Delta E}{\Delta x}$ & Energie nach Folie \\
     \hline
-    $^{10}\text{Be}^{1+}$ & \SI{7.3}{\mega\electronvolt}  & \SI{1053}{\kilo\electronvolt\per\micro\metre} & \SI{6.2}{\mega\electronvolt} \\
-    $^{10}\text{Be}^{2+}$ & \SI{12.5}{\mega\electronvolt} & \SI{851}{\kilo\electronvolt\per\micro\metre} & \SI{11.7}{\mega\electronvolt} \\
-    $^{10}\text{Be}^{3+}$ & \SI{17.8}{\mega\electronvolt} & \SI{714}{\kilo\electronvolt\per\micro\metre} & \SI{17.1}{\mega\electronvolt} \\
-    $^{10}\text{Be}^{4+}$ & \SI{23.0}{\mega\electronvolt} & \SI{621}{\kilo\electronvolt\per\micro\metre} & \SI{22.4}{\mega\electronvolt} \\
+    $^{10}\text{Be}^{1+}$ & \SI{7.28}{\mega\electronvolt}  & \SI{1053}{\kilo\electronvolt\per\micro\metre} & \SI{6.22}{\mega\electronvolt} \\
+    $^{10}\text{Be}^{2+}$ & \SI{12.53}{\mega\electronvolt} & \SI{851}{\kilo\electronvolt\per\micro\metre} & \SI{11.67}{\mega\electronvolt} \\
+    $^{10}\text{Be}^{3+}$ & \SI{17.77}{\mega\electronvolt} & \SI{714}{\kilo\electronvolt\per\micro\metre} & \SI{17.06}{\mega\electronvolt} \\
+    $^{10}\text{Be}^{4+}$ & \SI{23.02}{\mega\electronvolt} & \SI{621}{\kilo\electronvolt\per\micro\metre} & \SI{22.40}{\mega\electronvolt} \\
     \hline
-    $^{10}\text{B}^{1+}$ & \SI{7.3}{\mega\electronvolt}  & \SI{1449}{\kilo\electronvolt\per\micro\metre} & \SI{5.8}{\mega\electronvolt} \\
-    $^{10}\text{B}^{2+}$ & \SI{12.5}{\mega\electronvolt} & \SI{1227}{\kilo\electronvolt\per\micro\metre} & \SI{11.3}{\mega\electronvolt} \\
-    $^{10}\text{B}^{3+}$ & \SI{17.8}{\mega\electronvolt} & \SI{1052}{\kilo\electronvolt\per\micro\metre} & \SI{16.7}{\mega\electronvolt} \\
-    $^{10}\text{B}^{4+}$ & \SI{23.0}{\mega\electronvolt} & \SI{925}{\kilo\electronvolt\per\micro\metre} & \SI{22.1}{\mega\electronvolt} \\
+    $^{10}\text{B}^{1+}$ & \SI{7.28}{\mega\electronvolt}   & \SI{1449}{\kilo\electronvolt\per\micro\metre} & \SI{5.83}{\mega\electronvolt} \\
+    $^{10}\text{B}^{2+}$ & \SI{12.53}{\mega\electronvolt}  & \SI{1227}{\kilo\electronvolt\per\micro\metre} & \SI{11.30}{\mega\electronvolt} \\
+    $^{10}\text{B}^{3+}$ & \SI{17.77}{\mega\electronvolt}  & \SI{1052}{\kilo\electronvolt\per\micro\metre} & \SI{16.72}{\mega\electronvolt} \\
+    $^{10}\text{B}^{4+}$ & \SI{23.02}{\mega\electronvolt}  & \SI{925}{\kilo\electronvolt\per\micro\metre} & \SI{22.10}{\mega\electronvolt} \\
     \hline
   \end{tabular}
   \label{Auswertung_tab_Ionenenergien_nach_Folie}
-\end{center}
+\end{table}
 Nach der Folie wird $^{10}\text{Be}$ nur noch im Ladungszustand $4+$ erwartet, da die Atome durch die Foile weiter ionisiert werden.
 
 Um nun die Isobare $^{10}\text{Be}$ und $^{10}\text{B}$ zu trennen ist nach der Folie ein elektrostatischer Analysierer angebracht.
 Die Spannung die angelegt werden muss kann berechnet werden durch Kräftegleichgewicht:
 \begin{gather}
     q_{\text{Ion+}} \cdot \frac{U_{\text{Platte}}}{d_{\text{Platte}}} = \frac{mv^{2}}{r}
+    \label{Auswertung_Formel_ESA}
 \end{gather}
 Wobei $d_{\text{Platte}} = \SI{3.6}{\centi\metre}$ und $r = \SI{2.6}{\metre}$ ist.
-Die Spannung, die einzustellen ist, ist jedoch nur die halbe, da auf den Platten jeweils $+U_{\text{Platte}}$ und $-U_{\text{Platte}}$ erzeugt wird (die Spannung wird beim einstellen relativ zur Erdung gemessen).
+Die Spannung, die einzustellen ist, ist jedoch nur die halbe, da auf den Platten jeweils $+U_{\text{Platte}}$ und $-U_{\text{Platte}}$ erzeugt wird (die Spannung wird beim Einstellen relativ zur Masse gemessen).
 Für das Ion $^{10}\text{Be}^{4+}$ ergibt sich daher in Abhängigkeit der Energie nach der Folie eine Ablenkspannung von:
-\begin{center}
+\begin{table}[H]
+  \centering
+  \caption{Ablenkspannug für den ESA für verschiedene Ionenenergien.}
   \begin{tabular}{|c|c|c|}
     \hline
     Ion & Energie nach Folie & $\frac{U_{\text{Platte}}}{2}$ \\
     \hline
-    \multirow{4}*{$^{10}\text{Be}^{4+}$} & \SI{6.2}{\mega\electronvolt}  & \SI{21.5}{\kilo\volt} \\
-                                         & \SI{11.7}{\mega\electronvolt} & \SI{40.4}{\kilo\volt} \\
-                                         & \SI{17.1}{\mega\electronvolt} & \SI{59.1}{\kilo\volt} \\
-                                         & \SI{22.4}{\mega\electronvolt} & \SI{77.5}{\kilo\volt} \\
+    \multirow{4}*{$^{10}\text{Be}^{4+}$} & \SI{6.22}{\mega\electronvolt}  & \SI{21.55}{\kilo\volt} \\
+                                         & \SI{11.67}{\mega\electronvolt} & \SI{40.41}{\kilo\volt} \\
+                                         & \SI{17.06}{\mega\electronvolt} & \SI{59.05}{\kilo\volt} \\
+                                         & \SI{22.40}{\mega\electronvolt} & \SI{77.54}{\kilo\volt} \\
     \hline
   \end{tabular}
-  \captionof{table}{Ablenkspannug für den ESA für verschiedene Ionenenergien.}
   \label{Auswertung_tab_Ablenkspannung_ESA}
-\end{center}
+\end{table}
