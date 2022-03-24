@@ -190,8 +190,8 @@ Zunächst wollen wir sehen ob sich die Nuklide unserer BeO-Probe nachweisen lass
 Dafür wurde in Abb. \ref{Auswertung_Bild_Faraday_Cup_BeO_HE} die gemessenen Ionenströme über dem Strom durch den Ablenkmagneten aufgetragen.
 \begin{figure}[ht]
 	\centering
-           \includegraphics[width=0.85\textwidth]{Pictures/HEMass60-140pos153BeOTUDPract.pdf}
-	\caption{Strom gemessen im Faraday-Cup bei variieren des Magnetfeldes auf der Hochenergieseite für BeO-Probe. Die gemittelten x-Werte der Peaks sind eingezeichnet. Die Peaks wurden durch Vergleich mit umliegenden Werten gefunden. Die genaue Position wurde dann ermittelt indem die umliegenden Werte mit ihren Intensitäten als Wichtung gemittelt wurden.}
+           \includegraphics[width=0.85\textwidth]{Pictures/HEMass60-140pos153BeOTUDPract.png}
+	\caption{Massen gemessen im Faraday-Cup bei variieren des Magnetfeldes auf der Hochenergieseite für BeO-Probe. Zu beachten ist hier, dass die Massen durch Vergleich mit $^{9}$Be$^{2+}$ berechnet wurden. Für exakte Werte müsste die Ladung der Ionen in die Rechnung einbezogen werden.}
 	\label{Auswertung_Bild_Faraday_Cup_BeO_HE}
 \end{figure}
 
@@ -216,15 +216,12 @@ Da durch Massenfilterung nur Teilchen mit der gewählten Masse zu diesem Punkt k
                          &                     & $3+$                & \num{1.33}          \\
                          &                     & $4+$                & \num{1}             \\
     \hline
-    \multirow{4}*{Al}    & \multirow{4}*{$26$} & $1+$                & \num{5.10}          \\
-                         &                     & $2+$                & \num{2.55}          \\
-                         &                     & $3+$                & \num{1.70}          \\
-                         &                     & $4+$                & \num{1.27}          \\
-    \hline
   \end{tabular}
   \captionof{table}{Mögliche Ionen auf Hochenergieseite für BeO-Probe.}
   \label{Auswertung_tab_moegl_ionen}
 \end{center}
+
+Zu erwarten sind noch andere Ionen, die aus Verschmutzungen der Probe oder bisher unerkannten Ionen stammen könnten.
 
 Mit Formel \ref{Auswertung_eq_Magnet} können wir jetzt wieder über die Verhältnisse der Magnetfelder auf die Ionenmassen schließen.
 Dafür ist jedoch zuerst eine Kalibrierung des Magneten erforderlich.
@@ -252,45 +249,46 @@ I(E, m, q) = \frac{\frac{{\sqrt{2mE}}}{qr}-\num{6.9}}{\num{5.498}}
 Als Unsicherheit betrachten wir bei dieser Rechnung nur die Unsicherheit der Fitparameter.
 Unsicherheiten durch Hysterese an den Magneten sollten zwar einen Enfluss haben, wird aber hier nicht beachtet da keine passende Messung durchgeführt wurde.
 
-Nun ist es möglich den Messpunkt eines bekannten Ions, in diesem Fall $^{10}$Be$^{2+}$, einzusetzen, welches im Faraday-Cup gemessen wird.
-Völlig analog zur Niedrigenergieseite ergibt sich das Magnetfeld hier zu $B \rho = \frac{p}{q} = \frac{\sqrt{2mE}}{q}$, mit dem Radius des Magneten $\rho = \SI{1.5}{\metre}$ m.
-Für $^{10}$Be$^{2+}$ ergibt sich damit mit der Energie nach Beschleunigung von $E = \SI{12.5}{\mega\electronvolt}$: $B = \SI{537}{\milli\tesla}$.
-Mit Formel \ref{kali} ergibt sich damit für die Stromstärke für $^{10}$Be$^{2+}$: $I = \SI{96.4}{\ampere}$, was uns wieder als Ausgangspunkt zur Identifikation des Strahls dient.
-Die Masse für gemessene Stromstärken ergibt sich jetzt zu:
+Nun ist es möglich den Messpunkt eines bekannten Ions, in diesem Fall $^{9}$Be$^{2+}$, einzusetzen, welches im Faraday-Cup gemessen wird.
+Völlig analog zur Niedrigenergieseite ergibt sich das Magnetfeld hier zu $B \rho = \frac{p}{q} = \frac{\sqrt{2mE}}{q}$, mit dem Radius des Magneten $\rho = \SI{1.5}{\metre}$.
+Mit Formel \ref{kali} ergibt sich damit für die Stromstärke für $^{9}$Be$^{2+}$: $I = \SI{72.68}{\ampere}$.
+Aufgrund der uns unbekannten Messunsicherheiten des Stroms gibt es keinen Peak der exakt bei diesem Wert auftritt.
+Mit $^{9}$Be$^{2+}$ identifizieren wir daher den nächstgelegenen Peak, welcher bei $\num{71.92}$ A liegt.
+Dieser Punkt nutzen wir jetzt wieder als Ausgangspunkt zur Identifikation der weiteren Strahlen.
+Das Verhältnis aus Masse und Ladung für gemessene Stromstärken ergibt sich jetzt zu:
 \begin{equation}
-m_2 = m_1 \cdot \left( \frac{B_2}{B_1} \right)^2 = \SI{10}{\atomicmassunit} \cdot \left( \frac{I}{\SI{96.4}{\ampere}} \right)^{2}
+m_2 = \frac{\sqrt{m_1}}{q_1} \cdot \left( \frac{B_2}{B_1} \right) = \frac{\SI{9}{\atomicmassunit}}{2} \cdot \left( \frac{I}{\SI{71.92}{\ampere}} \right)
 \end{equation}
-Die so berechneten Massen sind in Tab. \ref{highenergy} zu sehen.
-Durch betrachten der möglichen Verhältnisse von Ladung und Masse sowie Vergleich mit $^{10}$Be$^{2+}$ konnten dann die Teilchen identifiziert werden.
-Zu beachten ist hier einerseits, dass wir nach dem Tandem eine vielzahl von Ladungszuständen erwarten und dass wir von einem Ion mit zweifach negativer Ladung ausgehen.
+Die so berechneten Verhältnisse sind in Tab. \ref{highenergy} zu sehen.
+Durch Vergleich mit den bekannten Verhältnissen eventuell vorhandener Isotope ist dann die Identifikation möglich.
+Zu beachten ist, dass dieses nicht unbedingt eindeutig ist.
 Auch zu beachten ist, dass wir die Messgenauigkeiten (z. B. Hystereseeffekte beim Magneten) hier nicht kennen, weshalb hier eine gewisse Abweichung zu erwarten ist.
+Speziell beim Ausgangspunkt lag diese bei $\num{0.76}$ A.
+Um diese für andere Strahlen zu erfassen ist in der Tabelle für jeden identifizierten Peak auch der theoretische Wert angegeben.
 
 \begin{table}[h]
 \centering
 \caption{Berechnung der Massen im Hochenergiebereich für Probe 153Be.}
-\begin{tabular}{|c |c| c|}
+\begin{tabular}{|c |c| c|c|}
 \hline
-I / \si{A} & m / \si{\atomicmassunit} & Ion \\
+I / \si{A} & $\frac{\sqrt{m}}{q}_{Berechnet}$ / \si{\atomicmassunit} & Ion & $\frac{\sqrt{m}}{q}_{Theorie}$ \\
 \hline
-\num{60.5}   & \num{4.0}  &  $^{12}$C$^{2+}$  \\
-\num{67.1}   & \num{4.9}  &  $^{10}$Be$^{4+}$ \\
-\num{71.92}  & \num{5.6}  &  $^{9}$Be$^{3+}$  \\
-\num{74.54}  & \num{6.0}  &  $^{10}$Be$^{3+}$ \\
-\num{84.76}  & \num{7.4}  &  $^{16}$O$^{4+}$  \\
-\num{90.83}  & \num{8.9}  &  $^{9}$Be$^{2+}$  \\
-\num{100.26} & \num{10.8} &  $^{26}$Al$^{4+}$ \\
-\num{128.47} & \num{17.7} &  $^{16}$O$^{2+}$  \\
-\num{138.68} & \num{20.7} &  $^{9}$Be$^{1+}$  \\
+\num{60.05}   & \num{1.25} &  $^{7}$Li$^{2+}$ & \num{1.32} \\
+\num{67.10}   & \num{1.40} &  $^{16}$O$^{3+}$ & \num{1.33} \\
+\num{71.92}  & \num{1.50}  &  $^{9}$Be$^{2+}$ & \num{1.50}\\
+\num{74.60}  & \num{1.60}  &  $^{11}$B$^{2+}$ & \num{1.66}\\
+\num{84.82}  & \num{1.77}  &  $^{12}$C$^{2+}$ & \num{1.73}\\
+\num{90.90}  & \num{1.90}  &  $^{15}$N$^{2+}$ & \num{1.93}\\
+\num{100.23} & \num{2.09} &  $^{16}$O$^{2+}$  & \num{2.00}\\
+\num{128.44} & \num{2.68} &  $^{7}$Li$^{1+}$  & \num{2.65}\\
+\num{138.70} & \num{2.90} &  $^{9}$Be$^{1+}$  & \num{3.00}\\
 \hline
 \end{tabular}
 \label{highenergy}
 \end{table}
 
-Dabei ist zu beachten, dass $^{10}\text{B}$ nicht von $^{10}\text{Be}$ unterschieden werden kann und es daher auch keinen Sinn macht es mit aufzunehmen.
-Isobare können erst im weiteren Verlauf getrennt werden.
-Das Vorhandensein von $^{26}$Al$^{4+}$ lässt sich damit erklären, dass dieses aufgrund seiner Masse bisher nicht magnetisch herausgefiltert wurde.
-Wie bereits im Niedrigenergiebereich erwähnt, ist dieses schwer vom BeO zu trennen.
-Nicht beachtet wurden hier die verschiedenen Sauerstoffisotope, da diese relativ selten selten sind.
+Die neuen vorhandenen Ionen lassen sich durch natürliches Vorhandensein im Quarz oder Verschmutzungen durch die Luft ( $^{15}$N) erklären.
+Nicht beachtet wurden hier die verschiedenen Sauerstoffisotope oder andere mögliche Isotope, da diese relativ selten selten sind und die Unterschiede im Verhältnis recht gering sind.
 Prinzipiel wäre es durch Kentnis des Magneten mit den Formeln \ref{Auswertung_eq_Magnet} und \ref{kali} auch möglich direkt die erwartete Stromstärke eines Ions zu berechnen und durch vergleich der erwarteten mit den berechneten auf die Ionen zu schließen.
 Dabei wäre es jedoch nachteilig, dass ohne Verhältnisbildung die Unsicherheiten der Messung weniger eliminiert werden, welche uns nicht bekannt sind.
 
@@ -304,6 +302,7 @@ den Faktor $\frac{\Delta E}{\Delta x}$ erhalten wir aus der frei verfügbaren So
 Die SiN-Folie hat eine Dicke von \SI{1}{\micro\metre}.
 Die verbleibende Energie der $^{10}\text{Be}$-Ionen un der $^{10}\text{B}$-Ionen ist dann, abhängig von deren Energie vorher:
 \begin{center}
+  \captionof{table}{Ionenenergien nach der SiN Folie in Abhängigkeit der Ladungszustände aus dem Beschleuniger.}
   \begin{tabular}{|c|c|c|c|}
     \hline
     Ion & Energie nach Beschleuniger & $\frac{\Delta E}{\Delta x}$ & Energie nach Folie \\
@@ -319,7 +318,6 @@ Die verbleibende Energie der $^{10}\text{Be}$-Ionen un der $^{10}\text{B}$-Ionen
     $^{10}\text{B}^{4+}$ & \SI{23.0}{\mega\electronvolt} & \SI{925}{\kilo\electronvolt\per\micro\metre} & \SI{22.1}{\mega\electronvolt} \\
     \hline
   \end{tabular}
-  \captionof{table}{Ionenenergien nach der SiN Folie in Abhängigkeit der Ladungszustände aus dem Beschleuniger.}
   \label{Auswertung_tab_Ionenenergien_nach_Folie}
 \end{center}
 Nach der Folie wird $^{10}\text{Be}$ nur noch im Ladungszustand $4+$ erwartet, da die Atome durch die Foile weiter ionisiert werden.
